@@ -37,7 +37,8 @@ export default function ContactEditor({ contact, onClose }) {
     <Formik
       initialValues={{ name: nameText, number: numberText }}
       onSubmit={handleSubmit}
-      enableReinitialize={true}>
+      enableReinitialize={true}
+    >
       <Form className={css.edit}>
         <div className={css.wrapper}>
           <div className={css.name}>

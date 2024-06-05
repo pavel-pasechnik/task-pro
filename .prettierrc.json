@@ -10,5 +10,6 @@
   "trailingComma": "es5",
   "bracketSpacing": true,
   "jsxBracketSameLine": true,
-  "proseWrap": "always"
+  "proseWrap": "always",
+  "endOfLine": "lf"
 }
