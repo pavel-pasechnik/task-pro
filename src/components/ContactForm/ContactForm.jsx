@@ -39,8 +39,7 @@ export default function ContactForm() {
       <Formik
         initialValues={initialValues}
         onSubmit={handleSubmit}
-        validationSchema={FeedbackSchema}
-      >
+        validationSchema={FeedbackSchema}>
         <Form>
           <label className={css.label} htmlFor={nameId}>
             Name
