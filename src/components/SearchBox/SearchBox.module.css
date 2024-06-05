@@ -1,0 +1,27 @@
+.find {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 390px;
+  margin-top: 20px;
+}
+
+.input {
+  display: block;
+
+  width: 390px;
+  height: 40px;
+  margin-bottom: 20px;
+  padding: 8px 20px;
+
+  border: 1px solid #000;
+  border-radius: 8px;
+}
+
+.search {
+  position: absolute;
+  top: 36px;
+  right: 12px;
+}

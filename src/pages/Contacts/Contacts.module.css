@@ -1,0 +1,9 @@
+.div {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 60px 0;
+}
+
+.error {
+  color: red;
+}

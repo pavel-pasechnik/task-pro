@@ -1,0 +1,13 @@
+.header {
+  box-shadow: 0 1px 5px #c5c5c5;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  margin: 0 60px;
+  padding: 0 16px;
+}
