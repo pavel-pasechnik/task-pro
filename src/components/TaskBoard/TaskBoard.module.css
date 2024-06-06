@@ -1,0 +1,4 @@
+.taskBoard {
+  display: flex;
+  flex-direction: column;
+}

@@ -1,0 +1,14 @@
+.screensPage {
+  padding: 20px;
+}
+
+.screensPageText {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.screensPage h2 {
+  margin-bottom: 20px;
+}

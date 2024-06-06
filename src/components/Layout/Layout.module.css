@@ -1,0 +1,10 @@
+.layout {
+  display: flex;
+  height: 100vh;
+}
+
+.mainContent {
+  flex-grow: 1;
+  height: 100vh;
+  background-color: #1f1f1f;
+}
