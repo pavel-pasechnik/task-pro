@@ -23,6 +23,7 @@ module.exports = {
     'react/jsx-filename-extension': 'off',
     'jsx-a11y/click-events-have-key-events': 'off',
     'sort-imports': 'error',
+    'prettier/prettier': ['error', { endOfLine: 'lf' }],
   },
   globals: {
     getApp: false,
