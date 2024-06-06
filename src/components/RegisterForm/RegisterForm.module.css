@@ -1,0 +1,15 @@
+.formCont {
+  width: 424px;
+  height: 395px;
+  background-color: #151515;
+  padding: 40px;
+  display: flex;
+  gap: 14px;
+  border-radius: 8px;
+}
+
+.p {
+  font-size: 18px;
+  line-height: 1.5em;
+  margin-bottom: 26px;
+}
