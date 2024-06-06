@@ -14,6 +14,7 @@ const Login = lazy(() => import('../../pages/Login/Login.jsx'));
 const NotFound = lazy(() => import('../../pages/NotFound/NotFound.jsx'));
 const Registration = lazy(() => import('../../pages/Registration/Registration.jsx'));
 const Contacts = lazy(() => import('../../pages/Contacts/Contacts.jsx'));
+const ScreensPage = lazy(() => import('../../components/ScreensPage/ScreensPage.jsx'));
 
 export default function App() {
   const isRefreshing = useSelector(selectIsRefreshing);
@@ -45,6 +46,7 @@ export default function App() {
                 path='/login'
                 element={<RestrictedRoute component={<Login />} redirectTo='/contacts' />}
               />
+              <Route path='/home/:boardId' element={<ScreensPage />} />
               <Route path='*' element={<NotFound />} />
             </Routes>
           )}
