@@ -1,20 +1,42 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+@font-face {
+  font-family: 'Poppins';
+  src: local('Poppins'),
+    url('./fonts/Poppins-Regular.ttf') format('truetype');
   font-weight: 400;
-  line-height: 1.5;
-  color: #000;
-  text-rendering: optimizelegibility;
-
-  background-color: #fff;
-
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-synthesis: none;
+  font-style: normal;
+  font-display: swap;
 }
 
+@font-face {
+  font-family: 'Poppins';
+  src: local('Poppins'),
+    url('./fonts/Poppins-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: local('Poppins'),
+    url('./fonts/Poppins-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+
 body {
-  font-family: sans-serif;
-  line-height: 1.5;
+	font-family: var(--font-family);
+	font-size: var(--font-size-base);
+	color: var(--text-color);
+	margin: 0;
+	padding: 0;
+	}
+
+button {
+	cursor: pointer;
+	font-family: inherit;
 }
 
 h1,
@@ -25,15 +47,23 @@ h5,
 h6,
 p {
   margin: 0;
+  padding: 0;
 }
 
 ul,
 ol {
-  margin: 0;
+  list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 img {
-  display: block;
-  max-width: 100%;
-}
+	display: block;
+	max-width: 100%;
+	}
+
+:root {
+	--font-family: 'Poppins', sans-serif;
+	--font-size-base: 14px;
+	}
+
