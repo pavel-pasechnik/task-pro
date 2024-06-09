@@ -26,10 +26,27 @@
 }
 
 
+:root {
+    --primary-font: 'Poppins', sans-serif;
+    --font-size-base: 14px;
+    /* colors */
+  --black-color: '#161616';
+  --white-color: '#FFFFFF';
+  --gray-text-color: 'rgba(22, 22, 22, 0.7)';
+  --light-gray-text-color: 'rgba(22, 22, 22, 0.5)';
+  --background-gray-color: '#F6F6F7';
+  --background-darkgray-color: '#1F1F1F';
+  --background-header-white-color: '#FCFCFC';
+  --green-color: '#BEDBB0';
+  --violet-color: '#5255BC';
+  --violet-light: rgba(236, 237, 253, 0.4);
+  --second-light-violet-color: '#B8BCFD';
+  --violet-super-light-color: '#ECEDFD';
+  --filters-button-light-color: 'rgba(255, 255, 255, 0.8);',
+}
 body {
-	font-family: var(--font-family);
+  font-family: var(--primary-font);
 	font-size: var(--font-size-base);
-	color: var(--text-color);
 	margin: 0;
 	padding: 0;
 	}
@@ -62,8 +79,8 @@ img {
 	max-width: 100%;
 	}
 
-:root {
-	--font-family: 'Poppins', sans-serif;
-	--font-size-base: 14px;
-	}
+
+  
+
+
 
