@@ -1,0 +1,39 @@
+.homePage {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.homePageContainer {
+  display: flex;
+  width: 100%;
+  flex: 1;
+  margin: 0;
+  padding: 0;
+}
+.headerContainer {
+  width: 100%;
+}
+
+.sidebar {
+  width: 260px;
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(-100%);
+}
+
+.sidebar.open {
+  transform: translateX(0);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.mainContent {
+  flex: 1;
+  overflow-y: auto;
+}
