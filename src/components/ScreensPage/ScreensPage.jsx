@@ -14,11 +14,13 @@ const ScreensPage = () => {
   return (
     <div className={css.screensPage}>
       <h2>{boardId}</h2>
-      <p className={css.screensPageText}>
-        Before starting your project, it is essential to create a board to visualize and track all
-        the necessary tasks and milestones. This board serves as a powerful tool to organize the
-        workflow and ensure effective collaboration among team members.
-      </p>
+      <div className={css.screensPageTextContainer}>
+        <p className={css.screensPageText}>
+          Before starting your project, it is essential to create a board to visualize and track all
+          the necessary tasks and milestones. This board serves as a powerful tool to organize the
+          workflow and ensure effective collaboration among team members.
+        </p>
+      </div>
 
       {/* <TaskBoard tasks={tasks} /> */}
     </div>
