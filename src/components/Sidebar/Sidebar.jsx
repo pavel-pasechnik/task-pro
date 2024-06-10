@@ -1,30 +1,37 @@
-import CreateNewBoard from '../CreateNewBoard/CreateNewBoard.jsx';
 import LogOut from '../LogOut/LogOut.jsx';
-import Logo from '../Logo/Logo.jsx';
-import MyBoards from '../MyBoards/MyBoards.jsx';
-import NeedHelpBanner from '../NeedHelpBanner/NeedHelpBanner.jsx';
-import ProjectList from '../ProjectList/ProjectList.jsx';
-import css from './Sidebar.module.css';
+import { NavLink } from 'react-router-dom';
+import styles from './Sidebar.module.css';
 
 const Sidebar = ({ isOpen, toggleSidebar }) => {
   return (
-    <div className={css.sidebar}>
-      <Logo />
-      <MyBoards />
-      <CreateNewBoard />
-      <ProjectList />
-      <NeedHelpBanner />
-      <LogOut />
+    <>
+      <nav className={`${styles.sidebar} ${isOpen ? styles.open : ''}`}>
+        <div>Logo</div>
+        <div>My boards</div>
+        <div>
+          <button
+            onClick={() => {
+              console.log('Almost created new board! Congrats!');
+            }}>
+            <NavLink to='/home/:boardId' className={styles.active}>
+              Create a new board
+            </NavLink>
+          </button>
+        </div>
+        <div>Project office</div>
+        <div>Need help?</div>
+        <LogOut />
+      </nav>
       {isOpen && (
         <div
-          className={`${css.overlay} ${css.visible}`}
+          className={`${styles.overlay} ${styles.visible}`}
           onClick={toggleSidebar}
           role='button'
           tabIndex={0}
           onKeyDown={toggleSidebar}
           aria-label='Close sidebar'></div>
       )}
-    </div>
+    </>
   );
 };
 
