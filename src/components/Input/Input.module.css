@@ -1,14 +1,16 @@
 .input {
   width: 100%;
-  padding: 10px;
   margin: 10px 0;
-  border-radius: 4px;
-  border: none;
-  background: #333;
-  color: #fff;
+  padding: 10px;
+
   font-size: 16px;
+  color: #fff;
+
+  background: #333;
+  border: none;
+  border-radius: 4px;
 }
 
 .input::placeholder {
-  color: #aaa; 
+  color: #aaa;
 }
