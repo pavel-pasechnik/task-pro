@@ -2,6 +2,8 @@ import { Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
 import { useId } from 'react';
 import css from '../RegisterForm/RegisterForm.module.css';
+import { NavLink } from 'react-router-dom';
+import PasswordInput from '../PasswordInput/PasswordInput.jsx';
 
 const initialValues = {
   name: '',
@@ -24,7 +26,14 @@ export const RegisterForm = () => {
     <div className={css.mainCont}>
       <Formik initialValues={initialValues} validationSchema={validationSchema}>
         <Form className={css.formCont} autoComplete='off'>
-          <p className={css.p}>Registration</p>
+          <div className={css.nav}>
+            <p className={css.p}>Registration</p>
+            {
+              <NavLink to='/login' className={css.link}>
+                Log in
+              </NavLink>
+            }
+          </div>
           <Field
             name='name'
             id={nameFieldId}
@@ -35,12 +44,7 @@ export const RegisterForm = () => {
             id={emailFieldId}
             placeholder='Enter your email'
             className={css.input}></Field>
-          <Field
-            name='password'
-            id={passwordFieldId}
-            type='password'
-            placeholder='Create a password'
-            className={css.input}></Field>
+          <PasswordInput name='password' id={passwordFieldId} placeholder='Create a password' />
           <button type='submit' className={css.button}>
             Register Now
           </button>

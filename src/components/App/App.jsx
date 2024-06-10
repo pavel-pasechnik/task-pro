@@ -9,6 +9,7 @@
 
 import { RegisterPage } from '../../pages/RegisterPage/RegisterPage.jsx';
 // import { WelcomePage } from '../../pages/WelcomePage/WelcomePage.jsx';
+// import { LoginPage } from '../../pages/LoginPage/LoginPage.jsx';
 
 // import Home from '../../pages/Home/Home.jsx';
 // import Layout from '../Layout/Layout.jsx';
@@ -30,6 +31,8 @@ export default function App() {
     <>
       {/* <WelcomePage /> */}
       <RegisterPage />
+      {/* <LoginPage /> */}
+
       {/* <Toaster position='top-center' />
       <Layout>
         <Suspense fallback={<div>LOADING PAGE...</div>}>
