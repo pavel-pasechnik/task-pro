@@ -1,0 +1,26 @@
+.logOutContainer {
+  display: flex;
+}
+
+.logOutBtn {
+  margin-top: 20px;
+  width: 105px;
+  display: flex;
+  justify-content: space-between;
+  background-color: inherit;
+  color: inherit;
+
+  &:hover .logOutIcon {
+    fill: var(--almost-black-color);
+  }
+}
+
+.logOutIcon {
+  width: 32px;
+  height: 32px;
+  fill: var(--green-color);
+}
+.logOutBtnText {
+  font-size: 14px;
+  font-weight: 500;
+}

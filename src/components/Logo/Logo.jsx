@@ -2,7 +2,7 @@ import css from './Logo.module.css';
 
 const Logo = () => {
   return (
-    <div className={css.LogoContainer}>
+    <div className={css.logOutContainer}>
       <svg className={css.iconLogoContainer}>
         <use href='/src/assets/sprite.svg#icon-logo'></use>
       </svg>
