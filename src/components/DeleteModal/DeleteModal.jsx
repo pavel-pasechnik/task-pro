@@ -32,7 +32,8 @@ export default function DeleteModal({ isOpen = false, onClose, contactName, id }
       shouldCloseOnEsc={true}
       preventScroll={true}
       className={css.modal}
-      overlayClassName={`${css.overlay} ${isOpen ? css.open : ''}`}>
+      overlayClassName={`${css.overlay} ${isOpen ? css.open : ''}`}
+    >
       <div className={css.wrapper}>
         <p className={css.p}>Are you sure you wont to delete contact {contactName} ?</p>
         <ul className={css.list}>

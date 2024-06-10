@@ -1,114 +1,121 @@
 .modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .modal-content {
-    background: #1e1e1e;
-    padding: 20px;
-    border-radius: 8px;
-    width: 300px;
-    color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    position: relative;
-  }
-  
-  .close-button {
-    background: none;
-    border: none;
-    color: #fff;
-    font-size: 20px;
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    cursor: pointer;
-  }
-  
-  h2 {
-    margin-top: 0;
-  }
-  
-  .modal-input,
-  .modal-textarea {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 4px;
-    border: none;
-    background: #333;
-    color: #fff;
-  }
-  
-  .modal-textarea {
-    height: 100px;
-    resize: none;
-  }
-  
-  .label-colors {
-    display: flex;
-    justify-content: space-around;
-    margin: 10px 0;
-  }
-  
-  .label-color {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    cursor: pointer;
-    border: 2px solid transparent;
-  }
-  
-  .label-color.pink { background: #ff69b4; }
-  .label-color.blue { background: #1e90ff; }
-  .label-color.green { background: #32cd32; }
-  .label-color.gray { background: #a9a9a9; }
-  
-  .label-color.active {
-    border: 2px solid #fff;
-  }
-  
-  .deadline {
-    margin: 10px 0;
-  }
-  
-  .deadline-input {
-    cursor: pointer;
-    color: #b5e48c;
-    display: flex;
-    align-items: center;
-  }
-  
-  .calendar {
-    margin-top: 10px;
-  }
-  
-  .add-button {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    background: #b5e48c;
-    color: #1e1e1e;
-    font-size: 16px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .add-button:hover {
-    background: #a2d867;
-  }
-  
-  .add-button::before {
-    content: '+';
-    margin-right: 5px;
-    font-size: 16px;
-  }
-  
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal-content {
+  background: #1e1e1e;
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+  color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+.modal-input,
+.modal-textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 4px;
+  border: none;
+  background: #333;
+  color: #fff;
+}
+
+.modal-textarea {
+  height: 100px;
+  resize: none;
+}
+
+.label-colors {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px 0;
+}
+
+.label-color {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.label-color.pink {
+  background: #ff69b4;
+}
+.label-color.blue {
+  background: #1e90ff;
+}
+.label-color.green {
+  background: #32cd32;
+}
+.label-color.gray {
+  background: #a9a9a9;
+}
+
+.label-color.active {
+  border: 2px solid #fff;
+}
+
+.deadline {
+  margin: 10px 0;
+}
+
+.deadline-input {
+  cursor: pointer;
+  color: #b5e48c;
+  display: flex;
+  align-items: center;
+}
+
+.calendar {
+  margin-top: 10px;
+}
+
+.add-button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background: #b5e48c;
+  color: #1e1e1e;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-button:hover {
+  background: #a2d867;
+}
+
+.add-button::before {
+  content: '+';
+  margin-right: 5px;
+  font-size: 16px;
+}

@@ -1,4 +1,3 @@
-
 import sprite from '../../../assets/svg/sprite.svg';
 import styles from './EyeOpen.module.css';
 

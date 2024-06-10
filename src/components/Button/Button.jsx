@@ -7,7 +7,8 @@ const Button = ({ type = 'button', title, className, border, onClick, ...rest })
       type={type}
       onClick={onClick}
       className={clsx(styles.button, className, { [styles.border]: border })}
-      {...rest}>
+      {...rest}
+    >
       <span className={styles.icon}>+</span> {/* Додайте іконку */}
       {title && <span className={styles.title}>{title}</span>}
     </button>

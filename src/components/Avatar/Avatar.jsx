@@ -1,4 +1,3 @@
-
 import { useSelector } from 'react-redux';
 import { selectIsLoading, selectUser } from 'redux/auth/selectors';
 
@@ -36,13 +35,13 @@ const Avatar = ({ size, onClick, preload }) => {
           }}
         >
           <Puff
-            height="80"
-            width="80"
+            height='80'
+            width='80'
             radius={1}
             color={mainColor[user.theme]}
-            ariaLabel="puff-loading"
+            ariaLabel='puff-loading'
             wrapperStyle={{}}
-            wrapperClass=""
+            wrapperClass=''
             visible={true}
           />
         </button>

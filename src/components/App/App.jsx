@@ -11,6 +11,8 @@ import AuthNav from '../AuthNav/AuthNav.jsx';
 import HomePage from '../../pages/HomePage/HomePage.jsx';
 import Layout from '../Layout/Layout.jsx';
 
+const Testing = lazy(() => import('../PopUpSidebar/PopUpSidebar.jsx'));
+
 const Login = lazy(() => import('../../pages/Login/Login.jsx'));
 const NotFound = lazy(() => import('../../pages/NotFound/NotFound.jsx'));
 const Registration = lazy(() => import('../../pages/Registration/Registration.jsx'));
@@ -60,6 +62,7 @@ export default function App() {
               />
               <Route path='/home/:boardId' element={<ScreensPage />} />
               <Route path='*' element={<NotFound />} />
+              <Route path='/testing' element={<Testing />} />
             </Routes>
           )}
         </Suspense>

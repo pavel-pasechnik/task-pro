@@ -1,6 +1,7 @@
 @font-face {
   font-family: 'Poppins';
-  src: local('Poppins'),
+  src:
+    local('Poppins'),
     url('./fonts/Poppins-Regular.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
@@ -9,7 +10,8 @@
 
 @font-face {
   font-family: 'Poppins';
-  src: local('Poppins'),
+  src:
+    local('Poppins'),
     url('./fonts/Poppins-Medium.ttf') format('truetype');
   font-weight: 500;
   font-style: normal;
@@ -18,18 +20,18 @@
 
 @font-face {
   font-family: 'Poppins';
-  src: local('Poppins'),
+  src:
+    local('Poppins'),
     url('./fonts/Poppins-SemiBold.ttf') format('truetype');
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 
-
 :root {
-    --primary-font: 'Poppins', sans-serif;
-    --font-size-base: 14px;
-    /* colors */
+  --primary-font: 'Poppins', sans-serif;
+  --font-size-base: 14px;
+  /* colors */
   --black-color: '#161616';
   --white-color: '#FFFFFF';
   --gray-text-color: 'rgba(22, 22, 22, 0.7)';
@@ -42,18 +44,18 @@
   --violet-light: rgba(236, 237, 253, 0.4);
   --second-light-violet-color: '#B8BCFD';
   --violet-super-light-color: '#ECEDFD';
-  --filters-button-light-color: 'rgba(255, 255, 255, 0.8);',
+  --filters-button-light-color: 'rgba(255, 255, 255, 0.8);';
 }
 body {
   font-family: var(--primary-font);
-	font-size: var(--font-size-base);
-	margin: 0;
-	padding: 0;
-	}
+  font-size: var(--font-size-base);
+  margin: 0;
+  padding: 0;
+}
 
 button {
-	cursor: pointer;
-	font-family: inherit;
+  cursor: pointer;
+  font-family: inherit;
 }
 
 h1,
@@ -75,12 +77,6 @@ ol {
 }
 
 img {
-	display: block;
-	max-width: 100%;
-	}
-
-
-  
-
-
-
+  display: block;
+  max-width: 100%;
+}

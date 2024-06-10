@@ -37,7 +37,8 @@ export default function Contact({ name, phone, id }) {
             type='button'
             onClick={() => {
               setIsOpen(true);
-            }}>
+            }}
+          >
             Delete
           </button>
         </div>

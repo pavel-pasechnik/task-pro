@@ -45,7 +45,8 @@ const EditBoard = ({ isOpen, onClose }) => {
           className='modal-textarea'
           placeholder='Description'
           value={description}
-          onChange={e => setDescription(e.target.value)}></textarea>
+          onChange={e => setDescription(e.target.value)}
+        ></textarea>
         <div className='label-colors'>
           <span
             className={`label-color ${labelColor === 'pink' ? 'active' : ''}`}
@@ -56,7 +57,8 @@ const EditBoard = ({ isOpen, onClose }) => {
               if (e.key === 'Enter' || e.key === ' ') {
                 setLabelColor('pink');
               }
-            }}></span>
+            }}
+          ></span>
           <span
             className={`label-color ${labelColor === 'blue' ? 'active' : ''}`}
             onClick={() => setLabelColor('blue')}
@@ -66,7 +68,8 @@ const EditBoard = ({ isOpen, onClose }) => {
               if (e.key === 'Enter' || e.key === ' ') {
                 setLabelColor('blue');
               }
-            }}></span>
+            }}
+          ></span>
           <span
             className={`label-color ${labelColor === 'green' ? 'active' : ''}`}
             onClick={() => setLabelColor('green')}
@@ -76,7 +79,8 @@ const EditBoard = ({ isOpen, onClose }) => {
               if (e.key === 'Enter' || e.key === ' ') {
                 setLabelColor('green');
               }
-            }}></span>
+            }}
+          ></span>
           <span
             className={`label-color ${labelColor === 'gray' ? 'active' : ''}`}
             onClick={() => setLabelColor('gray')}
@@ -86,7 +90,8 @@ const EditBoard = ({ isOpen, onClose }) => {
               if (e.key === 'Enter' || e.key === ' ') {
                 setLabelColor('gray');
               }
-            }}></span>
+            }}
+          ></span>
         </div>
         <div className='deadline'>
           <label htmlFor='deadline-input'>Deadline</label>
@@ -100,7 +105,8 @@ const EditBoard = ({ isOpen, onClose }) => {
               if (e.key === 'Enter' || e.key === ' ') {
                 toggleCalendar();
               }
-            }}>
+            }}
+          >
             {deadline.toLocaleDateString()}
           </div>
           {isCalendarOpen && (
