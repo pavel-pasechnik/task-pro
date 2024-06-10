@@ -1,4 +1,4 @@
-import { Field, Formik, Form } from 'formik';
+import { Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
 import { useId } from 'react';
 import css from '../RegisterForm/RegisterForm.module.css';
@@ -21,18 +21,31 @@ export const RegisterForm = () => {
   const passwordFieldId = useId();
 
   return (
-    <Formik initialValues={initialValues} validationSchema={validationSchema}>
-      <Form className={css.formCont} autoComplete='off'>
-        <p className={css.p}>Registration</p>
-        <Field name='name' id={nameFieldId} placeholder='Enter your name'></Field>
-        <Field name='email' id={emailFieldId} placeholder='Enter your email'></Field>
-        <Field
-          name='password'
-          id={passwordFieldId}
-          type='password'
-          placeholder='Create a password'></Field>
-        <button type='submit'>Register Now</button>
-      </Form>
-    </Formik>
+    <div className={css.mainCont}>
+      <Formik initialValues={initialValues} validationSchema={validationSchema}>
+        <Form className={css.formCont} autoComplete='off'>
+          <p className={css.p}>Registration</p>
+          <Field
+            name='name'
+            id={nameFieldId}
+            placeholder='Enter your name'
+            className={css.input}></Field>
+          <Field
+            name='email'
+            id={emailFieldId}
+            placeholder='Enter your email'
+            className={css.input}></Field>
+          <Field
+            name='password'
+            id={passwordFieldId}
+            type='password'
+            placeholder='Create a password'
+            className={css.input}></Field>
+          <button type='submit' className={css.button}>
+            Register Now
+          </button>
+        </Form>
+      </Formik>
+    </div>
   );
 };
