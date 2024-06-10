@@ -23,6 +23,8 @@
 
 .border {
   border: 2px solid #000;
+
+
 }
 
 .icon {
@@ -39,6 +41,7 @@
 
   background: #333;
   border-radius: 50%;
+
 }
 
 .title {

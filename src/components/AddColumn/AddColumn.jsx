@@ -1,5 +1,5 @@
 import 'react-datepicker/dist/react-datepicker.css';
-import './AddColumn.css';
+import styles from './AddColumn.module.css';
 import { useState } from 'react';
 
 const AddColumnModal = ({ isOpen, onClose }) => {
@@ -14,20 +14,20 @@ const AddColumnModal = ({ isOpen, onClose }) => {
   };
 
   return (
-    <div className='modal'>
-      <div className='modal-content'>
-        <button className='close-button' onClick={onClose}>
+    <div className={styles.modal}>
+      <div className={styles['modal-content']}>
+        <button className={styles['close-button']} onClick={onClose}>
           ×
         </button>
         <h2>Add column</h2>
         <input
           type='text'
-          className='modal-input'
+          className={styles['modal-input']}
           placeholder='Title'
           value={title}
           onChange={e => setTitle(e.target.value)}
         />
-        <button className='add-button' onClick={handleAdd}>
+        <button className={styles['add-button']} onClick={handleAdd}>
           Add
         </button>
       </div>
