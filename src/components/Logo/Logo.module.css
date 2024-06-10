@@ -1,0 +1,17 @@
+.logoContainer {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  gap: 8px;
+  font-size: 16px;
+  color: var(--white-color);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+}
+.iconLogoContainer {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background-color: var(--background-darkgray-color);
+}
