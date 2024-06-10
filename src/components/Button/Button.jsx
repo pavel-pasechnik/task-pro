@@ -8,10 +8,16 @@ const Button = ({ type = 'button', title, className, border, onClick, ...rest })
       onClick={onClick}
       className={clsx(styles.button, className, { [styles.border]: border })}
       {...rest}>
-      <span className={styles.icon}>+</span> {/* Додайте іконку */}
       {title && <span className={styles.title}>{title}</span>}
     </button>
   );
 };
 
 export default Button;
+
+{
+  /* <Button 
+        onClick={handleClick} 
+        title="Send" 
+      /> */
+}

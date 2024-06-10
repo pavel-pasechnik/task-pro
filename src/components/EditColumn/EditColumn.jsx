@@ -1,4 +1,4 @@
-import './EditColumn.css';
+import styles from './EditColumn.module.css';
 import { useState } from 'react';
 
 const EditColumnModal = ({ isOpen, onClose, initialTitle = '' }) => {
@@ -13,20 +13,20 @@ const EditColumnModal = ({ isOpen, onClose, initialTitle = '' }) => {
   };
 
   return (
-    <div className='modal'>
-      <div className='modal-content'>
-        <button className='close-button' onClick={onClose}>
+    <div className={styles.modal}>
+      <div className={styles['modal-content']}>
+        <button className={styles['close-button']} onClick={onClose}>
           ×
         </button>
         <h2>Edit column</h2>
         <input
           type='text'
-          className='modal-input'
+          className={styles['modal-input']}
           placeholder='Title'
           value={title}
           onChange={e => setTitle(e.target.value)}
         />
-        <button className='add-button' onClick={handleEdit}>
+        <button className={styles['add-button']} onClick={handleEdit}>
           Add
         </button>
       </div>
