@@ -61,6 +61,7 @@ export default function App() {
                 }
               /> */}
               <Route path='/home/:boardId' element={<ScreensPage />} />
+
               <Route path='*' element={<NotFound />} />
             </Routes>
           )}
