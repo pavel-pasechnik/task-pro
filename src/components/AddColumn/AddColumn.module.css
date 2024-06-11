@@ -2,33 +2,42 @@
   position: fixed;
   top: 0;
   left: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
+  background: rgb(0 0 0 / 50%);
 }
 
 .modal-content {
-  background: #1e1e1e;
-  padding: 20px;
-  border-radius: 8px;
-  width: 300px;
-  color: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   position: relative;
+
+  width: 300px;
+  padding: 20px;
+
+  color: #fff;
+
+  background: #1e1e1e;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgb(0 0 0 / 20%);
 }
 
 .close-button {
+  cursor: pointer;
+
+  position: absolute;
+  top: 10px;
+  right: 10px;
+
+  font-size: 20px;
+  color: #fff;
+
   background: none;
   border: none;
-  color: #fff;
-  font-size: 20px;
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  cursor: pointer;
 }
 
 h2 {
@@ -37,26 +46,32 @@ h2 {
 
 .modal-input {
   width: 100%;
-  padding: 10px;
   margin: 10px 0;
-  border-radius: 4px;
-  border: none;
-  background: #333;
+  padding: 10px;
+
   color: #fff;
+
+  background: #333;
+  border: none;
+  border-radius: 4px;
 }
 
 .add-button {
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   width: 100%;
   padding: 10px;
+
+  font-size: 16px;
+  color: #1e1e1e;
+
+  background: #b5e48c;
   border: none;
   border-radius: 4px;
-  background: #b5e48c;
-  color: #1e1e1e;
-  font-size: 16px;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .add-button:hover {

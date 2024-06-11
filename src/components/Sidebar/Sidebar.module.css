@@ -1,14 +1,17 @@
 .sidebar {
-  width: 260px;
-  height: 100vh;
-  background-color: var(--black-color);
-  color: var(--white-color);
   display: flex;
   flex-direction: column;
+
+  width: 260px;
+  height: 100vh;
   padding: 24px;
+
+  color: var(--white-color);
+
+  background-color: var(--black-color);
 }
 
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .sidebar {
     display: none;
   }

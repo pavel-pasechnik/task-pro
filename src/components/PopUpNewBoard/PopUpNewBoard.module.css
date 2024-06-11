@@ -1,51 +1,60 @@
-@media only screen and (min-width: 320px) {
+@media only screen and (width >= 320px) {
   .container {
     max-width: 433px;
-    padding: 24px 24px;
     margin: 0 auto;
+    padding: 24px;
+
     background-color: var(--black-color);
     border: 1px solid var(--green-color);
     border-radius: 8px;
   }
+
   .titleBoard {
-    color: var(--white-color);
+    font-size: 18;
     font-weight: 500;
-    font-size: 18;
-  }
-  .titleDown {
     color: var(--white-color);
-    font-weight: 300;
-    font-size: 18;
   }
+
+  .titleDown {
+    font-size: 18;
+    font-weight: 300;
+    color: var(--white-color);
+  }
+
   .IconTest {
     fill: black;
   }
 }
+
 /* tablet styles */
 
-@media only screen and (min-width: 768px) {
+@media only screen and (width >= 768px) {
   .container {
     max-width: 433px;
-    padding: 24px 24px;
     margin: 0 auto;
+    padding: 24px;
+
     background-color: var(--black-color);
     border: 1px solid var(--green-color);
     border-radius: 8px;
   }
+
   .titleBoard {
-    color: var(--white-color);
+    font-size: 18;
     font-weight: 500;
-    font-size: 18;
-  }
-  .titleDown {
     color: var(--white-color);
-    font-weight: 300;
+  }
+
+  .titleDown {
     font-size: 18;
+    font-weight: 300;
+    color: var(--white-color);
   }
 }
+
 /* desktop syles */
 
-@media only screen and (min-width: 1158px) {
+@media only screen and (width >= 1158px) {
   .container {
     max-width: 1158px;
     padding: 0 15px;

@@ -1,7 +1,7 @@
 import { logout } from '../../redux/auth/operations.js';
 import { useDispatch } from 'react-redux';
 
-import Button from '../../helpers/Button/Button.jsx';
+import Button from '../../components/Button/Button.jsx';
 import css from './LogOut.module.css';
 
 export default function LogOut() {

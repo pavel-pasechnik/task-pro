@@ -3,12 +3,15 @@
 }
 
 .logOutBtn {
-  margin-top: 20px;
-  width: 105px;
   display: flex;
   justify-content: space-between;
-  background-color: inherit;
+
+  width: 105px;
+  margin-top: 20px;
+
   color: inherit;
+
+  background-color: inherit;
 
   &:hover .logOutIcon {
     fill: var(--almost-black-color);
@@ -20,6 +23,7 @@
   height: 32px;
   fill: var(--green-color);
 }
+
 .logOutBtnText {
   font-size: 14px;
   font-weight: 500;
