@@ -1,4 +1,4 @@
-import Button from '../../helpers/Button/Button.jsx';
+import Button from '../../components/Button/Button.jsx';
 import css from './CreateNewBoard.module.css';
 
 const CreateNewBoard = () => {
