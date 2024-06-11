@@ -1,13 +1,17 @@
 import { Link } from 'react-router-dom';
+import cactus from '../../assets/jpg/cactus.jpg';
+import cactus2x from '../../assets/jpg/cactus@2x.jpg';
+import cactus3x from '../../assets/jpg/cactus@3x.jpg';
 import css from './NeedHelpBanner.module.css';
+import sprite from '../../assets/sprite.svg';
 
 const NeedHelpBanner = () => {
   return (
     <div className={css.needHelpContainer}>
       <img
         className={css.needHelpImg}
-        src='/src/assets/jpg/cactus.jpg'
-        srcSet='/src/assets/jpg/cactus@2x.jpg 2x, /src/assets/jpg/cactus@3x.jpg 3x'
+        src={cactus}
+        srcSet={`${cactus2x} 2x, ${cactus3x} 3x`}
         alt='Cactus'
       />
       <p className={css.needHelpText}>
@@ -17,7 +21,7 @@ const NeedHelpBanner = () => {
       <div>
         <Link to='/help' className={css.needHelpLinkInfo}>
           <svg className={css.iconLogoContainer}>
-            <use href='/src/assets/sprite.svg#icon-help-circle'></use>
+            <use href={`${sprite}#icon-help-circle`}></use>
           </svg>
           <p>Need help?</p>
         </Link>

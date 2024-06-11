@@ -1,8 +1,8 @@
-import Button from '../Button/Button.jsx';
 import { Field, Form, Formik } from 'formik';
+import Button from '../Button/Button.jsx';
+import css from './PopUpNewBoard.module.css';
 import { nanoid } from 'nanoid';
 import { useState } from 'react';
-import css from './PopUpNewBoard.module.css';
 
 const initialValues = {
   title: '',
@@ -10,7 +10,7 @@ const initialValues = {
   background: '',
 };
 
-export function PopUpNewBoard() {
+export default function PopUpNewBoard({ onClose }) {
   const [board, setBoard] = useState([]);
 
   const handleCreateNewBoard = values => {
@@ -23,6 +23,7 @@ export function PopUpNewBoard() {
 
     setBoard([...board, newBoard]);
     console.log(newBoard);
+    onClose();
   };
 
   return (
