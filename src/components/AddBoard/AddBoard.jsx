@@ -1,5 +1,7 @@
 import 'react-datepicker/dist/react-datepicker.css';
 import DatePicker from 'react-datepicker';
+import IconButton from '../IconButton/IconButton';
+import Input from '../Input/Input';
 import styles from './AddBoard.module.css';
 import { useState } from 'react';
 
@@ -34,7 +36,7 @@ const AddBoard = ({ isOpen, onClose }) => {
           ×
         </button>
         <h2>Add card</h2>
-        <input
+        <Input
           type='text'
           className={styles['modal-input']}
           placeholder='Title'
@@ -47,46 +49,42 @@ const AddBoard = ({ isOpen, onClose }) => {
           value={description}
           onChange={e => setDescription(e.target.value)}></textarea>
         <div className={styles['label-colors']}>
-          <span
-            className={`${styles['label-color']} ${labelColor === 'pink' ? styles.active : ''}`}
-            onClick={() => setLabelColor('pink')}
-            role='button'
-            tabIndex={0}
-            onKeyDown={e => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                setLabelColor('pink');
-              }
-            }}></span>
-          <span
-            className={`${styles['label-color']} ${labelColor === 'blue' ? styles.active : ''}`}
-            onClick={() => setLabelColor('blue')}
-            role='button'
-            tabIndex={0}
-            onKeyDown={e => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                setLabelColor('blue');
-              }
-            }}></span>
-          <span
-            className={`${styles['label-color']} ${labelColor === 'green' ? styles.active : ''}`}
-            onClick={() => setLabelColor('green')}
-            role='button'
-            tabIndex={0}
-            onKeyDown={e => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                setLabelColor('green');
-              }
-            }}></span>
-          <span
-            className={`${styles['label-color']} ${labelColor === 'gray' ? styles.active : ''}`}
-            onClick={() => setLabelColor('gray')}
-            role='button'
-            tabIndex={0}
-            onKeyDown={e => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                setLabelColor('gray');
-              }
-            }}></span>
+          <input
+            id='pink'
+            type='radio'
+            name='labelColor'
+            value='pink'
+            checked={labelColor === 'pink'}
+            onChange={() => setLabelColor('pink')}
+            className={`${styles['label-color']} ${styles.pink} ${labelColor === 'pink' ? styles.active : ''}`}
+          />
+          <input
+            id='blue'
+            type='radio'
+            name='labelColor'
+            value='blue'
+            checked={labelColor === 'blue'}
+            onChange={() => setLabelColor('blue')}
+            className={`${styles['label-color']} ${styles.blue} ${labelColor === 'blue' ? styles.active : ''}`}
+          />
+          <input
+            id='green'
+            type='radio'
+            name='labelColor'
+            value='green'
+            checked={labelColor === 'green'}
+            onChange={() => setLabelColor('green')}
+            className={`${styles['label-color']} ${styles.green} ${labelColor === 'green' ? styles.active : ''}`}
+          />
+          <input
+            id='gray'
+            type='radio'
+            name='labelColor'
+            value='gray'
+            checked={labelColor === 'gray'}
+            onChange={() => setLabelColor('gray')}
+            className={`${styles['label-color']} ${styles.gray} ${labelColor === 'gray' ? styles.active : ''}`}
+          />
         </div>
         <div className={styles.deadline}>
           <label htmlFor='deadline-input'>Deadline</label>
@@ -109,9 +107,9 @@ const AddBoard = ({ isOpen, onClose }) => {
             </div>
           )}
         </div>
-        <button className={styles['add-button']} onClick={handleAdd}>
-          Add
-        </button>
+        <IconButton id='plus' iconWidth='24' iconHeight='24' onClick={handleAdd}>
+          <span className={styles.title}>Add</span>
+        </IconButton>
       </div>
     </div>
   );
