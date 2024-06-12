@@ -1,6 +1,6 @@
-// import './AddBoard.css';
 import 'react-datepicker/dist/react-datepicker.css';
 import DatePicker from 'react-datepicker';
+import styles from './EditBoard.module.css';
 import { useState } from 'react';
 
 const EditBoard = ({ isOpen, onClose }) => {
@@ -12,8 +12,8 @@ const EditBoard = ({ isOpen, onClose }) => {
 
   if (!isOpen) return null;
 
-  const handleAdd = () => {
-    // TODO дописати логіку рудагування карти карточок
+  const handleEdit = () => {
+    // TODO дописати логіку редагування карти карточок
     console.log({ title, description, labelColor, deadline });
     onClose();
   };
@@ -28,27 +28,27 @@ const EditBoard = ({ isOpen, onClose }) => {
   };
 
   return (
-    <div className='modal'>
-      <div className='modal-content'>
-        <button className='close-button' onClick={onClose}>
+    <div className={styles.modal}>
+      <div className={styles['modal-content']}>
+        <button className={styles['close-button']} onClick={onClose}>
           ×
         </button>
         <h2>Edit card</h2>
         <input
           type='text'
-          className='modal-input'
+          className={styles['modal-input']}
           placeholder='Title'
           value={title}
           onChange={e => setTitle(e.target.value)}
         />
         <textarea
-          className='modal-textarea'
+          className={styles['modal-textarea']}
           placeholder='Description'
           value={description}
           onChange={e => setDescription(e.target.value)}></textarea>
-        <div className='label-colors'>
+        <div className={styles['label-colors']}>
           <span
-            className={`label-color ${labelColor === 'pink' ? 'active' : ''}`}
+            className={`${styles['label-color']} ${labelColor === 'pink' ? styles.active : ''}`}
             onClick={() => setLabelColor('pink')}
             role='button'
             tabIndex={0}
@@ -58,7 +58,7 @@ const EditBoard = ({ isOpen, onClose }) => {
               }
             }}></span>
           <span
-            className={`label-color ${labelColor === 'blue' ? 'active' : ''}`}
+            className={`${styles['label-color']} ${labelColor === 'blue' ? styles.active : ''}`}
             onClick={() => setLabelColor('blue')}
             role='button'
             tabIndex={0}
@@ -68,7 +68,7 @@ const EditBoard = ({ isOpen, onClose }) => {
               }
             }}></span>
           <span
-            className={`label-color ${labelColor === 'green' ? 'active' : ''}`}
+            className={`${styles['label-color']} ${labelColor === 'green' ? styles.active : ''}`}
             onClick={() => setLabelColor('green')}
             role='button'
             tabIndex={0}
@@ -78,7 +78,7 @@ const EditBoard = ({ isOpen, onClose }) => {
               }
             }}></span>
           <span
-            className={`label-color ${labelColor === 'gray' ? 'active' : ''}`}
+            className={`${styles['label-color']} ${labelColor === 'gray' ? styles.active : ''}`}
             onClick={() => setLabelColor('gray')}
             role='button'
             tabIndex={0}
@@ -88,12 +88,12 @@ const EditBoard = ({ isOpen, onClose }) => {
               }
             }}></span>
         </div>
-        <div className='deadline'>
+        <div className={styles.deadline}>
           <label htmlFor='deadline-input'>Deadline</label>
           <div
             id='deadline-input'
             onClick={toggleCalendar}
-            className='deadline-input'
+            className={styles['deadline-input']}
             role='button'
             tabIndex={0}
             onKeyDown={e => {
@@ -104,12 +104,12 @@ const EditBoard = ({ isOpen, onClose }) => {
             {deadline.toLocaleDateString()}
           </div>
           {isCalendarOpen && (
-            <div className='calendar'>
+            <div className={styles.calendar}>
               <DatePicker selected={deadline} onChange={handleDateChange} inline />
             </div>
           )}
         </div>
-        <button className='add-button' onClick={handleAdd}>
+        <button className={styles['add-button']} onClick={handleEdit}>
           Edit
         </button>
       </div>

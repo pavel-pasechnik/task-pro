@@ -1,0 +1,12 @@
+.projectList {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  width: 100%;
+  height: 160px;
+  margin: 0;
+  margin-top: 40px;
+
+  list-style: none;
+}

@@ -1,0 +1,49 @@
+.needHelpContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  width: 197px;
+  height: 238px;
+  padding: 14px;
+
+  background-color: var(--background-darkgray-color);
+  border-radius: 8px;
+}
+
+.needHelpImg {
+  width: 54px;
+  height: 78px;
+}
+
+.needHelpText {
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.needHelpLink {
+  color: var(--green-color);
+}
+
+.iconLogoContainer {
+  width: 20px;
+  height: 20px;
+  fill: var(--white-color);
+}
+
+.needHelpLinkInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 94px;
+
+  font-size: 12px;
+  font-weight: 500;
+  color: inherit;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+  }
+}

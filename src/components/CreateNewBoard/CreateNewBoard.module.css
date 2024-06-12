@@ -1,0 +1,33 @@
+.createNewBoard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-between;
+
+  margin-top: 20px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+
+  font-family: Poppins, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+
+  border-top: 1px solid var(--gray-border-color);
+  border-bottom: 1px solid var(--gray-border-color);
+}
+
+.createNewBoardText {
+  width: 76px;
+}
+
+.buttonIcon {
+  width: 20px;
+  height: 20px;
+  fill: var(--almost-black-color);
+}
+
+.buttonAddBoard {
+  width: 40px;
+  height: 36px;
+  padding: 0;
+}

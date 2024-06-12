@@ -1,7 +1,7 @@
 .burgerMenu {
+  cursor: pointer;
   display: flex;
   align-items: center;
-  cursor: pointer;
 }
 
 .burgerMenu svg {
@@ -10,7 +10,7 @@
   fill: white;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .burgerMenu {
     display: none;
   }
