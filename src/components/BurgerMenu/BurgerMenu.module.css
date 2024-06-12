@@ -1,0 +1,17 @@
+.burgerMenu {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.burgerMenu svg {
+  width: 24px;
+  height: 24px;
+  fill: white;
+}
+
+@media (min-width: 768px) {
+  .burgerMenu {
+    display: none;
+  }
+}

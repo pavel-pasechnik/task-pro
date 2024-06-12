@@ -1,0 +1,20 @@
+/* stylelint-disable selector-class-pattern */
+.logoContainer {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+
+  margin: 0;
+  padding: 0;
+
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--white-color);
+}
+
+.iconLogoContainer {
+  width: 32px;
+  height: 32px;
+  background-color: var(--background-darkgray-color);
+  border-radius: 8px;
+}

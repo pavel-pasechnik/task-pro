@@ -1,10 +1,11 @@
-import AppBar from '../AppBar/AppBar.jsx';
+import css from './Layout.module.css';
 
-export default function Layout({ children }) {
+const Layout = ({ children }) => {
   return (
-    <div>
-      <AppBar />
-      {children}
+    <div className={css.layout}>
+      <div className={css.mainContent}>{children}</div>
     </div>
   );
-}
+};
+
+export default Layout;

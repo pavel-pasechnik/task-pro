@@ -1,0 +1,40 @@
+.header {
+  background-color: #161616;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  height: 60px;
+  width: 100%;
+  /* position: relative; */
+  padding: 10px;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 5px;
+  flex-grow: 1;
+}
+
+.userInfo {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+  .container {
+    justify-content: end;
+  }
+}
+
+@media (max-width: 375px) {
+  .sidebar {
+    display: block;
+  }
+}
