@@ -5,7 +5,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 
 import css from './UserEditModal.module.css';
 
-import sprite from '../../../assets/sprite.svg';
+import sprite from '../../assets/sprite.svg';
 
 const ValidationSchema = Yup.object().shape({
   name: Yup.string().min(3, 'Too Short!').max(50, 'Too Long!').required('Required'),

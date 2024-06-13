@@ -3,7 +3,7 @@ import css from './Header.module.css';
 import sprite from '../../assets/sprite.svg';
 import { useOutsideClick } from '../../hooks/useOutsideClick.js';
 
-import UserEditModal from '../ModalWindow/UserEditModal/UserEditModal.jsx';
+import UserEditModal from '../UserEditModal/UserEditModal.jsx';
 
 const Header = ({ toggleSidebar }) => {
   const [isModalOpen, setModalOpen] = useState(false);
