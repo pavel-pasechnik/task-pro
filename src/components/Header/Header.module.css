@@ -1,33 +1,61 @@
-.header {
+
+.headerBox {
   display: flex;
   align-items: center;
-
-  width: 100%;
-  height: 60px;
-
-  /* position: relative; */
-  padding: 10px;
-
-  color: #fff;
-
-  background-color: #161616;
+  justify-content: space-between;
+  padding: 14px 20px;
+  background-color: #121212;
 }
 
-.container {
+@media screen and (min-width: 768px) {
+  .headerBox {
+    padding: 18px 32px;
+  }
+
+}
+
+@media screen and (min-width: 1440px) {
+  .headerBox {
+    justify-content: flex-end;
+    padding: 18px 24px;
+  }
+}
+
+.imgBtn {
   display: flex;
   flex-grow: 1;
   align-items: center;
+
   justify-content: space-between;
 
   width: 100%;
   padding: 5px;
+
 }
 
-.userInfo {
-  display: flex;
-  gap: 50px;
-  align-items: center;
+.dropdown {
+  width: 68px;
+  height: 21px;
+  position: relative;
+  display: inline-block;
+  font-weight: 500;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: rgba(255, 255, 255, 0.8);
 }
+
+.dropbtn {
+  background-color: transparent;
+  padding-top: 2px;
+  font-size: 14px;
+  border: none;
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  color: #f1f1f1;
+}
+
 
 @media (width >= 768px) {
   .sidebar {
@@ -42,5 +70,6 @@
 @media (width <= 375px) {
   .sidebar {
     display: block;
+
   }
 }
