@@ -11,10 +11,13 @@ import { refreshUser } from '../../redux/auth/operations.js';
 // import AuthNav from '../AuthNav/AuthNav.jsx';
 import HomePage from '../../pages/HomePage/HomePage.jsx';
 import Layout from '../Layout/Layout.jsx';
+import { WelcomePage } from '../../pages/WelcomePage/WelcomePage.jsx';
+import { LoginPage } from '../../pages/LoginPage/LoginPage.jsx';
+import { RegisterPage } from '../../pages/RegisterPage/RegisterPage.jsx';
 
-const Login = lazy(() => import('../../pages/Login/Login.jsx'));
+// const LoginPage = lazy(() => import('../../pages/LoginPage/LoginPage.jsx'));
 const NotFound = lazy(() => import('../../pages/NotFound/NotFound.jsx'));
-const Registration = lazy(() => import('../../pages/Registration/Registration.jsx'));
+// const RegisterPage = lazy(() => import('../../pages/RegisterPage/RegisterPage.jsx'));
 // const Contacts = lazy(() => import('../../pages/Contacts/Contacts.jsx'));
 const ScreensPage = lazy(() => import('../../components/ScreensPage/ScreensPage.jsx'));
 
@@ -33,14 +36,14 @@ export default function App() {
       <RegisterPage />
       {/* <LoginPage /> */}
 
-      <Toaster position='top-center' />
+      {/* <Toaster position='top-center' />
       <Layout>
         <Suspense fallback={<div>LOADING PAGE...</div>}>
           {isRefreshing ? (
             <b>Please wait...</b>
           ) : (
             <Routes>
-              <Route path='/' element={isLoggedIn ? <HomePage /> : <Login />} />
+              <Route path='/' element={isLoggedIn ? <HomePage /> : <LoginPage />} />
               <Route path='/home' element={<HomePage />} />
               <Route
                 path='/contacts'
@@ -49,13 +52,13 @@ export default function App() {
 
               <Route
                 path='/register'
-                element={<RestrictedRoute component={<Registration />} redirectTo='/home' />}
+                element={<RestrictedRoute component={<RegisterPage />} redirectTo='/home' />}
               />
               <Route
                 path='/login'
-                element={<RestrictedRoute component={<Login />} redirectTo='/home' />}
-              />
-              {/* <Route
+                element={<RestrictedRoute component={<LoginPage />} redirectTo='/home' />}
+              /> */}
+      {/* <Route
                 path='/home'
                 element={
                   isLoggedIn ? (
@@ -65,13 +68,13 @@ export default function App() {
                   )
                 }
               /> */}
-              <Route path='/home/:boardId' element={<ScreensPage />} />
+      {/* <Route path='/home/:boardId' element={<ScreensPage />} />
 
               <Route path='*' element={<NotFound />} />
             </Routes>
           )}
         </Suspense>
-      </Layout>
+      </Layout> */}
     </>
   );
 }

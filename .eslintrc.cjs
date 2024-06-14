@@ -37,6 +37,7 @@ module.exports = {
     'sort-imports': 'error',
     'prettier/prettier': ['error', { endOfLine: 'lf' }],
     'sort-imports': 'off',
+    'no-unused-vars': 'off', // Отключение правила no-unused-vars
   },
   globals: {
     getApp: false,
