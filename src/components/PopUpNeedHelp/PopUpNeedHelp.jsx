@@ -1,3 +1,4 @@
+/* eslint-disable sort-imports */
 import Button from '../Button/Button.jsx';
 import { Field, Form, Formik } from 'formik';
 import css from './PopUpNeedHelp.module.css';
@@ -20,8 +21,9 @@ export function PopUpNeedHelp() {
           actions.resetForm();
         }}>
         <Form>
-          <Field type='text' name='title' placeholder='Title' />
-          <Field type='email' name='email' placeholder='Email' />
+          <div className={css.titleEmailPosition}>
+            <Field type='email' name='email' placeholder='Email' className={css.titleEmail} />
+          </div>
           <Field type='text' name='comment' placeholder='Comment' />
           <Button type='submit' title='Send' />
         </Form>
