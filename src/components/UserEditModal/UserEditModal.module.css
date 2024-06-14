@@ -5,29 +5,31 @@
 
 .backdrop {
   position: fixed;
+  z-index: 100;
   top: 0;
   left: 0;
+
   width: 100vw;
   height: 100vw;
-  z-index: 100;
 }
 
 .cont {
-  background-color: #161616;
   max-width: 335px;
   max-height: 440px;
+  margin: 0 auto;
+  padding: 24px;
+
+  background-color: #161616;
   border: 1px solid #bedbb0;
   border-radius: 8px;
-  box-shadow: 0 4px 16px hsla(0, 0%, 7%, 0.1);
-  padding: 24px;
-  margin: 0 auto;
+  box-shadow: 0 4px 16px hsl(0deg 0% 7% / 10%);
 }
 
 .wrap {
+  cursor: pointer;
   position: absolute;
   top: 14px;
   right: 14px;
-  cursor: pointer;
 }
 
 .closeBtn {
@@ -36,57 +38,71 @@
 }
 
 .txt {
-  color: #fdfdfd;
-  font-family: 'Poppins', sans-serif;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 500;
   margin: 0;
+
+  font-family: Poppins, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  font-style: normal;
+  color: #fdfdfd;
 }
 
 .avatarContainer {
   position: relative;
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
-  border-radius: 8px;
+
   margin-top: 24px;
+
+  text-align: center;
+
+  border-radius: 8px;
 }
 
 .closeBtn {
+  cursor: pointer;
+
+  padding: 0;
+
   color: #fdfdfd;
+
   background-color: transparent;
   border: none;
-  cursor: pointer;
-  padding: 0;
 }
 
 .plusBtn {
-  border: none;
-  background-color: #bedbb0;
-  border-radius: 4px;
-  width: 24px;
-  height: 24px;
+  cursor: pointer;
+
   position: absolute;
   top: 60px;
-  cursor: pointer;
+
+  width: 24px;
+  height: 24px;
+
+  background-color: #bedbb0;
+  border: none;
+  border-radius: 4px;
 }
 
 .formInput {
-  padding: 14px 18px;
+  position: relative;
+
   width: 100%;
   height: 49px;
-  border-radius: 8px;
-  border: 1px solid rgba(190, 219, 176, 0.5);
-  background-color: inherit;
-  color: #fdfdfd;
-  font-family: 'Poppins', sans-serif;
+  padding: 14px 18px;
+
+  font-family: Poppins, sans-serif;
   font-size: 14px;
   font-weight: 400;
+  color: #fdfdfd;
+
+  background-color: inherit;
+  border: 1px solid rgb(190 219 176 / 50%);
+  border-radius: 8px;
   outline: none;
   box-shadow: none;
-  position: relative;
 }
 
 .formInput:focus {
@@ -98,13 +114,15 @@
 }
 
 .error {
-  height: 0px;
-  color: red;
-  font-size: 12px;
-  text-align: left;
   position: absolute;
   bottom: 0;
   left: 0;
+
+  height: 0;
+
+  font-size: 12px;
+  color: red;
+  text-align: left;
 }
 
 .forma {
@@ -115,72 +133,88 @@
 }
 
 .btn {
+  cursor: pointer;
+
+  gap: 8px;
+  align-items: center;
+
+  width: 100%;
+  margin-top: 14px;
+  padding-top: 10px;
+  padding-bottom: 11px;
+
   font-family: inherit;
   font-size: 14px;
   font-weight: 600;
   font-style: normal;
-  align-items: center;
+  line-height: 21px;
+  color: black;
+
   background-color: #bedbb0;
   border: none;
   border-radius: 8px;
-  color: black;
-  cursor: pointer;
-  gap: 8px;
-  line-height: 21px;
-  padding-bottom: 11px;
-  padding-top: 10px;
-  width: 100%;
-  margin-top: 14px;
 }
 
 .eye {
-  background-color: transparent;
-  border: none;
+  position: absolute;
+  top: 50%;
+  right: 18px;
+  transform: translateY(-50%);
+
   color: #fdfdfd;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  right: 18px;
+
+  background-color: transparent;
+  border: none;
 }
 
 .eye {
-  background-color: transparent;
-  border: none;
-  color: var(--white);
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
   right: 18px;
+  transform: translateY(-50%);
+
+  color: var(--white);
+
+  background-color: transparent;
+  border: none;
 }
+
 .avatar {
-  display: block;
   cursor: pointer;
-  border-radius: 5px;
+
+  display: block;
+
+  width: 68px;
+  height: 68px;
+
+  background-color: transparent;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  width: 68px;
-  height: 68px;
-  background-color: transparent;
+  border-radius: 5px;
+
   stroke: black;
 }
 
-@media screen and (min-width: 375px) {
+@media screen and (width >= 375px) {
   .wrap {
     right: 34px;
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (width >= 768px) {
   .cont {
     position: fixed;
     right: 20px;
+
+    width: 400px;
+    max-height: 440px;
+
     /* top: 60px; */
     margin-top: 5px;
     margin-bottom: 5px;
-    max-height: 440px;
-    width: 400px;
   }
+
   .container {
     max-width: 768px;
   }
@@ -190,16 +224,17 @@
   }
 }
 
-@media screen and (min-width: 768px) and (max-width: 1180px) {
+@media screen and (width >= 768px) and (width <= 1180px) {
   .avatarContainer {
     margin-top: 14px;
   }
 }
 
-@media screen and (min-width: 1180px) {
+@media screen and (width >= 1180px) {
   .wrap {
     right: 14px;
   }
+
   .cont {
     top: 60px;
   }
