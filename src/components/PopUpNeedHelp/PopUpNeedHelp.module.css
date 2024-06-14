@@ -2,6 +2,7 @@
   .container {
     display: flex;
     flex-direction: row;
+
     max-width: 433px;
     margin: 0 auto;
     padding: 24px;
@@ -19,11 +20,13 @@
 
   .titleEmailPosition {
     width: 100%;
+    padding-top: 24px;
+
     font-size: 18;
     font-weight: 300;
     color: var(--white-color);
-    padding-top: 24px;
   }
+
   .titleEmailPosition {
     width: 100%;
   }
