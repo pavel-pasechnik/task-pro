@@ -36,7 +36,9 @@
   --black-color: #161616;
   --almost-black-color: #121212;
   --white-color: #fff;
+  --almost-white-color: #f1f1f1;
   --black-color-input: #1f1f1f;
+  --red-color: red;
 
   /* --gray-text-color: rgba(22, 22, 22, 0.7); */
   --gray-border-color: rgb(255 255 255 / 10%);

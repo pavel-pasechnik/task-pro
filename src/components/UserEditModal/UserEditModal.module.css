@@ -19,8 +19,8 @@
   margin: 0 auto;
   padding: 24px;
 
-  background-color: #161616;
-  border: 1px solid #bedbb0;
+  background-color: var(--black-color);
+  border: 1px solid var(--green-color);
   border-radius: 8px;
   box-shadow: 0 4px 16px hsl(0deg 0% 7% / 10%);
 }
@@ -44,7 +44,7 @@
   font-size: 18px;
   font-weight: 500;
   font-style: normal;
-  color: #fdfdfd;
+  color: var(--white-color);
 }
 
 .avatarContainer {
@@ -66,7 +66,8 @@
 
   padding: 0;
 
-  color: #fdfdfd;
+  color: var(--white-color);
+  fill: var(--white-color);
 
   background-color: transparent;
   border: none;
@@ -81,7 +82,7 @@
   width: 24px;
   height: 24px;
 
-  background-color: #bedbb0;
+  background-color: var(--green-color);
   border: none;
   border-radius: 4px;
 }
@@ -96,17 +97,17 @@
   font-family: Poppins, sans-serif;
   font-size: 14px;
   font-weight: 400;
-  color: #fdfdfd;
+  color: var(--white-color);
 
   background-color: inherit;
-  border: 1px solid rgb(190 219 176 / 50%);
+  border: 1px solid var(--gray-text-color);
   border-radius: 8px;
   outline: none;
   box-shadow: none;
 }
 
 .formInput:focus {
-  border: 2px solid #bedbb0;
+  border: 2px solid var(--green-color);
 }
 
 .formGroup {
@@ -121,7 +122,7 @@
   height: 0;
 
   font-size: 12px;
-  color: red;
+  color: var(--red-color);
   text-align: left;
 }
 
@@ -148,9 +149,9 @@
   font-weight: 600;
   font-style: normal;
   line-height: 21px;
-  color: black;
+  color: var(--black-color);
 
-  background-color: #bedbb0;
+  background-color: var(--green-color);
   border: none;
   border-radius: 8px;
 }
@@ -161,7 +162,7 @@
   right: 18px;
   transform: translateY(-50%);
 
-  color: #fdfdfd;
+  color: var(--white-color);
 
   background-color: transparent;
   border: none;
@@ -192,8 +193,6 @@
   background-position: center;
   background-size: cover;
   border-radius: 5px;
-
-  stroke: black;
 }
 
 @media screen and (width >= 375px) {
@@ -210,7 +209,6 @@
     width: 400px;
     max-height: 440px;
 
-    /* top: 60px; */
     margin-top: 5px;
     margin-bottom: 5px;
   }
