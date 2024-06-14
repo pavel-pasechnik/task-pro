@@ -33,19 +33,20 @@ export default function App() {
       <RegisterPage />
       {/* <LoginPage /> */}
 
-      {/* <Toaster position='top-center' />
+      <Toaster position='top-center' />
       <Layout>
         <Suspense fallback={<div>LOADING PAGE...</div>}>
           {isRefreshing ? (
             <b>Please wait...</b>
           ) : (
             <Routes>
-              {/* <Route path='/' element={isLoggedIn ? <HomePage /> : <Login />} /> */}
+              <Route path='/' element={isLoggedIn ? <HomePage /> : <Login />} />
               <Route path='/home' element={<HomePage />} />
-              {/* <Route
+              <Route
                 path='/contacts'
                 element={<PrivateRoute component={<Contacts />} redirectTo='/login' />}
-              /> */}
+              />
+
               <Route
                 path='/register'
                 element={<RestrictedRoute component={<Registration />} redirectTo='/home' />}
@@ -70,7 +71,7 @@ export default function App() {
             </Routes>
           )}
         </Suspense>
-      </Layout> */}
+      </Layout>
     </>
   );
 }
