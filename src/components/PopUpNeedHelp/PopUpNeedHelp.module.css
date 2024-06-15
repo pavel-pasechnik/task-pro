@@ -1,7 +1,5 @@
 @media only screen and (width >= 320px) {
   .container {
-
-
     max-width: 433px;
     margin: 0 auto;
     padding: 24px;
@@ -18,8 +16,6 @@
   }
 
   .titleEmailPosition {
-
-
     font-size: 18;
     font-weight: 300;
     color: var(--white-color);
@@ -51,7 +47,6 @@
     border-radius: 8px;
   }
   .createButton {
-
     width: 100%;
   }
 }

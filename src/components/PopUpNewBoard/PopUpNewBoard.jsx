@@ -15,9 +15,7 @@ const initialValues = {
   background: '',
 };
 
-
 const icons = [{ id: 'icon1', src: `${sprite}#icon-four-circles`, alt: 'icon-four-circles' }];
-
 
 const backgrounds = [
   { id: 'bg1', src: '../../assets/smallbg/airBalloon.jpg', alt: 'airBalloon.jpg' },
