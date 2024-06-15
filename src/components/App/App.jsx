@@ -4,7 +4,7 @@ import { Suspense, lazy, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectIsRefreshing } from '../../redux/auth/selectors.js';
 // import { PrivateRoute } from '../Routes/PrivateRoute.jsx';
-import { RestrictedRoute } from '../Routes/RestrictedRoute.jsx';
+// import { RestrictedRoute } from '../Routes/RestrictedRoute.jsx';
 import { Toaster } from 'react-hot-toast';
 import { refreshUser } from '../../redux/auth/operations.js';
 
@@ -15,9 +15,8 @@ import { WelcomePage } from '../../pages/WelcomePage/WelcomePage.jsx';
 import { LoginPage } from '../../pages/LoginPage/LoginPage.jsx';
 import { RegisterPage } from '../../pages/RegisterPage/RegisterPage.jsx';
 
-// const LoginPage = lazy(() => import('../../pages/LoginPage/LoginPage.jsx'));
 const NotFound = lazy(() => import('../../pages/NotFound/NotFound.jsx'));
-// const RegisterPage = lazy(() => import('../../pages/RegisterPage/RegisterPage.jsx'));
+
 // const Contacts = lazy(() => import('../../pages/Contacts/Contacts.jsx'));
 const ScreensPage = lazy(() => import('../../components/ScreensPage/ScreensPage.jsx'));
 
@@ -32,8 +31,8 @@ export default function App() {
 
   return (
     <>
-      {/* <WelcomePage /> */}
-      <RegisterPage />
+      <WelcomePage />
+      {/* <RegisterPage /> */}
       {/* <LoginPage /> */}
 
       {/* <Toaster position='top-center' />
@@ -59,6 +58,7 @@ export default function App() {
                 element={<RestrictedRoute component={<LoginPage />} redirectTo='/home' />}
               /> */}
       {/* <Route
+
                 path='/home'
                 element={
                   isLoggedIn ? (

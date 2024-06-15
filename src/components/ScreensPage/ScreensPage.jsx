@@ -1,28 +1,53 @@
-// import TaskBoard from '../TaskBoard/TaskBoard.jsx';
+import {
+  selectBoards,
+  selectBoardsError,
+  selectBoardsLoading,
+} from '../../redux/boards/selectors.js';
+import { useDispatch, useSelector } from 'react-redux';
 import css from './ScreensPage.module.css';
+import { fetchBoards } from '../../redux/boards/boards.js';
+import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-// import { useState } from 'react';
 
 const ScreensPage = () => {
   const { boardId } = useParams();
-  // const [tasks, setTasks] = useState([
-  //   { id: 1, title: 'Task 1', description: 'Description for Task 1' },
-  //   { id: 2, title: 'Task 2', description: 'Description for Task 2' },
-  //   // задачі тут
-  // ]);
+  const dispatch = useDispatch();
+  const boards = useSelector(selectBoards);
+  const loading = useSelector(selectBoardsLoading);
+  const error = useSelector(selectBoardsError);
+
+  useEffect(() => {
+    dispatch(fetchBoards());
+  }, [dispatch]);
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>Error: {error}</p>;
+  }
+
+  if (!Array.isArray(boards) || boards.length === 0) {
+    return (
+      <div className={css.screensPage}>
+        <div className={css.screensPageTextContainer}>
+          <p className={css.screensPageText}>
+            Before starting your project, it is essential to create a board to visualize and track
+            all the necessary tasks and milestones. This board serves as a powerful tool to organize
+            the workflow and ensure effective collaboration among team members.
+          </p>
+        </div>
+      </div>
+    );
+  }
+
+  const currentBoard = boards.find(board => board._id === boardId);
 
   return (
     <div className={css.screensPage}>
-      <h2>{boardId}</h2>
-      <div className={css.screensPageTextContainer}>
-        <p className={css.screensPageText}>
-          Before starting your project, it is essential to create a board to visualize and track all
-          the necessary tasks and milestones. This board serves as a powerful tool to organize the
-          workflow and ensure effective collaboration among team members.
-        </p>
-      </div>
-
-      {/* <TaskBoard tasks={tasks} /> */}
+      <h2>{currentBoard ? currentBoard.title : 'Board not found'}</h2>
+      {/* Add further content related to the current board */}
     </div>
   );
 };
