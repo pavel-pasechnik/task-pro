@@ -33,8 +33,18 @@
 }
 
 .closeBtn {
+  cursor: pointer;
+
   width: 18px;
   height: 18px;
+  padding: 0;
+
+  color: var(--white-color);
+
+  background-color: transparent;
+  border: none;
+
+  fill: var(--white-color);
 }
 
 .txt {
@@ -59,19 +69,6 @@
   text-align: center;
 
   border-radius: 8px;
-}
-
-.closeBtn {
-  cursor: pointer;
-
-  padding: 0;
-
-  color: var(--white-color);
-
-  background-color: transparent;
-  border: none;
-
-  fill: var(--white-color);
 }
 
 .plusBtn {
@@ -164,18 +161,6 @@
   transform: translateY(-50%);
 
   color: var(--white-color);
-
-  background-color: transparent;
-  border: none;
-}
-
-.eye {
-  position: absolute;
-  top: 50%;
-  right: 18px;
-  transform: translateY(-50%);
-
-  color: var(--white);
 
   background-color: transparent;
   border: none;

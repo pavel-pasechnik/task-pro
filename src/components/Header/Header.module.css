@@ -72,12 +72,6 @@
   transform: rotate(-180deg);
 }
 
-.text {
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--almost-white-color);
-}
-
 .dropdown {
   position: relative;
 
