@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable sort-imports */
 
 import Button from '../Button/Button.jsx';

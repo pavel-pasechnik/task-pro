@@ -33,8 +33,8 @@ export function PopUpNeedHelp() {
             <Field type='text' name='comment' placeholder='Comment' className={css.CommentTitle} />
           </div>
           <Button type='submit' title='Send' />
-            <Field type='email' name='email' placeholder='Email adres' className={css.titleEmail} />
-          </div>
+          <Field type='email' name='email' placeholder='Email adres' className={css.titleEmail} />
+
           <div className={css.titleCommentPosition}>
             <Field type='text' name='comment' placeholder='Comment' className={css.titleComment} />
           </div>

@@ -1,9 +1,11 @@
+import { selectTheme, selectUser } from '../../redux/auth/selectors.js';
 import { useRef, useState } from 'react';
+// import avaDark from '../../assets/svg/user_dark.svg';
+// import avaLight from '../../assets/svg/user_light.svg';
+// import avaViolet from '../../assets/svg/user_violet.svg';
+import sprite from '../../assets/sprite.svg';
 import { useSelector } from 'react-redux';
-import { selectTheme, selectUser } from 'redux/auth/selectors';
-import avaDark from '../../assets/svg/user_dark.svg';
-import avaLight from '../../assets/svg/user_light.svg';
-import avaViolet from '../../assets/svg/user_violet.svg';
+
 import styles from './AvatarModal.module.css';
 
 export function Previews({ onImageSelect }) {
@@ -11,19 +13,20 @@ export function Previews({ onImageSelect }) {
   const theme = useSelector(selectTheme);
   const fileInput = useRef(null);
 
-  const defaultAvatar = {
-    dark: avaDark,
-    light: avaLight,
-    violet: avaViolet,
-  };
-  const defaultPreview = user.avatarURL
-    ? user.avatarURL
-    : defaultAvatar[user.theme];
+  // const defaultAvatar = {
+  //   dark: avaDark,
+  //   light: avaLight,
+  //   violet: avaViolet,
+  // };
+  // const defaultPreview = user.avatarURL ? user.avatarURL : defaultAvatar[user.theme];
+
+  const defaultPreview = user.avatarURL ? user.avatarURL : `${sprite}#icon-user-avatar`;
 
   const [preview, setPreview] = useState(defaultPreview);
 
   const handlePickImage = e => {
     const selectedFile = e.target.files[0];
+
     onImageSelect(selectedFile);
     setPreview(URL.createObjectURL(selectedFile));
   };
@@ -37,8 +40,8 @@ export function Previews({ onImageSelect }) {
       <div className={styles.imageG}>
         <input
           className={styles.fileInput}
-          type="file"
-          accept=".jpg, .jpeg, .png"
+          type='file'
+          accept='.jpg, .jpeg, .png'
           onChange={handlePickImage}
           ref={fileInput}
         />
@@ -46,7 +49,7 @@ export function Previews({ onImageSelect }) {
           <div className={styles.thumb}>
             <img
               src={preview}
-              alt="avatarURL"
+              alt='avatarURL'
               className={styles.imageG}
               onLoad={handleLoadedImage}
             />
@@ -54,8 +57,9 @@ export function Previews({ onImageSelect }) {
         </aside>
         <span
           className={theme === 'violet' ? styles.btnViolet : styles.btn}
-          onClick={() => fileInput.current.click()}
-        >
+          role='button'
+          tabIndex={0}
+          onClick={() => fileInput.current.click()}>
           +
         </span>
       </div>

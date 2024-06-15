@@ -1,4 +1,3 @@
-/* eslint-disable n/no-missing-import */
 import * as Yup from 'yup';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useRef } from 'react';

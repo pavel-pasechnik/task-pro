@@ -1,10 +1,11 @@
 .title {
+  margin-bottom: 24px;
+
   font-family: var(--font-medium);
-  color: inherit;
   font-size: 18px;
   line-height: normal;
+  color: inherit;
   letter-spacing: -0.36px;
-  margin-bottom: 24px;
 }
 
 .form {
@@ -14,40 +15,44 @@
 
 .input {
   width: 100%;
-  border-radius: 8px;
-  padding: 14px 18px;
-  border: 1px solid var(--color-green);
-  opacity: 0.4;
   margin-bottom: 14px;
-  background-color: inherit;
-  color: inherit;
-  box-shadow: 0px 4px 16px 0px var(--color-shadow);
+  padding: 14px 18px;
 
   font-family: var(--font-regular);
   font-size: 14px;
   line-height: normal;
+  color: inherit;
   letter-spacing: -0.28px;
+
+  opacity: 0.4;
+  background-color: inherit;
+  border: 1px solid var(--color-green);
+  border-radius: 8px;
+  box-shadow: 0 4px 16px 0 var(--color-shadow);
 
   transition: opacity 250ms linear;
 }
+
 .inputViolet {
   width: 100%;
-  border-radius: 8px;
-  padding: 14px 18px;
-  border: 1px solid var(--color-violet);
-  opacity: 0.4;
   margin-bottom: 14px;
-  color: inherit;
-  background-color: inherit;
-  box-shadow: 0px 4px 16px 0px var(--color-shadow);
+  padding: 14px 18px;
 
   font-family: var(--font-regular);
   font-size: 14px;
   line-height: normal;
+  color: inherit;
   letter-spacing: -0.28px;
+
+  opacity: 0.4;
+  background-color: inherit;
+  border: 1px solid var(--color-violet);
+  border-radius: 8px;
+  box-shadow: 0 4px 16px 0 var(--color-shadow);
 
   transition: opacity 250ms linear;
 }
+
 .input:active,
 .input:hover,
 .input:focus,
@@ -56,19 +61,19 @@
 .inputViolet:hover,
 .inputViolet:focus,
 .inputViolet:focus-visible {
+  opacity: 1;
   outline: none;
   outline-offset: 0;
-  opacity: 1;
 }
 
 .input::placeholder,
 .inputViolet::placeholder {
-  color: inherit;
   font-family: var(--font-medium);
   font-size: 14px;
-  font-style: normal;
   font-weight: 400;
+  font-style: normal;
   line-height: normal;
+  color: inherit;
   letter-spacing: -0.28px;
 }
 
@@ -76,29 +81,32 @@
 .input:-webkit-autofill:hover,
 .input:-webkit-autofill:focus,
 .input:-webkit-autofill:active {
-  -webkit-text-fill-color: var(--color-white);
   box-shadow: 0 0 0 30px var(--bg-color-form-input) inset !important;
+
+  -webkit-text-fill-color: var(--color-white);
 }
 
 .btn {
+  cursor: pointer;
+
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+
   width: 100%;
-  margin-top: 24px;
   height: 49px;
-  background-color: var(--color-green);
-  color: var(--color-dark);
+  margin-top: 24px;
+  padding: 14px 0;
 
   font-family: var(--font-medium);
   font-size: 14px;
   line-height: normal;
+  color: var(--color-dark);
+  text-align: center;
   letter-spacing: -0.28px;
 
-  text-align: center;
-  cursor: pointer;
-  padding: 14px 0px;
-  border: 0px;
+  background-color: var(--color-green);
+  border: 0;
   border-radius: 8px;
 
   transition:
@@ -111,24 +119,26 @@
 }
 
 .btnViolet {
+  cursor: pointer;
+
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+
   width: 100%;
-  margin-top: 24px;
   height: 49px;
-  background-color: var(--color-violet);
-  color: var(--color-white);
+  margin-top: 24px;
+  padding: 14px 0;
 
   font-family: var(--font-medium);
   font-size: 14px;
   line-height: normal;
+  color: var(--color-white);
+  text-align: center;
   letter-spacing: -0.28px;
 
-  text-align: center;
-  cursor: pointer;
-  padding: 14px 0px;
-  border: 0px;
+  background-color: var(--color-violet);
+  border: 0;
   border-radius: 8px;
 
   transition:
@@ -145,23 +155,27 @@
 }
 
 .eye_icon {
+  cursor: pointer;
+
   position: absolute;
   top: 45%;
   right: 18px;
   transform: translateY(-50%);
-  opacity: 0.4;
-  justify-content: space-between;
+
   align-items: center;
+  justify-content: space-between;
 
   text-align: center;
-  cursor: pointer;
-  border: 0px;
+
+  opacity: 0.4;
+  border: 0;
 }
 
 .error {
   position: absolute;
   top: 4px;
   right: 8px;
+
   font-family: var(--font-regular);
   font-size: 10px;
   color: var(--color-hover-green);
@@ -171,6 +185,7 @@
   position: absolute;
   top: 4px;
   right: 8px;
+
   font-family: var(--font-regular);
   font-size: 10px;
   color: var(--color-violet);

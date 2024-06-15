@@ -1,4 +1,3 @@
-
 import Avatar from '../Avatar/Avatar.jsx';
 // import { Previews } from '../AvatarModal/AvatarModal';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
@@ -11,7 +10,6 @@ import { Loader } from '../Loader/Loader.jsx';
 import Modal from '../ModalContainer/ModalContainer.jsx';
 import { updateUser } from '../../redux/auth/operations.js';
 import { useState } from 'react';
-
 
 import styles from './EditUserProfile.module.css';
 
@@ -110,9 +108,7 @@ export const EditUserProfile = () => {
             initialValues={initialValues}
             validationSchema={updateUserSchema}
             onSubmit={handleSubmit}>
-
             {({ errors }) => (
-
               <Form className={styles.form}>
                 <div className={styles.wrap}>
                   <p className={styles.title}>Edit profile</p>
