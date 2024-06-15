@@ -14,9 +14,9 @@ const ProjectList = () => {
   const loading = useSelector(selectBoardsLoading);
   const error = useSelector(selectBoardsError);
 
-  useEffect(() => {
-    dispatch(fetchBoards());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(fetchBoards());
+  // }, [dispatch]);
 
   if (loading) {
     return <p>Loading...</p>;

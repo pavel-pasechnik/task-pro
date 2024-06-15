@@ -13,7 +13,7 @@ const boardsSlice = createSlice({
     builder
       .addCase(fetchBoards.pending, state => {
         state.loading = true;
-        state.error = null;
+        state.error = false;
       })
       .addCase(fetchBoards.fulfilled, (state, action) => {
         state.loading = false;
@@ -21,7 +21,7 @@ const boardsSlice = createSlice({
       })
       .addCase(fetchBoards.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.error.message;
+        state.error = true;
       });
   },
 });

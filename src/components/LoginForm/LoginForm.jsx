@@ -8,7 +8,6 @@ import { useDispatch } from 'react-redux';
 import { login } from '../../redux/auth/operations.js';
 
 const initialValues = {
-  name: '',
   email: '',
   password: '',
 };

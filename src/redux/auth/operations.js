@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-axios.defaults.baseURL = 'https://task-pro-backend-ehpy.onrender.com/api/users';
+axios.defaults.baseURL = 'https://task-pro-backend-ehpy.onrender.com';
 
 const setAuthHeader = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -14,7 +14,7 @@ const clearAuthHeader = () => {
 export const register = createAsyncThunk('/register', async (userInfo, thunkAPI) => {
   try {
     console.log(axios);
-    const response = await axios.post('/register', userInfo);
+    const response = await axios.post('api/users/register', userInfo);
 
     setAuthHeader(response.data.token);
     console.log(response.data);
@@ -27,7 +27,7 @@ export const register = createAsyncThunk('/register', async (userInfo, thunkAPI)
 
 export const login = createAsyncThunk('/login', async (userInfo, thunkAPI) => {
   try {
-    const response = await axios.post('/login', userInfo);
+    const response = await axios.post('api/users/login', userInfo);
 
     setAuthHeader(response.data.token);
 
@@ -39,7 +39,7 @@ export const login = createAsyncThunk('/login', async (userInfo, thunkAPI) => {
 
 export const logout = createAsyncThunk('logout', async (_, thunkAPI) => {
   try {
-    const response = await axios.post('/api/users/logout');
+    const response = await axios.post('api/users/logout');
 
     clearAuthHeader();
 
@@ -50,7 +50,7 @@ export const logout = createAsyncThunk('logout', async (_, thunkAPI) => {
 });
 
 export const refreshUser = createAsyncThunk(
-  'auth/refresh',
+  'api/users/current',
   async (_, thunkAPI) => {
     // Reading the token from the state via getState()
     const reduxState = thunkAPI.getState();
