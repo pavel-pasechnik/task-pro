@@ -1,7 +1,6 @@
 @media only screen and (width >= 320px) {
   .container {
-    display: flex;
-    flex-direction: row;
+
 
     max-width: 433px;
     margin: 0 auto;
@@ -19,15 +18,40 @@
   }
 
   .titleEmailPosition {
-    width: 100%;
-    padding-top: 24px;
+
 
     font-size: 18;
     font-weight: 300;
     color: var(--white-color);
   }
 
-  .titleEmailPosition {
+  .titleEmail {
+    width: 100%;
+    padding: 14px;
+    background-color: var(---black-color-input);
+    color: var(--gray-text-color);
+    border: 1px solid var(--green-color);
+    border-radius: 8px;
+  }
+  .titleCommentPosition {
+    font-size: 18;
+    font-weight: 300;
+    color: var(--white-color);
+    padding-top: 14px;
+    padding-bottom: 24px;
+  }
+  .titleComment {
+    padding-top: 14px;
+    padding-bottom: 85px;
+    padding-left: 18px;
+    width: 100%;
+    background-color: var(---black-color-input);
+    color: var(--gray-text-color);
+    border: 1px solid var(--green-color);
+    border-radius: 8px;
+  }
+  .createButton {
+
     width: 100%;
   }
 }
@@ -45,24 +69,77 @@
     border-radius: 8px;
   }
 
-  .titleBoard {
-    font-size: 18;
-    font-weight: 500;
-    color: var(--white-color);
-  }
-
-  .titleDown {
+  .titleEmailPosition {
     font-size: 18;
     font-weight: 300;
     color: var(--white-color);
+    padding-top: 24px;
+  }
+  .titleEmail {
+    width: 100%;
+    padding: 14px;
+    background-color: var(---black-color-input);
+    color: var(--gray-text-color);
+    border: 1px solid var(--green-color);
+    border-radius: 8px;
+  }
+  .titleCommentPosition {
+    font-size: 18;
+    font-weight: 300;
+    color: var(--white-color);
+    padding-top: 14px;
+    padding-bottom: 24px;
+  }
+  .titleComment {
+    padding: 14px 264px 85px 18px;
+    width: 100%;
+    background-color: var(---black-color-input);
+    color: var(--gray-text-color);
+    border: 1px solid var(--green-color);
+    border-radius: 8px;
   }
 }
 
-/* desktop syles */
+/* desktop styles */
 
 @media only screen and (width >= 1158px) {
   .container {
-    max-width: 1158px;
-    padding: 0 15px;
+    max-width: 433px;
+    margin: 0 auto;
+    padding: 24px;
+
+    background-color: var(--black-color);
+    border: 1px solid var(--green-color);
+    border-radius: 8px;
+  }
+
+  .titleEmailPosition {
+    font-size: 18;
+    font-weight: 300;
+    color: var(--white-color);
+    padding-top: 24px;
+  }
+  .titleEmail {
+    width: 100%;
+    padding: 14px;
+    background-color: var(---black-color-input);
+    color: var(--gray-text-color);
+    border: 1px solid var(--green-color);
+    border-radius: 8px;
+  }
+  .titleCommentPosition {
+    font-size: 18;
+    font-weight: 300;
+    color: var(--white-color);
+    padding-top: 14px;
+    padding-bottom: 24px;
+  }
+  .titleComment {
+    padding: 14px 264px 85px 18px;
+    width: 100%;
+    background-color: var(---black-color-input);
+    color: var(--gray-text-color);
+    border: 1px solid var(--green-color);
+    border-radius: 8px;
   }
 }
