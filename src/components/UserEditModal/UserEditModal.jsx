@@ -1,3 +1,4 @@
+/* eslint-disable n/no-missing-import */
 import * as Yup from 'yup';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useRef } from 'react';
@@ -76,9 +77,9 @@ export default function UserEditModal({ onClose }) {
           <FormProvider {...methods}>
             <form className={css.forma} onSubmit={handleSubmit(onSubmit)} autoComplete='off'>
               <div className={css.formGroup}>
-                <label htmlFor='name' className={css.formLabel}>
+                {/* <label htmlFor='name' className={css.formLabel}>
                   Name
-                </label>
+                </label> */}
                 <input
                   type='text'
                   id='name'
@@ -92,9 +93,9 @@ export default function UserEditModal({ onClose }) {
                 )}
               </div>
               <div className={css.formGroup}>
-                <label htmlFor='email' className={css.formLabel}>
+                {/* <label htmlFor='email' className={css.formLabel}>
                   Email
-                </label>
+                </label> */}
                 <input
                   type='text'
                   id='email'
@@ -108,9 +109,9 @@ export default function UserEditModal({ onClose }) {
                 )}
               </div>
               <div className={css.formGroup}>
-                <label htmlFor='password' className={css.formLabel}>
+                {/* <label htmlFor='password' className={css.formLabel}>
                   Password
-                </label>
+                </label> */}
                 <input
                   type='password'
                   id='password'
