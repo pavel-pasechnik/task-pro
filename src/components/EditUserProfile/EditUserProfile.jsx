@@ -1,3 +1,4 @@
+
 import Avatar from '../Avatar/Avatar.jsx';
 // import { Previews } from '../AvatarModal/AvatarModal';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
@@ -10,6 +11,7 @@ import { Loader } from '../Loader/Loader.jsx';
 import Modal from '../ModalContainer/ModalContainer.jsx';
 import { updateUser } from '../../redux/auth/operations.js';
 import { useState } from 'react';
+
 
 import styles from './EditUserProfile.module.css';
 
@@ -27,7 +29,9 @@ const updateUserSchema = object({
   email: string()
     .required('the field cannot be empty')
     .email()
+
     .matches(/^[a-z0-9 .]+@[a-z]+\.[a-z]{2,3}$/i, 'Invalid email format'),
+
   password: string()
     .min(8, 'minimum 8 characters')
     .max(64, 'maximum 64 characters')
@@ -106,7 +110,9 @@ export const EditUserProfile = () => {
             initialValues={initialValues}
             validationSchema={updateUserSchema}
             onSubmit={handleSubmit}>
+
             {({ errors }) => (
+
               <Form className={styles.form}>
                 <div className={styles.wrap}>
                   <p className={styles.title}>Edit profile</p>
