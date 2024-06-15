@@ -1,3 +1,4 @@
+/* eslint-disable sort-imports */
 import Button from '../Button/Button.jsx';
 import { Field, Form, Formik } from 'formik';
 import css from './PopUpNeedHelp.module.css';
@@ -12,7 +13,7 @@ export function PopUpNeedHelp() {
 
   return (
     <div className={css.container}>
-      <p className={css.titleBoard}>Need Help</p>
+      <p className={css.titleBoard}>Need help</p>
       <Formik
         initialValues={initialValues}
         onSubmit={(values, actions) => {
@@ -20,10 +21,24 @@ export function PopUpNeedHelp() {
           actions.resetForm();
         }}>
         <Form>
-          <Field type='text' name='title' placeholder='Title' />
-          <Field type='email' name='email' placeholder='Email' />
-          <Field type='text' name='comment' placeholder='Comment' />
+          <div className={css.titleEmailPosition}>
+            <Field
+              type='email'
+              name='email'
+              placeholder='Email addres'
+              className={css.titleEmail}
+            />
+          </div>
+          <div className={css.CommentPosition}>
+            <Field type='text' name='comment' placeholder='Comment' className={css.CommentTitle} />
+          </div>
           <Button type='submit' title='Send' />
+            <Field type='email' name='email' placeholder='Email adres' className={css.titleEmail} />
+          </div>
+          <div className={css.titleCommentPosition}>
+            <Field type='text' name='comment' placeholder='Comment' className={css.titleComment} />
+          </div>
+          <Button type='submit' title='Send' className={css.createButton} />
         </Form>
       </Formik>
     </div>

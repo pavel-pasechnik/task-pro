@@ -1,3 +1,4 @@
+/* eslint-disable n/no-missing-import */
 import { Link } from 'react-router-dom';
 import css from './NotFound.module.css';
 
