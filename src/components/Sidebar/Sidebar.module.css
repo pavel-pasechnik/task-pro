@@ -10,7 +10,7 @@
 
   color: var(--white-color);
 
-  background-color: var(--black-color);
+  background-color: var(--almost-black-color);
 
   transition: left 0.3s ease;
 }
