@@ -1,6 +1,7 @@
+/* Mobile style */
 @media only screen and (width >= 320px) {
   .container {
-    max-width: 433px;
+    max-width: 400px;
     margin: 0 auto;
     padding: 24px;
 
@@ -16,6 +17,7 @@
   }
 
   .titleEmailPosition {
+    margin-top: 24px;
     font-size: 18;
     font-weight: 300;
     color: var(--white-color);
@@ -24,30 +26,59 @@
   .titleEmail {
     width: 100%;
     padding: 14px;
-    background-color: var(---black-color-input);
+
     color: var(--gray-text-color);
+
+    background-color: var(---black-color-input);
     border: 1px solid var(--green-color);
     border-radius: 8px;
   }
+
   .titleCommentPosition {
+    padding-top: 14px;
+    padding-bottom: 24px;
+
     font-size: 18;
     font-weight: 300;
     color: var(--white-color);
-    padding-top: 14px;
-    padding-bottom: 24px;
   }
+
   .titleComment {
+    width: 100%;
     padding-top: 14px;
     padding-bottom: 85px;
     padding-left: 18px;
-    width: 100%;
-    background-color: var(---black-color-input);
+
     color: var(--gray-text-color);
+
+    background-color: var(---black-color-input);
     border: 1px solid var(--green-color);
     border-radius: 8px;
   }
+
   .createButton {
     width: 100%;
+    padding: 14px;
+
+    background-color: var(--black-color);
+    border: 1px solid var(--green-color);
+    border-radius: 8px;
+  }
+
+  .CommentPosition {
+    margin-top: 14px;
+    margin-bottom: 24px;
+  }
+
+  .CommentTitle {
+    width: 100%;
+    padding-top: 14px;
+    padding-bottom: 85px;
+    padding-left: 18px;
+
+    background-color: var(--black-color);
+    border: 1px solid var(--green-color);
+    border-radius: 8px;
   }
 }
 
@@ -65,31 +96,57 @@
   }
 
   .titleEmailPosition {
+    margin-top: 24px;
+    padding-top: 24px;
+
     font-size: 18;
     font-weight: 300;
     color: var(--white-color);
-    padding-top: 24px;
   }
+
   .titleEmail {
     width: 100%;
     padding: 14px;
-    background-color: var(---black-color-input);
+
     color: var(--gray-text-color);
+
+    background-color: var(---black-color-input);
     border: 1px solid var(--green-color);
     border-radius: 8px;
   }
+
   .titleCommentPosition {
+    padding-top: 14px;
+    padding-bottom: 24px;
+
     font-size: 18;
     font-weight: 300;
     color: var(--white-color);
-    padding-top: 14px;
-    padding-bottom: 24px;
   }
+
   .titleComment {
-    padding: 14px 264px 85px 18px;
     width: 100%;
-    background-color: var(---black-color-input);
+    padding: 14px 264px 85px 18px;
+
     color: var(--gray-text-color);
+
+    background-color: var(---black-color-input);
+    border: 1px solid var(--green-color);
+    border-radius: 8px;
+  }
+
+  .CommentPosition {
+    margin-top: 14px;
+    margin-bottom: 24px;
+  }
+
+  .CommentTitle {
+    width: 100%;
+    padding-top: 14px;
+    padding-bottom: 85px;
+    padding-left: 18px;
+
+    background-color: var(--black-color);
     border: 1px solid var(--green-color);
     border-radius: 8px;
   }
@@ -97,10 +154,11 @@
 
 /* desktop styles */
 
-@media only screen and (width >= 1158px) {
+@media only screen and (width <= 1440px) {
   .container {
     max-width: 433px;
     margin: 0 auto;
+    padding: 0 15px;
     padding: 24px;
 
     background-color: var(--black-color);
@@ -108,32 +166,62 @@
     border-radius: 8px;
   }
 
-  .titleEmailPosition {
-    font-size: 18;
-    font-weight: 300;
-    color: var(--white-color);
-    padding-top: 24px;
-  }
   .titleEmail {
     width: 100%;
     padding: 14px;
-    background-color: var(---black-color-input);
+
     color: var(--gray-text-color);
+
+    background-color: var(---black-color-input);
     border: 1px solid var(--green-color);
     border-radius: 8px;
   }
+
   .titleCommentPosition {
+    padding-top: 14px;
+    padding-bottom: 24px;
+
     font-size: 18;
     font-weight: 300;
     color: var(--white-color);
-    padding-top: 14px;
-    padding-bottom: 24px;
   }
+
   .titleComment {
-    padding: 14px 264px 85px 18px;
     width: 100%;
-    background-color: var(---black-color-input);
+    padding: 14px 264px 85px 18px;
+
     color: var(--gray-text-color);
+
+    background-color: var(---black-color-input);
+    border: 1px solid var(--green-color);
+    border-radius: 8px;
+  }
+
+  .titleBoard {
+    font-size: 18;
+    font-weight: 500;
+    color: var(--white-color);
+  }
+
+  .titleEmailPosition {
+    margin-top: 24px;
+    font-size: 18;
+    font-weight: 300;
+    color: var(--white-color);
+  }
+
+  .CommentPosition {
+    margin-top: 14px;
+    margin-bottom: 24px;
+  }
+
+  .CommentTitle {
+    width: 100%;
+    padding-top: 14px;
+    padding-bottom: 85px;
+    padding-left: 18px;
+
+    background-color: var(--black-color);
     border: 1px solid var(--green-color);
     border-radius: 8px;
   }

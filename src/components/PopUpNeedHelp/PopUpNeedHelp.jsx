@@ -22,6 +22,17 @@ export function PopUpNeedHelp() {
         }}>
         <Form>
           <div className={css.titleEmailPosition}>
+            <Field
+              type='email'
+              name='email'
+              placeholder='Email addres'
+              className={css.titleEmail}
+            />
+          </div>
+          <div className={css.CommentPosition}>
+            <Field type='text' name='comment' placeholder='Comment' className={css.CommentTitle} />
+          </div>
+          <Button type='submit' title='Send' />
             <Field type='email' name='email' placeholder='Email adres' className={css.titleEmail} />
           </div>
           <div className={css.titleCommentPosition}>
