@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
+axios.defaults.baseURL = 'https://task-pro-backend-ehpy.onrender.com';
 
 const setAuthHeader = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -13,7 +13,7 @@ const clearAuthHeader = () => {
 
 export const register = createAsyncThunk('auth/register', async (userInfo, thunkAPI) => {
   try {
-    const response = await axios.post('/users/signup', userInfo);
+    const response = await axios.post('/api/users/register', userInfo);
 
     setAuthHeader(response.data.token);
 
@@ -25,7 +25,7 @@ export const register = createAsyncThunk('auth/register', async (userInfo, thunk
 
 export const login = createAsyncThunk('auth/login', async (userInfo, thunkAPI) => {
   try {
-    const response = await axios.post('/users/login', userInfo);
+    const response = await axios.post('/api/users/login', userInfo);
 
     setAuthHeader(response.data.token);
 
@@ -35,9 +35,9 @@ export const login = createAsyncThunk('auth/login', async (userInfo, thunkAPI) =
   }
 });
 
-export const logout = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
+export const logout = createAsyncThunk('logout', async (_, thunkAPI) => {
   try {
-    const response = await axios.post('/users/logout');
+    const response = await axios.post('/api/users/logout');
 
     clearAuthHeader();
 
@@ -56,7 +56,7 @@ export const refreshUser = createAsyncThunk(
 
     // Add it to the HTTP header and perform the request
     setAuthHeader(savedToken);
-    const response = await axios.get('/users/current');
+    const response = await axios.get('api/users/current');
 
     return response.data;
   },
