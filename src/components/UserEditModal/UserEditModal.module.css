@@ -67,10 +67,11 @@
   padding: 0;
 
   color: var(--white-color);
-  fill: var(--white-color);
 
   background-color: transparent;
   border: none;
+
+  fill: var(--white-color);
 }
 
 .plusBtn {
@@ -208,7 +209,6 @@
 
     width: 400px;
     max-height: 440px;
-
     margin-top: 5px;
     margin-bottom: 5px;
   }
