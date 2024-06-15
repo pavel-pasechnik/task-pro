@@ -7,6 +7,9 @@
   "plugins": ["stylelint-order", "stylelint-prettier"],
   "rules": {
     "prettier/prettier": true,
+    "media-feature-range-notation": "context",
+    "selector-class-pattern": null,
+    "custom-property-pattern": null,
     "declaration-property-unit-allowed-list": {
       "letter-spacing": ["em"],
       "line-height": []
