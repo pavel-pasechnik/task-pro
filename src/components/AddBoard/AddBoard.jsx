@@ -1,115 +1,124 @@
-import 'react-datepicker/dist/react-datepicker.css';
-import DatePicker from 'react-datepicker';
-import IconButton from '../IconButton/IconButton';
-import Input from '../Input/Input';
+import ButtonIcon from '../ButtonIcon/ButtonIcon.jsx';
+import Calendar from '../Calendar/Calendar.jsx';
+import axios from 'axios';
+import clsx from 'clsx';
+import sprite from '../../assets/sprite.svg';
 import styles from './AddBoard.module.css';
 import { useState } from 'react';
 
-const AddBoard = ({ isOpen, onClose }) => {
+const AddBoard = ({ isOpen, onClose, columnId }) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [labelColor, setLabelColor] = useState('pink');
   const [deadline, setDeadline] = useState(new Date());
-  const [isCalendarOpen, setIsCalendarOpen] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   if (!isOpen) return null;
 
-  const handleAdd = () => {
-    // TODO дописати логіку додавання карточок
-    console.log({ title, description, labelColor, deadline });
-    onClose();
-  };
+  const handleAdd = async () => {
+    try {
+      await axios.post(`/api/boards/cards/${columnId}`, {
+        title,
+        description,
+        labelColor,
+        deadline,
+      });
 
-  const toggleCalendar = () => {
-    setIsCalendarOpen(!isCalendarOpen);
+      onClose();
+    } catch (error) {
+      setErrorMessage(`Error adding card: ${error.response?.data?.message || error.message}`);
+    }
   };
 
   const handleDateChange = date => {
     setDeadline(date);
-    setIsCalendarOpen(false);
+  };
+
+  const getLabelClassName = color => {
+    return `${styles.labelColor} ${styles[color]} ${labelColor === color ? styles.active : ''}`;
   };
 
   return (
     <div className={styles.modal}>
-      <div className={styles['modal-content']}>
-        <button className={styles['close-button']} onClick={onClose}>
-          ×
+      <div className={styles.modalContent}>
+        <button className={styles.closeButton} onClick={onClose}>
+          <svg className={styles.closeIcon}>
+            <use href={`${sprite}#icon-x-close`}></use>
+          </svg>
         </button>
-        <h2>Add card</h2>
-        <Input
-          type='text'
-          className={styles['modal-input']}
+        <h2 className={styles.addTitle}>Add card</h2>
+        <textarea
+          className={clsx(styles.modalInputTitle, styles.textarea)}
           placeholder='Title'
           value={title}
-          onChange={e => setTitle(e.target.value)}
-        />
+          onChange={e => setTitle(e.target.value)}></textarea>
         <textarea
-          className={styles['modal-textarea']}
+          className={clsx(styles.modalInputDescription, styles.textarea)}
           placeholder='Description'
           value={description}
           onChange={e => setDescription(e.target.value)}></textarea>
-        <div className={styles['label-colors']}>
-          <input
-            id='pink'
-            type='radio'
-            name='labelColor'
-            value='pink'
-            checked={labelColor === 'pink'}
-            onChange={() => setLabelColor('pink')}
-            className={`${styles['label-color']} ${styles.pink} ${labelColor === 'pink' ? styles.active : ''}`}
-          />
-          <input
-            id='blue'
-            type='radio'
-            name='labelColor'
-            value='blue'
-            checked={labelColor === 'blue'}
-            onChange={() => setLabelColor('blue')}
-            className={`${styles['label-color']} ${styles.blue} ${labelColor === 'blue' ? styles.active : ''}`}
-          />
-          <input
-            id='green'
-            type='radio'
-            name='labelColor'
-            value='green'
-            checked={labelColor === 'green'}
-            onChange={() => setLabelColor('green')}
-            className={`${styles['label-color']} ${styles.green} ${labelColor === 'green' ? styles.active : ''}`}
-          />
-          <input
-            id='gray'
-            type='radio'
-            name='labelColor'
-            value='gray'
-            checked={labelColor === 'gray'}
-            onChange={() => setLabelColor('gray')}
-            className={`${styles['label-color']} ${styles.gray} ${labelColor === 'gray' ? styles.active : ''}`}
-          />
-        </div>
-        <div className={styles.deadline}>
-          <label htmlFor='deadline-input'>Deadline</label>
-          <div
-            id='deadline-input'
-            onClick={toggleCalendar}
-            className={styles['deadline-input']}
-            role='button'
-            tabIndex={0}
-            onKeyDown={e => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                toggleCalendar();
-              }
-            }}>
-            {deadline.toLocaleDateString()}
+        {errorMessage && <div className={styles.errorMessage}>{errorMessage}</div>}
+        <div className={styles.section}>
+          <span className={styles.sectionTitle}>Label color</span>
+          <div className={styles.labelColors}>
+            <span
+              className={getLabelClassName('blue')}
+              onClick={() => setLabelColor('blue')}
+              role='button'
+              tabIndex={0}
+              onKeyDown={e => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  setLabelColor('blue');
+                }
+              }}
+            />
+            <span
+              className={getLabelClassName('pink')}
+              onClick={() => setLabelColor('pink')}
+              role='button'
+              tabIndex={0}
+              onKeyDown={e => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  setLabelColor('pink');
+                }
+              }}
+            />
+            <span
+              className={getLabelClassName('green')}
+              onClick={() => setLabelColor('green')}
+              role='button'
+              tabIndex={0}
+              onKeyDown={e => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  setLabelColor('green');
+                }
+              }}
+            />
+            <span
+              className={getLabelClassName('gray')}
+              onClick={() => setLabelColor('gray')}
+              role='button'
+              tabIndex={0}
+              onKeyDown={e => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  setLabelColor('gray');
+                }
+              }}
+            />
           </div>
-          {isCalendarOpen && (
-            <div className={styles.calendar}>
-              <DatePicker selected={deadline} onChange={handleDateChange} inline />
-            </div>
-          )}
         </div>
-        <IconButton id='plus' iconWidth='24' iconHeight='24' onClick={handleAdd}>
-          <span className={styles.title}>Add</span>
-        </IconButton>
+        <div className={styles.section}>
+          <span className={styles.sectionTitle}>Deadline</span>
+          <Calendar selectedDate={deadline} handleSetDate={handleDateChange} />
+        </div>
+        <ButtonIcon
+          id='icon-add'
+          iconWidth='28'
+          iconHeight='28'
+          btnClassName={styles.addButton}
+          onClick={handleAdd}>
+          Add
+        </ButtonIcon>
       </div>
     </div>
   );

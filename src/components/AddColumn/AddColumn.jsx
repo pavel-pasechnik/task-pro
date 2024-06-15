@@ -1,35 +1,51 @@
-import 'react-datepicker/dist/react-datepicker.css';
+import ButtonIcon from '../ButtonIcon/ButtonIcon.jsx';
+import axios from 'axios';
+import clsx from 'clsx';
+import sprite from '../../assets/sprite.svg';
 import styles from './AddColumn.module.css';
 import { useState } from 'react';
 
-const AddColumnModal = ({ isOpen, onClose }) => {
+const AddColumnModal = ({ isOpen, onClose, boardId }) => {
   const [title, setTitle] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
   if (!isOpen) return null;
 
-  const handleAdd = () => {
-    // TODO написати логіку додавання колонки
-    console.log({ title });
-    onClose();
+  const handleAdd = async () => {
+    try {
+      await axios.post(`/api/boards/columns/${boardId}`, {
+        title,
+      });
+
+      onClose();
+    } catch (error) {
+      setErrorMessage(`Error adding column: ${error.response?.data?.message || error.message}`);
+    }
   };
 
   return (
     <div className={styles.modal}>
-      <div className={styles['modal-content']}>
-        <button className={styles['close-button']} onClick={onClose}>
-          ×
+      <div className={styles.modalContent}>
+        <button className={clsx(styles.closeButton)} onClick={onClose}>
+          <svg className={styles.closeIcon}>
+            <use href={`${sprite}#icon-x-close`}></use>
+          </svg>
         </button>
-        <h2>Add column</h2>
-        <input
-          type='text'
-          className={styles['modal-input']}
+        <h2 className={styles.addColumn}>Add column</h2>
+        <textarea
+          className={clsx(styles.modalInputTitle, styles.textarea)}
           placeholder='Title'
           value={title}
-          onChange={e => setTitle(e.target.value)}
-        />
-        <button className={styles['add-button']} onClick={handleAdd}>
+          onChange={e => setTitle(e.target.value)}></textarea>
+        {errorMessage && <p className={styles.errorMessage}>{errorMessage}</p>}
+        <ButtonIcon
+          id='icon-add'
+          iconWidth='28'
+          iconHeight='28'
+          btnClassName={styles.addButton}
+          onClick={handleAdd}>
           Add
-        </button>
+        </ButtonIcon>
       </div>
     </div>
   );
