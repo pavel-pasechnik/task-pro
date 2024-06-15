@@ -9,7 +9,7 @@ import {
   persistStore,
 } from 'redux-persist';
 import authReducer from './auth/slice.js';
-import boardsReducer from './boards/boards.js';
+import boardsReducer from './boards/slice.js';
 import { configureStore } from '@reduxjs/toolkit';
 import contactsReducer from './contacts/slice.js';
 import filtersReducer from './filters/slice.js';

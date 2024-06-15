@@ -5,7 +5,7 @@ import {
 } from '../../redux/boards/selectors.js';
 import { useDispatch, useSelector } from 'react-redux';
 import css from './ScreensPage.module.css';
-import { fetchBoards } from '../../redux/boards/boards.js';
+import fetchBoards from '../../redux/boards/boards.js';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 

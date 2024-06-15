@@ -5,7 +5,7 @@ import {
 } from '../../redux/boards/selectors.js';
 import { useDispatch, useSelector } from 'react-redux';
 import css from './ProjectList.module.css';
-import { fetchBoards } from '../../redux/boards/boards.js';
+import fetchBoards from '../../redux/boards/boards.js';
 import { useEffect } from 'react';
 
 const ProjectList = () => {
@@ -23,7 +23,11 @@ const ProjectList = () => {
   }
 
   if (error) {
-    return <p>Error: {error}</p>;
+    return <p className={css.projectList}>Error: {error}</p>;
+  }
+
+  if (!boards || boards.length === 0) {
+    return <p className={css.projectList}>No boards available.</p>;
   }
 
   return (
