@@ -5,12 +5,15 @@
 
   padding: 14px 20px;
 
-  background-color: #121212;
+  background-color: var(--almost-black-color);
 }
 
 @media screen and (width >= 768px) {
   .headerBox {
     padding: 18px 32px;
+  }
+  .menu {
+    display: none;
   }
 }
 
@@ -31,7 +34,7 @@
 .text {
   font-size: 14px;
   font-weight: 500;
-  color: #fff;
+  color: var(--white-color);
   letter-spacing: -0.02em;
 }
 
@@ -43,7 +46,6 @@
 
   object-fit: cover;
   border-radius: 8px;
-
   transition: all 250ms linear;
 }
 
@@ -61,7 +63,7 @@
   width: 16px;
   height: 16px;
   background-color: transparent;
-  fill: #fff;
+  fill: var(--white-color);
 }
 
 .arrowIcon.open {
@@ -71,7 +73,7 @@
 .text {
   font-size: 14px;
   font-weight: 500;
-  color: #f1f1f1;
+  color: var(--almost-white-color);
 }
 
 .dropdown {
@@ -84,19 +86,19 @@
 
   font-size: 14px;
   font-weight: 500;
-  color: rgb(255 255 255 / 80%);
+  color: var(--filters-button-light-color);
   letter-spacing: -0.02em;
 }
 
 .dropbtn {
   display: flex;
-  gap: 4px;
+  gap: 5px;
   align-items: center;
 
   padding-top: 2px;
 
   font-size: 14px;
-  color: #f1f1f1;
+  color: var(--almost-white-color);
 
   background-color: transparent;
   border: none;
@@ -118,8 +120,8 @@
   padding: 18px;
 
   opacity: 0;
-  background-color: #151515;
-  border: 1px solid #bedbb0;
+  background-color: var(--black-color);
+  border: 1px solid var(--green-color);
   border-radius: 8px;
   box-shadow: 0 4px 16px 0 rgb(17 17 17 / 10%);
 
@@ -135,14 +137,14 @@
 
 .rightBlock {
   display: flex;
-  gap: 14px;
+  gap: 25px;
   align-items: center;
 }
 
 .themeBtn {
   font-size: 14px;
   font-weight: 400;
-  color: rgb(255 255 255 / 50%);
+  color: var(--gray-text-color);
   text-align-last: left;
   letter-spacing: -0.02em;
 
@@ -158,7 +160,7 @@
 
 .themeBtn:hover {
   transform: translateX(5px);
-  color: #9dc888;
+  color: var(--green-color);
 }
 
 .burgerMenu {
@@ -174,18 +176,11 @@
   border: none;
 }
 
-.svgStyles {
-  width: 32px;
-  height: 32px;
-  fill: rgb(22 22 22 / 100%);
-  stroke: #ddd;
-}
-
 .menu {
   width: 24px;
   height: 24px;
   background-color: transparent;
-  fill: white;
+  fill: var(--white-color);
 }
 
 @media screen and (width >= 768px) {
@@ -201,104 +196,10 @@
   }
 }
 
-.modalWrap {
-  position: fixed;
-  top: 0;
-  left: 0;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  width: 100vw;
-  height: 100vh;
-
-  background-color: rgb(102 106 109 / 68.6%);
-}
-
-.modalContainer {
-  position: relative;
-
-  width: 335px;
-  padding: 24px;
-
-  background-color: aliceblue;
-  border-radius: 8px;
-}
-
-.titleBox {
-  margin-bottom: 24px;
-}
-
-.title {
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 27px;
-  color: #161616;
-}
-
-.closeBtn {
-  position: absolute;
-  top: 14px;
-  right: 14px;
-
-  width: 18px;
-  height: 18px;
-
-  background: none;
-  border: none;
-}
-
-.avatarBox {
-  position: relative;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  width: 32px;
-  margin: 0 auto 24px;
-}
-
 .avatar {
   width: 32px;
   height: 32px;
 
-  background-color: #5255bc;
-  border-radius: 8px;
-
-  stroke: black;
-}
-
-.avatarBtn {
-  position: absolute;
-  bottom: -11px;
-
-  width: 24px;
-  height: 24px;
-
-  background-color: #999696;
-  border: transparent;
-  border-radius: 6px;
-}
-
-.input {
-  width: 100%;
-  margin-bottom: 14px;
-  padding: 18px 14px;
-
-  font-size: 14px;
-  font-weight: 400;
-  color: #161616;
-
-  border-radius: 8px;
-}
-
-.sendBtn {
-  width: 100%;
-  margin-top: 10px;
-  padding: 14px;
   border-radius: 8px;
 }
 
