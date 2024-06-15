@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import { Suspense, lazy, useEffect } from 'react';
-// import { selectIsLoggedIn, selectIsRefreshing } from '../../redux/auth/selectors.js';
+import { selectIsLoggedIn } from '../../redux/auth/selectors.js';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectIsRefreshing } from '../../redux/auth/selectors.js';
 // import { PrivateRoute } from '../Routes/PrivateRoute.jsx';
@@ -14,6 +14,8 @@ import Layout from '../Layout/Layout.jsx';
 import { WelcomePage } from '../../pages/WelcomePage/WelcomePage.jsx';
 import { LoginPage } from '../../pages/LoginPage/LoginPage.jsx';
 import { RegisterPage } from '../../pages/RegisterPage/RegisterPage.jsx';
+import { RestrictedRoute } from '../Routes/RestrictedRoute.jsx';
+import { PrivateRoute } from '../Routes/PrivateRoute.jsx';
 
 const NotFound = lazy(() => import('../../pages/NotFound/NotFound.jsx'));
 
@@ -31,9 +33,23 @@ export default function App() {
 
   return (
     <>
-      <WelcomePage />
+      {/* <WelcomePage /> */}
       {/* <RegisterPage /> */}
       {/* <LoginPage /> */}
+
+      <Routes>
+        <Route path='/' element={selectIsLoggedIn ? <WelcomePage /> : <LoginPage />} />
+        <Route path='/home' element={<WelcomePage />} />
+
+        <Route
+          path='/register'
+          element={<RestrictedRoute component={<RegisterPage />} redirectTo='/home' />}
+        />
+        <Route
+          path='/login'
+          element={<RestrictedRoute component={<LoginPage />} redirectTo='/home' />}
+        />
+      </Routes>
 
       {/* <Toaster position='top-center' />
       <Layout>
@@ -42,8 +58,8 @@ export default function App() {
             <b>Please wait...</b>
           ) : (
             <Routes>
-              <Route path='/' element={isLoggedIn ? <HomePage /> : <LoginPage />} />
-              <Route path='/home' element={<HomePage />} />
+              <Route path='/' element={isLoggedIn ? <WelcomePage /> : <LoginPage />} />
+              <Route path='/home' element={<WelcomePage />} />
               <Route
                 path='/contacts'
                 element={<PrivateRoute component={<Contacts />} redirectTo='/login' />}

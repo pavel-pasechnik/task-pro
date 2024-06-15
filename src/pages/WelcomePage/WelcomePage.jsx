@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import css from './WelcomePage.module.css';
 
 export const WelcomePage = () => {
@@ -17,7 +18,13 @@ export const WelcomePage = () => {
         wait, start achieving your goals now!
       </p>
 
-      <button className={css.registerBtn}>Registration</button>
+      <div className={css.registerBtn}>
+        {
+          <NavLink className={css.navLink} to='/register'>
+            Registration
+          </NavLink>
+        }
+      </div>
       <button className={css.loginBtn}>Log in</button>
     </div>
   );

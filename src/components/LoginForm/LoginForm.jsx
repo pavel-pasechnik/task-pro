@@ -4,6 +4,8 @@ import { useId } from 'react';
 import css from '../LoginForm/LoginForm.module.css';
 import { NavLink } from 'react-router-dom';
 import { PasswordInput } from '../../components/PasswordInput/PasswordInput.jsx';
+import { useDispatch } from 'react-redux';
+import { login } from '../../redux/auth/operations.js';
 
 const initialValues = {
   name: '',
@@ -19,10 +21,19 @@ const validationSchema = Yup.object().shape({
 export const LoginForm = () => {
   const emailFieldId = useId();
   const passwordFieldId = useId();
+  const dispatch = useDispatch();
+
+  const handleSubmit = (values, actions) => {
+    dispatch(login(values));
+    actions.resetForm();
+  };
 
   return (
     <div className={css.mainCont}>
-      <Formik initialValues={initialValues} validationSchema={validationSchema}>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={validationSchema}
+        onSubmit={handleSubmit}>
         <Form className={css.formCont} autoComplete='off'>
           <div className={css.nav}>
             {

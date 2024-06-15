@@ -4,6 +4,8 @@ import { useId } from 'react';
 import css from '../RegisterForm/RegisterForm.module.css';
 import { NavLink } from 'react-router-dom';
 import PasswordInput from '../PasswordInput/PasswordInput.jsx';
+import { useDispatch } from 'react-redux';
+import { register } from '../../redux/auth/operations.js';
 
 const initialValues = {
   name: '',
@@ -21,10 +23,19 @@ export const RegisterForm = () => {
   const nameFieldId = useId();
   const emailFieldId = useId();
   const passwordFieldId = useId();
+  const dispatch = useDispatch();
+
+  const handleSubmit = (values, actions) => {
+    dispatch(register(values));
+    actions.resetForm();
+  };
 
   return (
     <div className={css.mainCont}>
-      <Formik initialValues={initialValues} validationSchema={validationSchema}>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={validationSchema}
+        onSubmit={handleSubmit}>
         <Form className={css.formCont} autoComplete='off'>
           <div className={css.nav}>
             <p className={css.p}>Registration</p>

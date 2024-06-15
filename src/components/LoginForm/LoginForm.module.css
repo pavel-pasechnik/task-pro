@@ -1,5 +1,5 @@
 .mainCont {
-  background: linear-gradient(to bottom, #f6f6f7 0%, #bedbb0 100%);
+  background: linear-gradient(to bottom, #ffffff 0%, #bedbb0 100%);
   height: 100vh;
   display: flex;
   align-items: center;
@@ -58,6 +58,12 @@
   padding-top: 14px;
   padding-bottom: 14px;
   margin-top: 10px;
+}
+
+@media screen and (max-width: 374px) {
+  .formCont {
+    width: 80%;
+  }
 }
 
 @media screen and (min-width: 768px) {

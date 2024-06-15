@@ -50,10 +50,18 @@
   height: 49px;
   border-radius: 8px;
   background-color: #161616;
+  cursor: pointer;
+  margin-bottom: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navLink {
   font-size: 14px;
   line-height: 1.5em;
   color: #ffffff;
-  margin-bottom: 14px;
+  text-decoration: none;
 }
 
 .loginBtn {
@@ -62,6 +70,15 @@
   color: #161616;
   border: 0px;
   background-color: transparent;
+}
+
+@media screen and (max-width: 374px) {
+  .registerBtn {
+    width: 290px;
+  }
+  .text {
+    width: 290px;
+  }
 }
 
 @media screen and (min-width: 375px) {
@@ -94,7 +111,4 @@
   .registerBtn {
     width: 344px;
   }
-}
-
-@media screen and (min-width: 1440px) {
 }
