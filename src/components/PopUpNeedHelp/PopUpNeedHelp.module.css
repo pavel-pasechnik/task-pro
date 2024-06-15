@@ -1,9 +1,7 @@
-@media only screen and (width >= 320px) {
+/* Mobile style */
+@media only screen and (min-width: 320px) {
   .container {
-    display: flex;
-    flex-direction: row;
-
-    max-width: 433px;
+    max-width: 400px;
     margin: 0 auto;
     padding: 24px;
 
@@ -19,22 +17,39 @@
   }
 
   .titleEmailPosition {
-    width: 100%;
-    padding-top: 24px;
-
+    margin-top: 24px;
     font-size: 18;
     font-weight: 300;
     color: var(--white-color);
   }
 
-  .titleEmailPosition {
+  .titleEmail {
     width: 100%;
+    padding: 14px;
+    border: 1px solid var(--green-color);
+    border-radius: 8px;
+
+    background-color: var(--black-color);
+  }
+  .CommentPosition {
+    margin-top: 14px;
+    margin-bottom: 24px;
+  }
+  .CommentTitle {
+    width: 100%;
+    padding-top: 14px;
+    padding-left: 18px;
+    padding-bottom: 85px;
+    border: 1px solid var(--green-color);
+    border-radius: 8px;
+    background-color: var(--black-color);
+    background-color: var(--black-color);
   }
 }
 
 /* tablet styles */
 
-@media only screen and (width >= 768px) {
+@media only screen and (min-width: 768px) {
   .container {
     max-width: 433px;
     margin: 0 auto;
@@ -51,18 +66,77 @@
     color: var(--white-color);
   }
 
-  .titleDown {
+  .titleEmailPosition {
+    margin-top: 24px;
     font-size: 18;
     font-weight: 300;
     color: var(--white-color);
+  }
+
+  .titleEmail {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid var(--green-color);
+    border-radius: 8px;
+
+    background-color: var(--black-color);
+  }
+  .CommentPosition {
+    margin-top: 14px;
+    margin-bottom: 24px;
+  }
+  .CommentTitle {
+    width: 100%;
+    padding-top: 14px;
+    padding-left: 18px;
+    padding-bottom: 85px;
+    border: 1px solid var(--green-color);
+    border-radius: 8px;
+    background-color: var(--black-color);
+    background-color: var(--black-color);
   }
 }
 
 /* desktop syles */
 
-@media only screen and (width >= 1158px) {
+@media only screen and (max-width: 1440px) {
   .container {
-    max-width: 1158px;
+    max-width: 433px;
     padding: 0 15px;
+  }
+  .titleBoard {
+    font-size: 18;
+    font-weight: 500;
+    color: var(--white-color);
+  }
+
+  .titleEmailPosition {
+    margin-top: 24px;
+    font-size: 18;
+    font-weight: 300;
+    color: var(--white-color);
+  }
+
+  .titleEmail {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid var(--green-color);
+    border-radius: 8px;
+
+    background-color: var(--black-color);
+  }
+  .CommentPosition {
+    margin-top: 14px;
+    margin-bottom: 24px;
+  }
+  .CommentTitle {
+    width: 100%;
+    padding-top: 14px;
+    padding-left: 18px;
+    padding-bottom: 85px;
+    border: 1px solid var(--green-color);
+    border-radius: 8px;
+    background-color: var(--black-color);
+    background-color: var(--black-color);
   }
 }

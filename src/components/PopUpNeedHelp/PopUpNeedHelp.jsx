@@ -22,9 +22,16 @@ export function PopUpNeedHelp() {
         }}>
         <Form>
           <div className={css.titleEmailPosition}>
-            <Field type='email' name='email' placeholder='Email' className={css.titleEmail} />
+            <Field
+              type='email'
+              name='email'
+              placeholder='Email addres'
+              className={css.titleEmail}
+            />
           </div>
-          <Field type='text' name='comment' placeholder='Comment' />
+          <div className={css.CommentPosition}>
+            <Field type='text' name='comment' placeholder='Comment' className={css.CommentTitle} />
+          </div>
           <Button type='submit' title='Send' />
         </Form>
       </Formik>
