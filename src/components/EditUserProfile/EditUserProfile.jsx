@@ -1,16 +1,18 @@
 
-import Avatar from '../../components/Avatar/Avatar';
-import { Previews } from '../../components/AvatarModal/AvatarModal';
+import Avatar from '../Avatar/Avatar.jsx';
+// import { Previews } from '../AvatarModal/AvatarModal';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
-import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { updateUser } from '../../redux/auth/operations';
-import { selectTheme, selectUser } from '../../redux/auth/selectors';
 import { object, string } from 'yup';
-import { EyeClose } from '../../components/AuthForm/EyeClose/EyeClose';
-import { EyeOpen } from '../../components/AuthForm/EyeOpen/EyeOpen';
-import { Loader } from '../../components/Loader/Loader';
-import Modal from '../../components/Modal/Modal';
+import { selectTheme, selectUser } from '../../redux/auth/selectors.js';
+import { useDispatch, useSelector } from 'react-redux';
+import { EyeClose } from '../AuthForm/EyeClose/EyeClose.jsx';
+import { EyeOpen } from '../AuthForm/EyeOpen/EyeOpen.jsx';
+import { Loader } from '../Loader/Loader.jsx';
+import Modal from '../ModalContainer/ModalContainer.jsx';
+import { updateUser } from '../../redux/auth/operations.js';
+import { useState } from 'react';
+
+
 import styles from './EditUserProfile.module.css';
 
 const updateUserSchema = object({
@@ -21,13 +23,15 @@ const updateUserSchema = object({
     .test(
       'only-allowed-chars',
       'Must contain: only Latin, numbers, special characters',
-      value => !value || /^[a-zA-Z0-9 !@#$%^&*()_+,.:;’“?\-/ ]+$/.test(value)
+      value => !value || /^[\w !@#$%^&*()+,.:;’“?\-/]+$/.test(value)
     )
-    .matches(/^[a-zA-Z0-9 !@#$%^&*()_+,.:;’“?\-/ ]+$/, 'Invalid name format'),
+    .matches(/^[\w !@#$%^&*()+,.:;’“?\-/]+$/, 'Invalid name format'),
   email: string()
     .required('the field cannot be empty')
     .email()
-    .matches(/^[a-zA-Z0-9 .]+@[a-zA-Z]+\.[a-zA-Z]{2,3}$/, 'Invalid email format'),
+
+    .matches(/^[a-z0-9 .]+@[a-z]+\.[a-z]{2,3}$/i, 'Invalid email format'),
+
   password: string()
     .min(8, 'minimum 8 characters')
     .max(64, 'maximum 64 characters')
@@ -35,15 +39,18 @@ const updateUserSchema = object({
     .test(
       'only-allowed-chars',
       'Must contain: only Latin, numbers, special characters',
-      value => !value || /^[a-zA-Z0-9\-!@#$%^&*()_+,.:;’“?/]+$/.test(value)
+      value => !value || /^[\w\-!@#$%^&*()+,.:;’“?/]+$/.test(value)
     )
-    .matches(/^[a-zA-Z0-9\-!@#$%^&*()_+,.:;’“?/]+$/, 'Invalid password format'),
+    .matches(/^[\w\-!@#$%^&*()+,.:;’“?/]+$/, 'Invalid password format'),
 });
 
 export const EditUserProfile = () => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
   const theme = useSelector(selectTheme);
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const toggleModal = () => setIsModalOpen(state => !state);
 
   const initialValues = {
     avatar: null,
@@ -74,22 +81,24 @@ export const EditUserProfile = () => {
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
     setSubmitting(true);
     let formData = new FormData();
+
     formData.set('name', values.name);
     formData.set('email', values.email);
+
     if (values.avatar) formData.set('avatar', values.avatar);
+
     if (values.password) formData.set('password', values.password);
+
     try {
       await dispatch(updateUser(formData));
       resetForm();
       setIsModalOpen(false);
     } catch (error) {
+      throw error.message;
     } finally {
       setSubmitting(false);
     }
   };
-
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const toggleModal = () => setIsModalOpen(state => !state);
 
   return (
     <div>
@@ -101,15 +110,17 @@ export const EditUserProfile = () => {
             initialValues={initialValues}
             validationSchema={updateUserSchema}
             onSubmit={handleSubmit}>
-            {({ errors, values, setFieldValue }) => (
+
+            {({ errors }) => (
+
               <Form className={styles.form}>
                 <div className={styles.wrap}>
                   <p className={styles.title}>Edit profile</p>
-                  <Previews
+                  {/* <Previews
                     onImageSelect={selectedImage => {
                       setFieldValue('avatar', selectedImage);
                     }}
-                  />
+                  /> */}
                 </div>
                 <div className={styles.wrap}>
                   <Field
@@ -136,7 +147,15 @@ export const EditUserProfile = () => {
                     name='password'
                     placeholder='Change password'
                   />
-                  <span className={styles.eye_icon} onClick={togglePassword}>
+                  <span
+                    className={styles.eye_icon}
+                    role='button'
+                    tabIndex='0'
+                    onClick={togglePassword}
+                    onKeyDown={e => {
+                      if (e.key === 'Enter' || e.key === ' ') togglePassword();
+                    }}
+                    aria-label='Toggle password visibility'>
                     {passwordIcon}
                   </span>
                   {errors.password && <FormError name='password' />}

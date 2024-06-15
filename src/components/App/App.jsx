@@ -4,7 +4,7 @@ import { Suspense, lazy, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectIsRefreshing } from '../../redux/auth/selectors.js';
 // import { PrivateRoute } from '../Routes/PrivateRoute.jsx';
-import { RestrictedRoute } from '../Routes/RestrictedRoute.jsx';
+// import { RestrictedRoute } from '../Routes/RestrictedRoute.jsx';
 import { Toaster } from 'react-hot-toast';
 import { refreshUser } from '../../redux/auth/operations.js';
 
@@ -12,9 +12,8 @@ import { refreshUser } from '../../redux/auth/operations.js';
 import HomePage from '../../pages/HomePage/HomePage.jsx';
 import Layout from '../Layout/Layout.jsx';
 
-const Login = lazy(() => import('../../pages/Login/Login.jsx'));
 const NotFound = lazy(() => import('../../pages/NotFound/NotFound.jsx'));
-const Registration = lazy(() => import('../../pages/Registration/Registration.jsx'));
+
 // const Contacts = lazy(() => import('../../pages/Contacts/Contacts.jsx'));
 const ScreensPage = lazy(() => import('../../components/ScreensPage/ScreensPage.jsx'));
 
@@ -42,14 +41,6 @@ export default function App() {
                 path='/contacts'
                 element={<PrivateRoute component={<Contacts />} redirectTo='/login' />}
               /> */}
-              <Route
-                path='/register'
-                element={<RestrictedRoute component={<Registration />} redirectTo='/home' />}
-              />
-              <Route
-                path='/login'
-                element={<RestrictedRoute component={<Login />} redirectTo='/home' />}
-              />
               {/* <Route
                 path='/home'
                 element={

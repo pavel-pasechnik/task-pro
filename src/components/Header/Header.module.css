@@ -12,6 +12,7 @@
   .headerBox {
     padding: 18px 32px;
   }
+
   .menu {
     display: none;
   }
@@ -46,6 +47,7 @@
 
   object-fit: cover;
   border-radius: 8px;
+
   transition: all 250ms linear;
 }
 
@@ -68,12 +70,6 @@
 
 .arrowIcon.open {
   transform: rotate(-180deg);
-}
-
-.text {
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--almost-white-color);
 }
 
 .dropdown {
@@ -199,7 +195,6 @@
 .avatar {
   width: 32px;
   height: 32px;
-
   border-radius: 8px;
 }
 
