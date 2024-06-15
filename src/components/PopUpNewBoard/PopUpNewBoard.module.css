@@ -8,12 +8,13 @@
     border: 1px solid var(--green-color);
     border-radius: 8px;
   }
+
   /* Title style */
   .titleBoard {
+    padding-bottom: 24px;
     font-size: 18;
     font-weight: 500;
     color: var(--white-color);
-    padding-bottom: 24px;
   }
 
   .titleDown {
@@ -21,29 +22,36 @@
     font-weight: 300;
     color: var(--white-color);
   }
+
   .input {
-    padding: 14px;
     width: 100%;
-    background-color: var(---black-color-input);
+    padding: 14px;
+
     color: var(--gray-text-color);
+
+    background-color: var(---black-color-input);
     border: 1px solid var(--green-color);
     border-radius: 8px;
   }
+
   /* Icons Style */
   .iconTitle {
-    color: var(--white-color);
     padding-top: 24px;
     padding-bottom: 7px;
+    color: var(--white-color);
   }
+
   .icons {
     fill: white;
   }
+
   /* Background style */
   .backgroundTitle {
-    color: var(--white-color);
     padding-top: 24px;
     padding-bottom: 14px;
+    color: var(--white-color);
   }
+
   /* Button style */
   .createButton {
     width: 100%;
@@ -63,12 +71,13 @@
     border: 1px solid var(--green-color);
     border-radius: 8px;
   }
+
   /* Title style */
   .titleBoard {
+    padding-bottom: 24px;
     font-size: 18;
     font-weight: 500;
     color: var(--white-color);
-    padding-bottom: 24px;
   }
 
   .titleDown {
@@ -76,29 +85,36 @@
     font-weight: 300;
     color: var(--white-color);
   }
+
   .input {
-    padding: 14px;
     width: 100%;
-    background-color: var(---black-color-input);
+    padding: 14px;
+
     color: var(--gray-text-color);
+
+    background-color: var(---black-color-input);
     border: 1px solid var(--green-color);
     border-radius: 8px;
   }
+
   /* Icons Style */
   .iconTitle {
-    color: var(--white-color);
     padding-top: 24px;
     padding-bottom: 7px;
+    color: var(--white-color);
   }
+
   .icons {
     fill: white;
   }
+
   /* Background style */
   .backgroundTitle {
-    color: var(--white-color);
     padding-top: 24px;
     padding-bottom: 14px;
+    color: var(--white-color);
   }
+
   /* Button style */
   .createButton {
     width: 100%;
@@ -118,12 +134,13 @@
     border: 1px solid var(--green-color);
     border-radius: 8px;
   }
+
   /* Title style */
   .titleBoard {
+    padding-bottom: 24px;
     font-size: 18;
     font-weight: 500;
     color: var(--white-color);
-    padding-bottom: 24px;
   }
 
   .titleDown {
@@ -131,29 +148,36 @@
     font-weight: 300;
     color: var(--white-color);
   }
+
   .input {
-    padding: 14px;
     width: 100%;
-    background-color: var(---black-color-input);
+    padding: 14px;
+
     color: var(--gray-text-color);
+
+    background-color: var(---black-color-input);
     border: 1px solid var(--green-color);
     border-radius: 8px;
   }
+
   /* Icons Style */
   .iconTitle {
-    color: var(--white-color);
     padding-top: 24px;
     padding-bottom: 7px;
+    color: var(--white-color);
   }
+
   .icons {
     fill: white;
   }
+
   /* Background style */
   .backgroundTitle {
-    color: var(--white-color);
     padding-top: 24px;
     padding-bottom: 14px;
+    color: var(--white-color);
   }
+
   /* Button style */
   .createButton {
     width: 100%;

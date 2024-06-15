@@ -1,8 +1,10 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable sort-imports */
+
 import Button from '../Button/Button.jsx';
 import { Field, Form, Formik } from 'formik';
 import css from './PopUpNewBoard.module.css';
+
 import { nanoid } from 'nanoid';
 import { useState } from 'react';
 import sprite from '../../assets/sprite.svg';
@@ -13,7 +15,9 @@ const initialValues = {
   background: '',
 };
 
+
 const icons = [{ id: 'icon1', src: `${sprite}#icon-four-circles`, alt: 'icon-four-circles' }];
+
 
 const backgrounds = [
   { id: 'bg1', src: '../../assets/smallbg/airBalloon.jpg', alt: 'airBalloon.jpg' },
