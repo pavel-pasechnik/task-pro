@@ -1,13 +1,14 @@
 .mainCont {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  background:
-    url('src/assets/icons/background.png') no-repeat center center / cover,
-    linear-gradient(to bottom, #ffffff 0%, #bedbb0 100%);
+  justify-content: center;
 
   height: 100vh;
+
+  background:
+    url('src/assets/icons/background.png') no-repeat center center / cover,
+    linear-gradient(to bottom, #fff 0%, #bedbb0 100%);
 }
 
 .img {
@@ -30,37 +31,41 @@
 
 .title {
   font-size: 28px;
+  font-weight: 600;
   line-height: 1.5em;
   color: #161616;
-  font-weight: 600;
 }
 
 .text {
-  font-size: 14px;
   width: 335px;
+  margin-bottom: 40px;
+
+  font-size: 14px;
   font-weight: 400;
-  text-align: center;
   line-height: 1.29em;
   color: #161616;
-  margin-bottom: 40px;
+  text-align: center;
 }
 
 .registerBtn {
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   width: 335px;
   height: 49px;
-  border-radius: 8px;
-  background-color: #161616;
-  cursor: pointer;
   margin-bottom: 14px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
+  background-color: #161616;
+  border-radius: 8px;
 }
 
 .navLink {
   font-size: 14px;
   line-height: 1.5em;
-  color: #ffffff;
+  color: #fff;
   text-decoration: none;
 }
 
@@ -68,46 +73,53 @@
   font-size: 14px;
   line-height: 1.5em;
   color: #161616;
-  border: 0px;
+
   background-color: transparent;
+  border: 0;
 }
 
-@media screen and (max-width: 374px) {
+@media screen and (width <= 374px) {
   .registerBtn {
     width: 290px;
   }
+
   .text {
     width: 290px;
   }
 }
 
-@media screen and (min-width: 375px) {
+@media screen and (width >= 375px) {
   .mainCont {
-    padding-left: 20px;
     padding-right: 20px;
+    padding-left: 20px;
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (width >= 768px) {
   .mainCont {
-    padding-left: 0;
     padding-right: 0;
+    padding-left: 0;
   }
+
   .img {
     width: 162px;
     height: 162px;
     margin-bottom: 24px;
   }
+
   .logo {
     width: 48px;
     height: 48px;
   }
+
   .title {
     font-size: 40px;
   }
+
   .text {
     width: 500px;
   }
+
   .registerBtn {
     width: 344px;
   }

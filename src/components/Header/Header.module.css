@@ -2,7 +2,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   padding: 14px 20px;
+
   background-color: var(--background-header);
 }
 
@@ -34,7 +36,6 @@
   font-size: 14px;
   font-weight: 500;
   color: var(--color-text-base);
-
   letter-spacing: -0.02em;
 }
 
@@ -192,11 +193,12 @@
 }
 
 .avatar {
+  --color1: var(--header-icon-user-bg);
+  --color2: var(--header-icon-user);
+
   width: 32px;
   height: 32px;
   border-radius: 8px;
-  --color1: var(--header-icon-user-bg);
-  --color2: var(--header-icon-user);
 }
 
 @media screen and (width >= 767px) {
