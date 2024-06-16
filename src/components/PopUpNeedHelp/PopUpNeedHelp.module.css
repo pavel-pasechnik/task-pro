@@ -156,7 +156,7 @@
 
 @media only screen and (width <= 1440px) {
   .container {
-    max-width: 433px;
+    width: 400px;
     margin: 0 auto;
     padding: 0 15px;
     padding: 24px;
