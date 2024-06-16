@@ -1,42 +1,151 @@
 .screensPage {
+  height: 100%;
+  padding: 14px 20px 0 20px;
+}
+
+@media only screen and (min-width: 768px) {
+  .screensPage {
+    padding: 14px 32px 0 32px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .screensPage {
+    padding: 10px 24px 0 24px;
+  }
+}
+
+.containerFilter {
+display: flex;
+justify-content: flex-end;
+}
+
+.filtersBtn {
+  display: flex;
+  align-items: center;
+  background-color: inherit;
+  height: 20px;
+  color: rgba(255, 255, 255, 0.8);
+  border: 0;
+  font-weight: 500;
+  font-style: normal;
+  padding: 0;
+  position: absolute;
+  margin-top: 4px;
+}
+
+.iconFilter {
+  width: 16px;
+  height: 16px;
+  fill: rgba(255, 255, 255, 0.8);
+  margin-right: 8px;
+}
+
+.titleBoard {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  height: 28px;
+  font-style: normal;
+  color: var(--white-color);
+  text-align: left;
+  margin-bottom: 39px;
+  font-size: 14px;
+}
+
+@media only screen and (min-width: 768px) {
+  .titleBoard {
+    margin-bottom: 26px;
+    font-size: 18px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .titleBoard {
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+}
+
+.columnBtn {
   display: flex;
   align-items: center;
   justify-content: center;
-
-  height: 100vh;
-  padding: 20px;
+  padding: 0;
+  width: 334px;
+  height: 56px;
+  background-color: var(--almost-black-color);
+  border-radius: 8px;
+  border: 0px;
+  color: var(--white-color);
 }
 
-.screensPageText {
+@media (max-width: 768px) {
+  .columnBtn {
+    margin: 0 auto;
+  }
+}
+
+.containerIcon {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
+  width: 28px;
+  height: 28px;
+  background-color: var(--white-color);
+  border-radius: 5px;
+margin-right: 8px;
 }
 
-.screensPage h2 {
-  margin-bottom: 20px;
+.iconPlus {
+  width: 14px;
+  height: 14px;
 }
 
 .screensPageTextContainer {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  width: 100%;
-  max-width: 335px;
-  height: 80px;
-
-  font-size: 12px;
-  line-height: 1.6;
-  color: #fff;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-@media (width >= 768px) {
+@media (min-width: 375px) {
   .screensPageTextContainer {
-    width: 100%;
-    max-width: 486px;
-    height: 72px;
+  width: 335px;
   }
 }
+
+@media (min-width: 768px) {
+  .screensPageTextContainer {
+    width: 486px;
+  }
+}
+
+@media (min-width: 1440px){
+  .screensPageTextContainer {
+    left: 60%;
+    width: 486px;
+  }
+}
+
+.screensPageText {
+  color: var(--gray-text-color);
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: -0.28px;
+}
+
+@media (max-width: 768px) {
+  .screensPageText {
+    font-size: 12px;
+    line-height: 16px;
+  }
+}
+
+.screensPageText .highlight {
+  color: var(--green-color);
+}
+
+
