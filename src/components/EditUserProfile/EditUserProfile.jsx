@@ -1,5 +1,5 @@
 import Avatar from '../Avatar/Avatar.jsx';
-// import { Previews } from '../AvatarModal/AvatarModal';
+//import { Previews } from '../AvatarModal/AvatarModal';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import { object, string } from 'yup';
 import { selectTheme, selectUser } from '../../redux/auth/selectors.js';
@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { EyeClose } from '../AuthForm/EyeClose/EyeClose.jsx';
 import { EyeOpen } from '../AuthForm/EyeOpen/EyeOpen.jsx';
 import { Loader } from '../Loader/Loader.jsx';
-import Modal from '../ModalContainer/ModalContainer.jsx';
+import Modal from '../Modal/Modal.jsx';
 import { updateUser } from '../../redux/auth/operations.js';
 import { useState } from 'react';
 
