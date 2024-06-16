@@ -7,8 +7,13 @@ const boardsSlice = createSlice({
     items: [],
     loading: false,
     error: null,
+    currentBoard: null,
   },
-  reducers: {},
+  reducers: {
+    setCurrentBoard: (state, action) => {
+      state.currentBoard = action.payload;
+    },
+  },
   extraReducers: builder => {
     builder
       .addCase(fetchBoards.pending, state => {
@@ -17,13 +22,18 @@ const boardsSlice = createSlice({
       })
       .addCase(fetchBoards.fulfilled, (state, action) => {
         state.loading = false;
-        state.boards = Array.isArray(action.payload) ? action.payload : [];
+        state.items = Array.isArray(action.payload) ? action.payload : [];
+
+        if (state.items.length > 0) {
+          state.currentBoard = state.items[0];
+        }
       })
       .addCase(fetchBoards.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.error.message;
+        state.error = action.payload;
       });
   },
 });
 
+export const { setCurrentBoard } = boardsSlice.actions;
 export default boardsSlice.reducer;

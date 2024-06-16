@@ -1,5 +1,6 @@
 .logOutContainer {
   display: flex;
+  padding: 0 14px;
 }
 
 .logOutIcon {
@@ -15,7 +16,6 @@
   width: 105px;
   margin-top: 20px;
   padding: 0;
-
   color: inherit;
 
   background-color: inherit;

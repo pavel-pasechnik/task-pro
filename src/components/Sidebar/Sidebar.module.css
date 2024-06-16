@@ -6,11 +6,9 @@
 
   width: 260px;
   height: 100vh;
-  padding: 24px;
 
-  color: var(--white-color);
-
-  background-color: var(--almost-black-color);
+  color: var(--color-text-base);
+  background-color: var(--background-sidebar);
 
   transition: left 0.3s ease;
 }

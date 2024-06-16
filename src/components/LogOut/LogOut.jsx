@@ -9,7 +9,7 @@ export default function LogOut() {
   const dispatch = useDispatch();
 
   return (
-    <div className={css.LogOutContainer}>
+    <div className={css.logOutContainer}>
       <Button className={css.logOutBtn} type='button' onClick={() => dispatch(logout())}>
         <svg className={css.logOutIcon}>
           <use href={`${sprite}#icon-arrow-circle`}></use>
