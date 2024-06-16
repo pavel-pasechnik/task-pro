@@ -11,11 +11,26 @@ const initialValues = {
   icon: '',
   background: '',
 };
-
+const icons = [
+  { id: 'icon1', src: `${sprite}#icon-four-circles`, alt: 'icon-four-circles' },
+  { id: 'icon2', src: `${sprite}#icon-star`, alt: 'icon-star' },
+  { id: 'icon3', src: `${sprite}#icon-loading`, alt: 'icon-loading' },
+  { id: 'icon4', src: `${sprite}#icon-puzzle-piece`, alt: 'icon-puzzle-piece' },
+  { id: 'icon5', src: `${sprite}#icon-container`, alt: 'icon-container' },
+  { id: 'icon6', src: `${sprite}#icon-lightning`, alt: 'icon-lightning' },
+  { id: 'icon7', src: `${sprite}#icon-colors`, alt: 'icon-colors' },
+  { id: 'icon8', src: `${sprite}#icon-hexagon`, alt: 'icon-four-circles' },
+];
 const icons = [{ id: 'icon1', src: `${sprite}#icon-four-circles`, alt: 'icon-four-circles' }];
-
 const backgrounds = [
-  { id: 'bg1', src: '../../assets/smallbg/airBalloon.jpg', alt: 'airBalloon.jpg' },
+  {
+    id: 'bg1',
+    src: '../../assets/bigbg/mobile/airBalloon-mobile-1x.jpg',
+    srcset: `
+      ../../assets/smallbg/airBalloon-mobile-2x.jpg
+    `,
+    alt: 'airBalloon.jpg',
+  },
 ];
 
 export function PopUpEditBoard() {
