@@ -36,7 +36,10 @@ export default function App() {
             <Loader />
           ) : (
             <Routes>
-              <Route path='/' element={isLoggedIn ? <HomePage /> : <WelcomePage />} />
+              <Route
+                path='/'
+                element={<RestrictedRoute component={<WelcomePage />} redirectTo='/home' />}
+              />
               <Route
                 path='/register'
                 element={<RestrictedRoute component={<RegisterPage />} redirectTo='/login' />}
