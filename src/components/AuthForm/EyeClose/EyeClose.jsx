@@ -5,7 +5,7 @@ export const EyeClose = () => {
   return (
     <>
       <svg className={styles.svg}>
-        <use href={`${sprite}#icon-x-close`} />
+        <use href={`${sprite}#icon-eye-blocked`} />
       </svg>
     </>
   );

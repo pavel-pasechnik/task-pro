@@ -1,11 +1,7 @@
 import { selectTheme, selectUser } from '../../redux/auth/selectors.js';
 import { useRef, useState } from 'react';
-// import avaDark from '../../assets/svg/user_dark.svg';
-// import avaLight from '../../assets/svg/user_light.svg';
-// import avaViolet from '../../assets/svg/user_violet.svg';
 import sprite from '../../assets/sprite.svg';
 import { useSelector } from 'react-redux';
-
 import styles from './AvatarModal.module.css';
 
 export function Previews({ onImageSelect }) {
@@ -13,14 +9,7 @@ export function Previews({ onImageSelect }) {
   const theme = useSelector(selectTheme);
   const fileInput = useRef(null);
 
-  // const defaultAvatar = {
-  //   dark: avaDark,
-  //   light: avaLight,
-  //   violet: avaViolet,
-  // };
-  // const defaultPreview = user.avatarURL ? user.avatarURL : defaultAvatar[user.theme];
-
-  const defaultPreview = user.avatarURL ? user.avatarURL : `${sprite}#icon-user-avatar`;
+  const defaultPreview = user.avatarURL ? user.avatarURL : `${sprite}#icon-user-avatar`; // Використання значка з спрайту
 
   const [preview, setPreview] = useState(defaultPreview);
 
