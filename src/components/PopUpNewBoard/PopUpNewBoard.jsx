@@ -24,7 +24,9 @@ const icons = [
   { id: 'icon7', src: `${sprite}#icon-colors`, alt: 'icon-colors' },
   { id: 'icon8', src: `${sprite}#icon-hexagon`, alt: 'icon-four-circles' },
 ];
-const icons = [{ id: 'icon1', src: `${sprite}#icon-four-circles`, alt: 'icon-four-circles' }];
+const iconForCircles = [
+  { id: 'icon1', src: `${sprite}#icon-four-circles`, alt: 'icon-four-circles' },
+];
 const backgrounds = [
   {
     id: 'bg1',
@@ -91,13 +93,16 @@ export default function PopUpNewBoard({ onClose }) {
           <p className={css.backgroundTitle}>Background</p>
           <div className={css.backgroundsList}>
             {backgrounds.map(bg => (
-              <label key={bg.id}>
-                <Field type='radio' name='background' value={bg.id} />
-                <img src={bg.src} srcSet={bg.srcset} alt={bg.alt} className={css.background} />
-              <label key={bg.id} htmlFor={`background-${bg.id}`}>
-                <Field id={`background-${bg.id}`} type='radio' name='background' value={bg.id} />
-                <img src={bg.src} alt={bg.alt} className={css.background} />
-              </label>
+              <>
+                <label key={bg.id} htmlFor={`background-${bg.id}`}>
+                  <Field type='radio' name='background' value={bg.id} />
+                  <img src={bg.src} srcSet={bg.srcset} alt={bg.alt} className={css.background} />
+                </label>
+                <label key={bg.id} htmlFor={`background-${bg.id}`}>
+                  <Field id={`background-${bg.id}`} type='radio' name='background' value={bg.id} />
+                  <img src={bg.src} alt={bg.alt} className={css.background} />
+                </label>
+              </>
             ))}
           </div>
           <Button type='submit' title='Create' className={css.createButton} />
