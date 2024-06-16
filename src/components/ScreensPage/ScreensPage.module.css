@@ -5,13 +5,14 @@
 
   height: 100vh;
   padding: 20px;
+  background-color: var(--header-icon-user-bg);
 }
 
 .screensPageText {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
+  color: var(--logo-sidebar);
 }
 
 .screensPage h2 {
