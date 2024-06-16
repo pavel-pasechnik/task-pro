@@ -25,7 +25,7 @@ const ScreensPage = () => {
   }
 
   if (error) {
-    return <p>Error: {error}</p>;
+    return <p className={css.screensPage}>Error: {error}</p>;
   }
 
   if (!Array.isArray(boards) || boards.length === 0) {
