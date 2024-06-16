@@ -1,12 +1,11 @@
-
-import sprite from '../../../assets/svg/sprite.svg';
+import sprite from '../../../assets/sprite.svg';
 import styles from './EyeClose.module.css';
 
 export const EyeClose = () => {
   return (
     <>
       <svg className={styles.svg}>
-        <use href={sprite + '#icon-eye-blocked'} />
+        <use href={`${sprite}#icon-x-close`} />
       </svg>
     </>
   );

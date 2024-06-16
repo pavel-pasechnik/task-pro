@@ -1,11 +1,10 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable sort-imports */
 
-import { Field, Form, Formik } from 'formik';
 import Button from '../Button/Button.jsx';
+import { Field, Form, Formik } from 'formik';
+import css from './PopUpNewBoard.module.css';
 import { nanoid } from 'nanoid';
 import { useState } from 'react';
-import css from './PopUpNewBoard.module.css';
 import sprite from '../../assets/sprite.svg';
 import axios from 'axios';
 
@@ -25,6 +24,7 @@ const icons = [
   { id: 'icon7', src: `${sprite}#icon-colors`, alt: 'icon-colors' },
   { id: 'icon8', src: `${sprite}#icon-hexagon`, alt: 'icon-four-circles' },
 ];
+const icons = [{ id: 'icon1', src: `${sprite}#icon-four-circles`, alt: 'icon-four-circles' }];
 const backgrounds = [
   {
     id: 'bg1',
@@ -69,7 +69,10 @@ export default function PopUpNewBoard({ onClose }) {
           actions.resetForm();
         }}>
         <Form>
-          <Field type='text' name='title' placeholder='Title' className={css.input} />
+          <label htmlFor='title' className={css.label}>
+            Title
+          </label>
+          <Field id='title' type='text' name='title' placeholder='Title' className={css.input} />
 
           <p className={css.iconTitle}>Icons</p>
           <ul className={css.iconslist}>
@@ -78,6 +81,10 @@ export default function PopUpNewBoard({ onClose }) {
                 <Field type='radio' name='icon' value={icon.id} />
                 <svg width={18} height={18} alt={icon.alt} className={css.icons} />
                 <use href={icon.src} />
+                <Field id={`icon-${icon.id}`} type='radio' name='icon' value={icon.id} />
+                <label htmlFor={`icon-${icon.id}`}>
+                  <svg src={icon.src} width={18} height={18} alt={icon.alt} className={css.icons} />
+                </label>
               </li>
             ))}
           </ul>
@@ -87,6 +94,9 @@ export default function PopUpNewBoard({ onClose }) {
               <label key={bg.id}>
                 <Field type='radio' name='background' value={bg.id} />
                 <img src={bg.src} srcSet={bg.srcset} alt={bg.alt} className={css.background} />
+              <label key={bg.id} htmlFor={`background-${bg.id}`}>
+                <Field id={`background-${bg.id}`} type='radio' name='background' value={bg.id} />
+                <img src={bg.src} alt={bg.alt} className={css.background} />
               </label>
             ))}
           </div>

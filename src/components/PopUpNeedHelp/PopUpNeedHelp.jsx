@@ -13,7 +13,7 @@ export function PopUpNeedHelp() {
 
   return (
     <div className={css.container}>
-      <p className={css.titleBoard}>Need Help</p>
+      <p className={css.titleBoard}>Need help</p>
       <Formik
         initialValues={initialValues}
         onSubmit={(values, actions) => {
@@ -33,6 +33,12 @@ export function PopUpNeedHelp() {
             <Field type='text' name='comment' placeholder='Comment' className={css.CommentTitle} />
           </div>
           <Button type='submit' title='Send' />
+          <Field type='email' name='email' placeholder='Email adres' className={css.titleEmail} />
+
+          <div className={css.titleCommentPosition}>
+            <Field type='text' name='comment' placeholder='Comment' className={css.titleComment} />
+          </div>
+          <Button type='submit' title='Send' className={css.createButton} />
         </Form>
       </Formik>
     </div>

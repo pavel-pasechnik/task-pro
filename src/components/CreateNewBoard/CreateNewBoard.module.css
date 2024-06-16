@@ -5,15 +5,14 @@
   justify-content: space-between;
 
   margin-top: 20px;
-  padding-top: 14px;
-  padding-bottom: 14px;
+  padding: 14px;
 
   font-family: Poppins, sans-serif;
   font-size: 14px;
   font-weight: 500;
 
-  border-top: 1px solid var(--gray-border-color);
-  border-bottom: 1px solid var(--gray-border-color);
+  border-top: 1px solid var(--border-sidebar-create);
+  border-bottom: 1px solid var(--border-sidebar-create);
 }
 
 .createNewBoardText {

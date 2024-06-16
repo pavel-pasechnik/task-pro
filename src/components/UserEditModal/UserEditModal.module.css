@@ -1,205 +1,186 @@
-.container {
-  min-width: 320px;
-  max-width: 375px;
-}
+.title {
+  margin-bottom: 24px;
 
-.backdrop {
-  position: fixed;
-  z-index: 100;
-  top: 0;
-  left: 0;
-
-  width: 100vw;
-  height: 100vw;
-}
-
-.cont {
-  max-width: 335px;
-  max-height: 440px;
-  margin: 0 auto;
-  padding: 24px;
-
-  background-color: #161616;
-  border: 1px solid #bedbb0;
-  border-radius: 8px;
-  box-shadow: 0 4px 16px hsl(0deg 0% 7% / 10%);
-}
-
-.wrap {
-  cursor: pointer;
-  position: absolute;
-  top: 14px;
-  right: 14px;
-}
-
-.closeBtn {
-  width: 18px;
-  height: 18px;
-}
-
-.txt {
-  margin: 0;
-
-  font-family: Poppins, sans-serif;
+  font-family: var(--font-medium);
   font-size: 18px;
-  font-weight: 500;
-  font-style: normal;
-  color: #fdfdfd;
+  line-height: normal;
+  color: inherit;
+  letter-spacing: -0.36px;
 }
 
-.avatarContainer {
-  position: relative;
-
+.form {
   display: flex;
   flex-direction: column;
-  align-items: center;
-
-  margin-top: 24px;
-
-  text-align: center;
-
-  border-radius: 8px;
 }
 
-.closeBtn {
-  cursor: pointer;
-
-  padding: 0;
-
-  color: #fdfdfd;
-
-  background-color: transparent;
-  border: none;
-}
-
-.plusBtn {
-  cursor: pointer;
-
-  position: absolute;
-  top: 60px;
-
-  width: 24px;
-  height: 24px;
-
-  background-color: #bedbb0;
-  border: none;
-  border-radius: 4px;
-}
-
-.formInput {
-  position: relative;
-
+.input {
   width: 100%;
-  height: 49px;
+  margin-bottom: 14px;
   padding: 14px 18px;
 
-  font-family: Poppins, sans-serif;
+  font-family: var(--font-regular);
+  font-size: 14px;
+  line-height: normal;
+  color: inherit;
+  letter-spacing: -0.28px;
+
+  opacity: 0.4;
+  background-color: inherit;
+  border: 1px solid var(--color-green);
+  border-radius: 8px;
+  box-shadow: 0 4px 16px 0 var(--color-shadow);
+
+  transition: opacity 250ms linear;
+}
+
+.inputViolet {
+  width: 100%;
+  margin-bottom: 14px;
+  padding: 14px 18px;
+
+  font-family: var(--font-regular);
+  font-size: 14px;
+  line-height: normal;
+  color: inherit;
+  letter-spacing: -0.28px;
+
+  opacity: 0.4;
+  background-color: inherit;
+  border: 1px solid var(--color-violet);
+  border-radius: 8px;
+  box-shadow: 0 4px 16px 0 var(--color-shadow);
+
+  transition: opacity 250ms linear;
+}
+
+.input:active,
+.input:hover,
+.input:focus,
+.input:focus-visible,
+.inputViolet:active,
+.inputViolet:hover,
+.inputViolet:focus,
+.inputViolet:focus-visible {
+  opacity: 1;
+  outline: none;
+  outline-offset: 0;
+}
+
+.input::placeholder,
+.inputViolet::placeholder {
+  font-family: var(--font-medium);
   font-size: 14px;
   font-weight: 400;
-  color: #fdfdfd;
-
-  background-color: inherit;
-  border: 1px solid rgb(190 219 176 / 50%);
-  border-radius: 8px;
-  outline: none;
-  box-shadow: none;
+  font-style: normal;
+  line-height: normal;
+  color: inherit;
+  letter-spacing: -0.28px;
 }
 
-.formInput:focus {
-  border: 2px solid #bedbb0;
-}
+.input:-webkit-autofill,
+.input:-webkit-autofill:hover,
+.input:-webkit-autofill:focus,
+.input:-webkit-autofill:active {
+  box-shadow: 0 0 0 30px var(--bg-color-form-input) inset !important;
 
-.formGroup {
-  position: relative;
-}
-
-.error {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-
-  height: 0;
-
-  font-size: 12px;
-  color: red;
-  text-align: left;
-}
-
-.forma {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  margin-top: 32px;
+  -webkit-text-fill-color: var(--color-white);
 }
 
 .btn {
   cursor: pointer;
 
-  gap: 8px;
+  display: flex;
   align-items: center;
+  justify-content: center;
 
   width: 100%;
-  margin-top: 14px;
-  padding-top: 10px;
-  padding-bottom: 11px;
+  height: 49px;
+  margin-top: 24px;
+  padding: 14px 0;
 
-  font-family: inherit;
+  font-family: var(--font-medium);
   font-size: 14px;
-  font-weight: 600;
-  font-style: normal;
-  line-height: 21px;
-  color: black;
+  line-height: normal;
+  color: var(--color-dark);
+  text-align: center;
+  letter-spacing: -0.28px;
 
-  background-color: #bedbb0;
-  border: none;
+  background-color: var(--color-green);
+  border: 0;
   border-radius: 8px;
+
+  transition:
+    background-color 250ms linear,
+    box-shadow 250ms linear;
 }
 
-.eye {
+.btn:hover {
+  background-color: var(--color-hover-green);
+}
+
+.btnViolet {
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 49px;
+  margin-top: 24px;
+  padding: 14px 0;
+
+  font-family: var(--font-medium);
+  font-size: 14px;
+  line-height: normal;
+  color: var(--color-white);
+  text-align: center;
+  letter-spacing: -0.28px;
+
+  background-color: var(--color-violet);
+  border: 0;
+  border-radius: 8px;
+
+  transition:
+    background-color 250ms linear,
+    box-shadow 250ms linear;
+}
+
+.btnViolet:hover {
+  background-color: var(--color-light-violet);
+}
+
+.wrap {
+  position: relative;
+}
+
+.eye_icon {
   position: absolute;
-  top: 50%;
+  top: 45%;
   right: 18px;
   transform: translateY(-50%);
 
-  color: #fdfdfd;
+  align-items: center;
+  justify-content: space-between;
 
-  background-color: transparent;
-  border: none;
-}
+  text-align: center;
 
-.eye {
-  position: absolute;
-  top: 50%;
-  right: 18px;
-  transform: translateY(-50%);
-
-  color: var(--white);
-
-  background-color: transparent;
-  border: none;
+  opacity: 0.4;
 }
 
 .avatar {
   cursor: pointer;
-
-  display: block;
-
-  width: 68px;
-  height: 68px;
-
-  background-color: transparent;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  border-radius: 5px;
-
-  stroke: black;
+  border: 0;
 }
 
-@media screen and (width >= 375px) {
-  .wrap {
-    right: 34px;
-  }
+.error {
+  position: absolute;
+  top: 4px;
+  right: 8px;
+
+  font-family: var(--font-regular);
+  font-size: 10px;
+  color: var(--color-hover-green);
 }
 
 @media screen and (width >= 768px) {
@@ -209,8 +190,6 @@
 
     width: 400px;
     max-height: 440px;
-
-    /* top: 60px; */
     margin-top: 5px;
     margin-bottom: 5px;
   }
@@ -230,12 +209,12 @@
   }
 }
 
-@media screen and (width >= 1180px) {
-  .wrap {
-    right: 14px;
-  }
+.errorViolet {
+  position: absolute;
+  top: 4px;
+  right: 8px;
 
-  .cont {
-    top: 60px;
-  }
+  font-family: var(--font-regular);
+  font-size: 10px;
+  color: var(--color-violet);
 }
