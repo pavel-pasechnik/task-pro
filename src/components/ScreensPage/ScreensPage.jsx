@@ -6,6 +6,7 @@ import {
 } from '../../redux/boards/selectors.js';
 import { useDispatch, useSelector } from 'react-redux';
 import css from './ScreensPage.module.css';
+import ScreenPageEmptyElement from '../ScreenPageEmptyElement/ScreenPageEmptyElement.jsx';
 // import { useParams } from 'react-router-dom';
 
 const ScreensPage = () => {
@@ -20,22 +21,14 @@ const ScreensPage = () => {
     return <p>Loading...</p>;
   }
 
-  if (error) {
-    return <p className={css.screensPage}>Error: {error}</p>;
-  }
+  // if (error ) {
+  //   console.log(`${error}`);
 
-  if (!Array.isArray(boards) || boards.length === 0) {
-    return (
-      <div className={css.screensPage}>
-        <div className={css.screensPageTextContainer}>
-          <p className={css.screensPageText}>
-            Before starting your project, it is essential to create a board to visualize and track
-            all the necessary tasks and milestones. This board serves as a powerful tool to organize
-            the workflow and ensure effective collaboration among team members.
-          </p>
-        </div>
-      </div>
-    );
+  //   return;
+  // }
+
+  if (!Array.isArray(boards) || boards.length === 0 || error.status === 'Not Found') {
+    return <ScreenPageEmptyElement />;
   }
 
   return (

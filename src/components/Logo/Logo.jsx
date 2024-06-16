@@ -7,7 +7,7 @@ const Logo = () => {
       <svg className={css.iconLogoContainer}>
         <use href={`${sprite}#icon-logo`}></use>
       </svg>
-      <p>Task Pro</p>
+      <p className={css.logoContainerText}>Task Pro</p>
     </div>
   );
 };

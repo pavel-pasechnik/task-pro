@@ -42,6 +42,7 @@
   --header-icon-user: #fff;
   --header-icon-user-bg: #f6f6f7;
   --title-sidebar: #161616;
+  --sidebar-add-icon: #121212;
   --logo-sidebar: #fff;
   --logo-sidebar-bg: #1f1f1f;
   --text-sidebar-rgb: rgba(22, 22, 22, 0.5);
@@ -52,6 +53,7 @@
   --main-background: #f6f6f7;
   --todo-background: #fff;
   --card-text: rgba(22, 22, 22, 0.7);
+  --screens-page-text: rgba(16, 16, 16, 0.7);
   --todo-svg: : rgba(22, 22, 22, 0.5);
   --modal-icon: rgba(22, 22, 22, 0.5);
 
@@ -89,12 +91,14 @@
   --logo-sidebar: #fff;
   --logo-sidebar-bg: #1f1f1f;
   --text-sidebar-rgb: rgba(255, 255, 255, 0.5);
+  --sidebar-add-icon: #121212;
   --border-sidebar-create: rgba(255, 255, 255, 0.1);
   --help-sidebar-background: #1f1f1f;
   --logout-svg-sidebar: #bedbb0;
   --logout-svg-sidebar-hv: #9dc888;
   --main-background: #1f1f1f;
   --todo-background: #121212;
+  --screens-page-text: rgba(255, 255, 255, 0.5);
   --card-text: rgba(255, 255, 255, 0.5);
   --todo-svg: : rgba(255, 255, 255, 0.5);
   --modal-icon: rgba(255, 255, 255, 0.5);
@@ -132,12 +136,14 @@
   --logo-sidebar: #5255bc;
   --logo-sidebar-bg: #ecedfd;
   --text-sidebar-rgb: rgba(255, 255, 255, 0.5);
+  --sidebar-add-icon: #fff;
   --border-sidebar-create: rgba(255, 255, 255, 0.1);
   --help-sidebar-background: rgba(236, 237, 253, 0.4);
   --logout-svg-sidebar: #fff;
   --logout-svg-sidebar-hv: #b8bcfd;
   --main-background: #b8bcfd;
   --todo-background: #fff;
+  --screens-page-text: rgba(16, 16, 16, 0.7);
   --card-text: rgba(22, 22, 22, 0.7);
   --todo-svg: : rgba(22, 22, 22, 0.5);
   --modal-icon: rgba(22, 22, 22, 0.5);
