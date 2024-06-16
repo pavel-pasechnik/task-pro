@@ -9,7 +9,8 @@
     "prettier/prettier": true,
     "media-feature-range-notation": "context",
     "selector-class-pattern": null,
-    "custom-property-pattern": null
+    "custom-property-pattern": null,
+    "keyframes-name-pattern": null
   },
   "overrides": [
     {

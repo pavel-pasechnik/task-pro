@@ -8,6 +8,7 @@
   height: 100vh;
 
   color: var(--color-text-base);
+
   background-color: var(--background-sidebar);
 
   transition: left 0.3s ease;

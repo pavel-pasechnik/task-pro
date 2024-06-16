@@ -1,4 +1,3 @@
-
 .title {
   font-family: var(--font-medium);
   color: inherit;
@@ -102,7 +101,9 @@
   border: 0px;
   border-radius: 8px;
 
-  transition: background-color 250ms linear, box-shadow 250ms linear;
+  transition:
+    background-color 250ms linear,
+    box-shadow 250ms linear;
 }
 
 .btn:hover {
@@ -130,7 +131,9 @@
   border: 0px;
   border-radius: 8px;
 
-  transition: background-color 250ms linear, box-shadow 250ms linear;
+  transition:
+    background-color 250ms linear,
+    box-shadow 250ms linear;
 }
 
 .btnViolet:hover {

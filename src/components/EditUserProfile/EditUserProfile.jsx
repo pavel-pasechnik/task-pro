@@ -42,7 +42,7 @@ const updateUserSchema = object({
     .matches(/^[\w\-!@#$%^&*()+,.:;’“?/]+$/, 'Invalid password format'),
 });
 
-export const EditUserProfile = () => {
+const EditUserProfile = () => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
   const theme = useSelector(selectTheme);
@@ -172,3 +172,5 @@ export const EditUserProfile = () => {
     </div>
   );
 };
+
+export default EditUserProfile;
