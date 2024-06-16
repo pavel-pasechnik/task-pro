@@ -88,7 +88,7 @@ import css from './Header.module.css';
 import sprite from '../../assets/sprite.svg';
 import { useOutsideClick } from '../../hooks/useOutsideClick.js';
 
-import UserEditModal from '../UserEditModal/UserEditModal.jsx';
+import EditUserProfile from '../EditUserProfile/EditUserProfile.jsx';
 
 import { ThemeContext } from '../ThemeContext/ThemeContext.jsx';
 
@@ -165,7 +165,7 @@ const Header = ({ toggleSidebar }) => {
           </div>
         </div>
       </div>
-      {isModalOpen && <UserEditModal onClose={handleModalClose} />}
+      {isModalOpen && <EditUserProfile onClose={handleModalClose} />}
     </div>
   );
 };
