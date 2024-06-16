@@ -1,32 +1,40 @@
+import 'react-toastify/dist/ReactToastify.css';
+import * as Yup from 'yup';
+import { ErrorMessage, Field, Form, Formik } from 'formik';
+import { ToastContainer, toast } from 'react-toastify';
+import { useId, useState } from 'react';
 import ButtonIcon from '../ButtonIcon/ButtonIcon.jsx';
 import Calendar from '../Calendar/Calendar.jsx';
 import axios from 'axios';
 import clsx from 'clsx';
 import sprite from '../../assets/sprite.svg';
 import styles from './AddBoard.module.css';
-import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 
 const AddBoard = ({ isOpen, onClose, columnId }) => {
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
-  const [labelColor, setLabelColor] = useState('pink');
+  const [priority, setPriority] = useState('low');
   const [deadline, setDeadline] = useState(new Date());
-  const [errorMessage, setErrorMessage] = useState('');
+
+  const dispatch = useDispatch();
+  const titleId = useId();
+  const descriptionId = useId();
 
   if (!isOpen) return null;
 
-  const handleAdd = async () => {
+  const handleAdd = async (values, { setSubmitting }) => {
     try {
-      await axios.post(`/api/boards/cards/${columnId}`, {
-        title,
-        description,
-        labelColor,
+      const response = await axios.post(`/api/boards/cards/${columnId}`, {
+        ...values,
+        priority,
         deadline,
       });
-
+      dispatch(response.data);
       onClose();
+      toast.success('Card added successfully!');
     } catch (error) {
-      setErrorMessage(`Error adding card: ${error.response?.data?.message || error.message}`);
+      toast.error(`Error adding card: ${error.response?.data?.message || error.message}`);
+    } finally {
+      setSubmitting(false);
     }
   };
 
@@ -34,9 +42,14 @@ const AddBoard = ({ isOpen, onClose, columnId }) => {
     setDeadline(date);
   };
 
-  const getLabelClassName = color => {
-    return `${styles.labelColor} ${styles[color]} ${labelColor === color ? styles.active : ''}`;
+  const getPriorityClassName = priorityValue => {
+    return `${styles.labelColor} ${styles[priorityValue]} ${priority === priorityValue ? styles.active : ''}`;
   };
+
+  const validationSchema = Yup.object({
+    title: Yup.string().required('Title is required'),
+    description: Yup.string(),
+  });
 
   return (
     <div className={styles.modal}>
@@ -47,78 +60,98 @@ const AddBoard = ({ isOpen, onClose, columnId }) => {
           </svg>
         </button>
         <h2 className={styles.addTitle}>Add card</h2>
-        <textarea
-          className={clsx(styles.modalInputTitle, styles.textarea)}
-          placeholder='Title'
-          value={title}
-          onChange={e => setTitle(e.target.value)}></textarea>
-        <textarea
-          className={clsx(styles.modalInputDescription, styles.textarea)}
-          placeholder='Description'
-          value={description}
-          onChange={e => setDescription(e.target.value)}></textarea>
-        {errorMessage && <div className={styles.errorMessage}>{errorMessage}</div>}
-        <div className={styles.section}>
-          <span className={styles.sectionTitle}>Label color</span>
-          <div className={styles.labelColors}>
-            <span
-              className={getLabelClassName('blue')}
-              onClick={() => setLabelColor('blue')}
-              role='button'
-              tabIndex={0}
-              onKeyDown={e => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                  setLabelColor('blue');
-                }
-              }}
-            />
-            <span
-              className={getLabelClassName('pink')}
-              onClick={() => setLabelColor('pink')}
-              role='button'
-              tabIndex={0}
-              onKeyDown={e => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                  setLabelColor('pink');
-                }
-              }}
-            />
-            <span
-              className={getLabelClassName('green')}
-              onClick={() => setLabelColor('green')}
-              role='button'
-              tabIndex={0}
-              onKeyDown={e => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                  setLabelColor('green');
-                }
-              }}
-            />
-            <span
-              className={getLabelClassName('gray')}
-              onClick={() => setLabelColor('gray')}
-              role='button'
-              tabIndex={0}
-              onKeyDown={e => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                  setLabelColor('gray');
-                }
-              }}
-            />
-          </div>
-        </div>
-        <div className={styles.section}>
-          <span className={styles.sectionTitle}>Deadline</span>
-          <Calendar selectedDate={deadline} handleSetDate={handleDateChange} />
-        </div>
-        <ButtonIcon
-          id='icon-add'
-          iconWidth='28'
-          iconHeight='28'
-          btnClassName={styles.addButton}
-          onClick={handleAdd}>
-          Add
-        </ButtonIcon>
+        <Formik
+          initialValues={{ title: '', description: '' }}
+          validationSchema={validationSchema}
+          onSubmit={handleAdd}>
+          {({ isSubmitting }) => (
+            <Form>
+              <div>
+                <Field
+                  id={titleId}
+                  name='title'
+                  as='textarea'
+                  className={clsx(styles.modalInputTitle, styles.textarea)}
+                  placeholder='Title'
+                />
+                <ErrorMessage name='title' component='div' className={styles.errorMessage} />
+              </div>
+              <div>
+                <Field
+                  id={descriptionId}
+                  name='description'
+                  as='textarea'
+                  className={clsx(styles.modalInputDescription, styles.textarea)}
+                  placeholder='Description'
+                />
+                <ErrorMessage name='description' component='div' className={styles.errorMessage} />
+              </div>
+              <div className={styles.section}>
+                <span className={styles.sectionTitle}>Priority</span>
+                <div className={styles.labelColors}>
+                  <span
+                    className={getPriorityClassName('low')}
+                    onClick={() => setPriority('low')}
+                    role='button'
+                    tabIndex={0}
+                    onKeyDown={e => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        setPriority('low');
+                      }
+                    }}
+                  />
+                  <span
+                    className={getPriorityClassName('medium')}
+                    onClick={() => setPriority('medium')}
+                    role='button'
+                    tabIndex={0}
+                    onKeyDown={e => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        setPriority('medium');
+                      }
+                    }}
+                  />
+                  <span
+                    className={getPriorityClassName('high')}
+                    onClick={() => setPriority('high')}
+                    role='button'
+                    tabIndex={0}
+                    onKeyDown={e => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        setPriority('high');
+                      }
+                    }}
+                  />
+                  <span
+                    className={getPriorityClassName('_')}
+                    onClick={() => setPriority('_')}
+                    role='button'
+                    tabIndex={0}
+                    onKeyDown={e => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        setPriority('_');
+                      }
+                    }}
+                  />
+                </div>
+              </div>
+              <div className={styles.section}>
+                <span className={styles.sectionTitle}>Deadline</span>
+                <Calendar selectedDate={deadline} handleSetDate={handleDateChange} />
+              </div>
+              <ButtonIcon
+                id='icon-add'
+                iconWidth='28'
+                iconHeight='28'
+                btnClassName={styles.addButton}
+                type='submit'
+                disabled={isSubmitting}>
+                Add
+              </ButtonIcon>
+            </Form>
+          )}
+        </Formik>
+        <ToastContainer />
       </div>
     </div>
   );

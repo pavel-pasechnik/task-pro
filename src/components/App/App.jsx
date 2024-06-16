@@ -3,7 +3,7 @@ import { Suspense, lazy, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 // import AddColumnModal from '../AddColumn/AddColumn.jsx';
 // import EditBoard from '../EditBoard/EditBoard.jsx';
-// import AddBoard from '../AddBoard/AddBoard.jsx';
+import AddBoard from '../AddBoard/AddBoard.jsx';
 // import EditColumnModal from '../EditColumn/EditColumn.jsx';
 import HomePage from '../../pages/HomePage/HomePage.jsx';
 import Layout from '../Layout/Layout.jsx';
@@ -12,7 +12,7 @@ import { Toaster } from 'react-hot-toast';
 import { refreshUser } from '../../redux/auth/operations.js';
 import { selectIsRefreshing } from '../../redux/auth/selectors.js';
 // import AddBoard from '../AddBoard/AddBoard.jsx';
-import EditBoard from '../EditBoard/EditBoard.jsx';
+// import EditBoard from '../EditBoard/EditBoard.jsx';
 
 const Login = lazy(() => import('../../pages/Login/Login.jsx'));
 const NotFound = lazy(() => import('../../pages/NotFound/NotFound.jsx'));
@@ -60,7 +60,7 @@ export default function App() {
           )}
         </Suspense>
         <button onClick={openModal}>Add Board</button>
-        <EditBoard isOpen={isModalOpen} onClose={closeModal} />
+        <AddBoard isOpen={isModalOpen} onClose={closeModal} />
       </Layout>
     </>
   );
