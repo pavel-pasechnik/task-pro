@@ -73,3 +73,13 @@ export const refreshUser = createAsyncThunk(
     },
   }
 );
+
+export const updateUser = createAsyncThunk('update', async (userInfo, thunkAPI) => {
+  try {
+    const response = await axios.patch('api/users', userInfo);
+
+    setAuthHeader(response.data.token);
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.message);
+  }
+});

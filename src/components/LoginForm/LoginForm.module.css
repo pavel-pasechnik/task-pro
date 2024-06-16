@@ -1,34 +1,37 @@
 .mainCont {
-  background: linear-gradient(to bottom, #ffffff 0%, #bedbb0 100%);
-  height: 100vh;
   display: flex;
   align-items: center;
+  height: 100vh;
+  background: linear-gradient(to bottom, #fff 0%, #bedbb0 100%);
 }
 
 .formCont {
-  width: 335px;
-  height: 300px;
-  background-color: #151515;
-  padding: 24px;
   display: flex;
   flex-direction: column;
   gap: 14px;
-  border-radius: 8px;
-  margin-left: auto;
+
+  width: 335px;
+  height: 300px;
   margin-right: auto;
+  margin-left: auto;
+  padding: 24px;
+
+  background-color: #151515;
+  border-radius: 8px;
 }
 
 .p {
   font-size: 18px;
   font-weight: 500;
   line-height: 1.5em;
-  color: #ffffff;
+  color: #fff;
 }
+
 .link {
   font-size: 18px;
   font-weight: 500;
   line-height: 1.5em;
-  color: rgba(255, 255, 255, 0.3);
+  color: rgb(255 255 255 / 30%);
   text-decoration: none;
 }
 
@@ -39,34 +42,39 @@
 }
 
 .input {
-  border: 1px solid rgba(190, 219, 176, 1);
-  border-radius: 8px;
-  background-color: #1f1f1f;
   padding: 14px 18px;
+
   font-size: 14px;
   font-weight: 400;
   line-height: 1.5em;
-  color: #ffffff;
+  color: #fff;
+
+  background-color: #1f1f1f;
+  border: 1px solid rgb(190 219 176 / 100%);
+  border-radius: 8px;
 }
 
 .button {
   cursor: pointer;
-  background-color: rgba(190, 219, 176, 1);
-  border: none;
-  border-radius: 8px;
-  text-align: center;
+
+  margin-top: 10px;
   padding-top: 14px;
   padding-bottom: 14px;
-  margin-top: 10px;
+
+  text-align: center;
+
+  background-color: rgb(190 219 176 / 100%);
+  border: none;
+  border-radius: 8px;
 }
 
-@media screen and (max-width: 374px) {
+@media screen and (width <= 374px) {
   .formCont {
     width: 80%;
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (width >= 768px) {
   .formCont {
     width: 424px;
     height: 332px;
