@@ -6,7 +6,7 @@
 .logOutIcon {
   width: 32px;
   height: 32px;
-  fill: var(--green-color);
+  fill: var(--logout-svg-sidebar);
 }
 
 .logOutBtn {
@@ -29,4 +29,5 @@
 .logOutBtnText {
   font-size: 14px;
   font-weight: 500;
+  color: var(--title-sidebar);
 }

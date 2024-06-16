@@ -54,6 +54,8 @@
   --card-text: rgb(22 22 22 / 70%);
   --todo-svg: : rgb(22 22 22 / 50%);
   --modal-icon: rgb(22 22 22 / 50%);
+  --screens-page-text: rgb(16 16 16 / 70%);
+  --sidebar-add-icon: #121212;
 
   /* --black-color: #161616;
   --almost-black-color: #121212;
@@ -98,6 +100,8 @@
   --card-text: rgb(255 255 255 / 50%);
   --todo-svg: : rgb(255 255 255 / 50%);
   --modal-icon: rgb(255 255 255 / 50%);
+  --sidebar-add-icon: #121212;
+  --screens-page-text: rgb(255 255 255 / 50%);
 
   /* --black-color: #161616;
     --almost-black-color: #121212;
@@ -142,6 +146,8 @@
   --card-text: rgb(22 22 22 / 70%);
   --todo-svg: : rgb(22 22 22 / 50%);
   --modal-icon: rgb(22 22 22 / 50%);
+  --sidebar-add-icon: #fff;
+  --screens-page-text: rgb(16 16 16 / 70%);
 
   /* --black-color: #161616;
     --almost-black-color: #121212;
