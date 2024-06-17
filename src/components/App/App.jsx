@@ -56,7 +56,6 @@ export default function App() {
             </Routes>
           )}
         </Suspense>
-        <AddBoard /> {/* Додаємо AddBoard */}
       </Layout>
     </>
   );
