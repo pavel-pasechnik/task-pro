@@ -30,7 +30,11 @@ const ProjectList = () => {
     return <p>Loading...</p>;
   }
 
-  if (!boards || boards.length === 0 || error.status === 'Not Found') {
+  if (error) {
+    return <p className={css.projectList}>Error: {error}</p>;
+  }
+
+  if (!boards || boards.length === 0) {
     return <p className={css.projectList}></p>;
   }
 

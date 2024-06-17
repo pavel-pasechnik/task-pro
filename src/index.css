@@ -55,8 +55,9 @@
   --todo-svg: : rgb(22 22 22 / 50%);
   --modal-icon: rgb(22 22 22 / 50%);
   --screens-page-text: rgb(16 16 16 / 70%);
+  --sidebar-grey-text: rgb(16 16 16 / 50%);
   --sidebar-add-icon: #121212;
-
+  --need-help-link: #bedbb0;
   /* --black-color: #161616;
   --almost-black-color: #121212;
   --white-color: #fff;
@@ -102,6 +103,8 @@
   --modal-icon: rgb(255 255 255 / 50%);
   --sidebar-add-icon: #121212;
   --screens-page-text: rgb(255 255 255 / 50%);
+  --sidebar-grey-text: rgb(255 255 255 / 50%);
+  --need-help-link: #bedbb0;
 
   /* --black-color: #161616;
     --almost-black-color: #121212;
@@ -148,6 +151,8 @@
   --modal-icon: rgb(22 22 22 / 50%);
   --sidebar-add-icon: #fff;
   --screens-page-text: rgb(16 16 16 / 70%);
+  --sidebar-grey-text: rgb(255 255 255 / 50%);
+  --need-help-link: #5255bc;
 
   /* --black-color: #161616;
     --almost-black-color: #121212;
