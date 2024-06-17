@@ -4,21 +4,6 @@
   justify-content: center;
 
   height: 100vh;
-  padding: 20px;
-
-  background-color: var(--main-background);
-}
-
-.screensPageText {
-  color: var(--screens-page-text);
-}
-
-.screensPageTextLink {
-  color: var(--logo-sidebar);
-}
-
-.screensPage h2 {
-  margin-bottom: 20px;
 }
 
 .screensPageTextContainer {
@@ -26,20 +11,27 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
 
   width: 100%;
   max-width: 335px;
   height: 80px;
-
+letter-spacing: -0.02em;
   font-size: 12px;
-  line-height: 1.6;
-  color: #fff;
+  line-height: 16px;
+  color: var(--card-text);
 }
 
-@media (width >= 768px) {
+@media (min-width: 768px) {
   .screensPageTextContainer {
     width: 100%;
     max-width: 486px;
     height: 72px;
+    font-size: 14px;
+    line-height: 18px;
   }
+}
+
+.screensPageTextContainer .screensPageTextLink {
+  color: var(--text-link-board)
 }

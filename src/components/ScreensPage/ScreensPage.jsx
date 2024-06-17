@@ -4,6 +4,7 @@ import TaskBoard from '../TaskBoard/TaskBoard.jsx';
 import sprite from '../../assets/sprite.svg';
 import styles from './ScreensPage.module.css';
 import { useState } from 'react';
+import ScreenPageEmptyElement from '../ScreenPageEmptyElement/ScreenPageEmptyElement.jsx';
 
 const ScreensPage = () => {
   const [board, setBoard] = useState(null);
@@ -130,16 +131,8 @@ const ScreensPage = () => {
           )}
         </div>
       ) : (
-        <div className={styles.screensPageTextContainer}>
-          <p className={styles.screensPageText}>
-            Before starting your project, it is essential{' '}
-            <span className={styles.highlight}> to create a board </span> to visualize and track all
-            the necessary tasks and milestones. This board serves as a powerful tool to organize the
-            workflow and ensure effective collaboration among team members.
-          </p>
-        </div>
+        <ScreenPageEmptyElement />
       )}
-      ;
     </div>
   );
 };
