@@ -70,12 +70,13 @@ export default function PopUpNewBoard({ onClose }) {
 
   return (
     <div className={css.container}>
-      <p className={css.titleBoard}>New Board</p>
       <button type='button' className={css.btnClose}>
         <svg className={css.xClose} alt='x-close'>
           <use href={`${sprite}#icon-x-close`} />
         </svg>
       </button>
+      <p className={css.titleBoard}>New Board</p>
+
       <Formik
         initialValues={initialValues}
         validate={values => {
