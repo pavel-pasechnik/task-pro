@@ -1,62 +1,83 @@
-.form {
-  position: relative;
+.mainCont {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to bottom, #fff 0%, #bedbb0 100%);
+}
 
+.formCont {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  gap: 14px;
 
-  width: 390px;
-  margin: 20% auto;
-  padding: 20px;
+  width: 335px;
+  height: 300px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 24px;
 
-  border: 1px solid #000;
+  background-color: #151515;
   border-radius: 8px;
+}
+
+.p {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.5em;
+  color: #fff;
+}
+
+.link {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.5em;
+  color: rgb(255 255 255 / 30%);
+  text-decoration: none;
+}
+
+.nav {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 26px;
 }
 
 .input {
-  display: block;
+  padding: 14px 18px;
 
-  width: 350px;
-  height: 40px;
-  margin-bottom: 0;
-  padding: 8px 20px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5em;
+  color: #fff;
 
-  border: 1px solid #000;
+  background-color: #1f1f1f;
+  border: 1px solid rgb(190 219 176 / 100%);
   border-radius: 8px;
 }
 
-.label:nth-child(2) {
-  margin-top: 40px;
-}
-
-.email {
-  position: absolute;
-  top: 88px;
-  color: red;
-}
-
-.password {
-  position: absolute;
-  top: 192px;
-  color: red;
-}
-
-.submit {
+.button {
   cursor: pointer;
 
-  align-self: center;
+  margin-top: 10px;
+  padding-top: 14px;
+  padding-bottom: 14px;
 
-  margin-top: 40px;
-  padding: 8px 16px;
+  text-align: center;
 
+  background-color: rgb(190 219 176 / 100%);
+  border: none;
   border-radius: 8px;
 }
 
-.register {
-  margin-top: 20px;
+@media screen and (width <= 374px) {
+  .formCont {
+    width: 80%;
+  }
 }
 
-.link:hover {
-  text-decoration: underline;
+@media screen and (width >= 768px) {
+  .formCont {
+    width: 424px;
+    height: 332px;
+    padding: 40px;
+  }
 }

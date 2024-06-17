@@ -34,6 +34,7 @@ justify-content: flex-end;
   margin-top: 4px;
 }
 
+
 .iconFilter {
   width: 16px;
   height: 16px;
@@ -121,6 +122,7 @@ margin-right: 8px;
   .screensPageTextContainer {
     width: 486px;
   }
+
 }
 
 @media (min-width: 1440px){

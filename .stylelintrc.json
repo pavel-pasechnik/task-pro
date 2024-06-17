@@ -7,10 +7,10 @@
   "plugins": ["stylelint-order", "stylelint-prettier"],
   "rules": {
     "prettier/prettier": true,
-    "declaration-property-unit-allowed-list": {
-      "letter-spacing": ["em"],
-      "line-height": []
-    }
+    "media-feature-range-notation": "context",
+    "selector-class-pattern": null,
+    "custom-property-pattern": null,
+    "keyframes-name-pattern": null
   },
   "overrides": [
     {

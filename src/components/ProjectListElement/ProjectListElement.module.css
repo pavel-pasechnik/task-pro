@@ -1,0 +1,66 @@
+.projectItem {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 61px;
+}
+
+.projectContainer {
+  padding: 0 14px;
+}
+
+.projectTitleContainer {
+  display: flex;
+  gap: 10px;
+}
+
+.projectButton {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  padding: 0 14px;
+
+  color: inherit;
+
+  background-color: inherit;
+  border: none;
+}
+
+.projectIcon {
+  width: 18px;
+  height: 18px;
+  color: inherit;
+  fill: white;
+}
+
+.projectControls {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  justify-content: space-between;
+
+  & button {
+    padding: 0;
+    background-color: inherit;
+    border: none;
+  }
+}
+
+.projectControlsEdit {
+  display: block;
+  width: 16px;
+  height: 16px;
+}
+
+.projectControlsDelete {
+  display: block;
+  width: 16px;
+  height: 16px;
+}
+
+.currentProject {
+  border-right: 5px solid red;
+  border-radius: 5px;
+}

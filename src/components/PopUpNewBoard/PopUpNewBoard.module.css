@@ -1,6 +1,6 @@
 @media only screen and (width >= 320px) {
   .container {
-    max-width: 433px;
+    max-width: 325px;
     margin: 0 auto;
     padding: 24px;
 
@@ -9,7 +9,9 @@
     border-radius: 8px;
   }
 
+  /* Title style */
   .titleBoard {
+    padding-bottom: 24px;
     font-size: 18;
     font-weight: 500;
     color: var(--white-color);
@@ -21,8 +23,67 @@
     color: var(--white-color);
   }
 
-  .IconTest {
-    fill: black;
+  .input {
+    width: 100%;
+    padding: 14px;
+
+    color: var(--gray-text-color);
+
+    background-color: var(---black-color-input);
+    border: 1px solid var(--green-color);
+    border-radius: 8px;
+  }
+
+  /* Icons Style */
+  .iconslist {
+    display: flex;
+  }
+
+  .iconTitle {
+    padding-top: 24px;
+    padding-bottom: 7px;
+    color: var(--white-color);
+  }
+
+  .icons {
+    width: 18px;
+    height: 18px;
+    stroke: var(--color-btn-text);
+  }
+  /* Button style */
+  .btnClose {
+    top: 14px;
+    right: 14px;
+    background-color: transparent;
+    border: transparent;
+    padding: 0;
+  }
+  .xClose {
+    width: 18px;
+    height: 18px;
+    stroke: var(--black-color);
+    z-index: -1;
+  }
+  /* Background style */
+  .backgroundTitle {
+    padding-top: 24px;
+    padding-bottom: 14px;
+    color: var(--white-color);
+  }
+  .backgroundsList {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 4px;
+  }
+  .backgroundIcon {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+  }
+  /* Button style */
+  .createButton {
+    width: 100%;
+    margin-top: 24px;
   }
 }
 
@@ -30,7 +91,7 @@
 
 @media only screen and (width >= 768px) {
   .container {
-    max-width: 433px;
+    max-width: 350px;
     margin: 0 auto;
     padding: 24px;
 
@@ -39,7 +100,9 @@
     border-radius: 8px;
   }
 
+  /* Title style */
   .titleBoard {
+    padding-bottom: 24px;
     font-size: 18;
     font-weight: 500;
     color: var(--white-color);
@@ -50,13 +113,106 @@
     font-weight: 300;
     color: var(--white-color);
   }
+
+  .input {
+    width: 100%;
+    padding: 14px;
+
+    color: var(--gray-text-color);
+
+    background-color: var(---black-color-input);
+    border: 1px solid var(--green-color);
+    border-radius: 8px;
+  }
+
+  /* Icons Style */
+  .iconTitle {
+    padding-top: 24px;
+    padding-bottom: 7px;
+    color: var(--white-color);
+  }
+
+  .icons {
+    width: 18px;
+    height: 18px;
+    stroke: var(--color-btn-text);
+  }
+
+  /* Background style */
+  .backgroundTitle {
+    padding-top: 24px;
+    padding-bottom: 14px;
+    color: var(--white-color);
+  }
+
+  /* Button style */
+  .createButton {
+    width: 100%;
+    margin-top: 24px;
+  }
 }
 
 /* desktop syles */
 
-@media only screen and (width >= 1158px) {
+@media only screen and (width <= 1440px) {
   .container {
-    max-width: 1158px;
-    padding: 0 15px;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 24px;
+
+    background-color: var(--black-color);
+    border: 1px solid var(--green-color);
+    border-radius: 8px;
+  }
+
+  /* Title style */
+  .titleBoard {
+    padding-bottom: 24px;
+    font-size: 18;
+    font-weight: 500;
+    color: var(--white-color);
+  }
+
+  .titleDown {
+    font-size: 18;
+    font-weight: 300;
+    color: var(--white-color);
+  }
+
+  .input {
+    width: 100%;
+    padding: 14px;
+
+    color: var(--gray-text-color);
+
+    background-color: var(---black-color-input);
+    border: 1px solid var(--green-color);
+    border-radius: 8px;
+  }
+
+  /* Icons Style */
+  .iconTitle {
+    padding-top: 24px;
+    padding-bottom: 7px;
+    color: var(--white-color);
+  }
+
+  .icons {
+    width: 18px;
+    height: 18px;
+    stroke: var(--color-btn-text);
+  }
+
+  /* Background style */
+  .backgroundTitle {
+    padding-top: 24px;
+    padding-bottom: 14px;
+    color: var(--white-color);
+  }
+
+  /* Button style */
+  .createButton {
+    width: 100%;
+    margin-top: 24px;
   }
 }
