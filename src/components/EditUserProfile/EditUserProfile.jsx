@@ -5,12 +5,12 @@ import { selectTheme, selectUser } from '../../redux/auth/selectors.js';
 import { useDispatch, useSelector } from 'react-redux';
 import { EyeClose } from '../AuthForm/EyeClose/EyeClose.jsx';
 import { EyeOpen } from '../AuthForm/EyeOpen/EyeOpen.jsx';
-import { Loader } from '../Loader/Loader.jsx';
 import Modal from '../Modal/Modal.jsx';
 import { updateUser } from '../../redux/auth/operations.js';
 import { useState } from 'react';
 
 import styles from './EditUserProfile.module.css';
+import { Loader } from '../Loader/Loader.jsx'; // Оставляємо тільки цей імпорт
 
 const updateUserSchema = object({
   name: string()
@@ -85,7 +85,7 @@ const EditUserProfile = ({ onClose }) => {
     try {
       await dispatch(updateUser(formData));
       resetForm();
-      onClose(); // Додано
+      onClose();
     } catch (error) {
       throw error.message;
     } finally {
@@ -100,7 +100,7 @@ const EditUserProfile = ({ onClose }) => {
         initialValues={initialValues}
         validationSchema={updateUserSchema}
         onSubmit={handleSubmit}>
-        {({ errors, setFieldValue }) => (
+        {({ errors, setFieldValue, isSubmitting }) => (
           <Form className={styles.form}>
             <div className={styles.wrap}>
               <p className={styles.title}>Edit profile</p>
@@ -148,10 +148,13 @@ const EditUserProfile = ({ onClose }) => {
               </span>
               {errors.password && <FormError name='password' />}
             </div>
-            <button className={theme === 'violet' ? styles.btnViolet : styles.btn} type='submit'>
+            <button
+              className={theme === 'violet' ? styles.btnViolet : styles.btn}
+              type='submit'
+              disabled={isSubmitting}>
               <div className={styles.wrap}>
                 <span>Send</span>
-                <Loader />
+                {isSubmitting && <Loader />}
               </div>
             </button>
           </Form>
