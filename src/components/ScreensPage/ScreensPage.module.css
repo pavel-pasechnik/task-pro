@@ -16,8 +16,8 @@
 }
 
 .containerFilter {
-display: flex;
-justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .filtersBtn {
@@ -33,7 +33,6 @@ justify-content: flex-end;
   position: absolute;
   margin-top: 4px;
 }
-
 
 .iconFilter {
   width: 16px;
@@ -95,7 +94,7 @@ justify-content: flex-end;
   height: 28px;
   background-color: var(--white-color);
   border-radius: 5px;
-margin-right: 8px;
+  margin-right: 8px;
 }
 
 .iconPlus {
@@ -114,7 +113,7 @@ margin-right: 8px;
 
 @media (min-width: 375px) {
   .screensPageTextContainer {
-  width: 335px;
+    width: 335px;
   }
 }
 
@@ -122,10 +121,9 @@ margin-right: 8px;
   .screensPageTextContainer {
     width: 486px;
   }
-
 }
 
-@media (min-width: 1440px){
+@media (min-width: 1440px) {
   .screensPageTextContainer {
     left: 60%;
     width: 486px;
@@ -149,5 +147,3 @@ margin-right: 8px;
 .screensPageText .highlight {
   color: var(--green-color);
 }
-
-

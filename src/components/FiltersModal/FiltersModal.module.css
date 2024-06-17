@@ -102,10 +102,10 @@
 
 .customCheckbox {
   display: flex;
-    align-items: center;
-    cursor: pointer;
-    user-select: none;
-    font-weight: 400;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  font-weight: 400;
   font-style: normal;
   font-size: 12px;
   color: var(--gray-text-color);
@@ -119,20 +119,20 @@
 
 .checkboxCustom {
   width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    margin-right: 8px;
-    transition: background-color 0.3s;
+  height: 14px;
+  border-radius: 50%;
+  margin-right: 8px;
+  transition: background-color 0.3s;
 }
 
 .checkboxInput:checked + .checkboxCustom {
   display: flex;
   justify-content: center;
   align-items: center;
-position: relative;
-width: 14px;
-height: 14px;
-border: 1px solid;
+  position: relative;
+  width: 14px;
+  height: 14px;
+  border: 1px solid;
   margin-right: 8px;
   background-color: inherit;
 }

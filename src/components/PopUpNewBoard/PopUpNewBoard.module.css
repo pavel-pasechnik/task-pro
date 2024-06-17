@@ -50,36 +50,44 @@
     height: 18px;
     stroke: var(--color-btn-text);
   }
+
   /* Button style */
   .btnClose {
     top: 14px;
     right: 14px;
+
+    padding: 0;
+
     background-color: transparent;
     border: transparent;
-    padding: 0;
   }
+
   .xClose {
+    z-index: -1;
     width: 18px;
     height: 18px;
     stroke: var(--black-color);
-    z-index: -1;
   }
+
   /* Background style */
   .backgroundTitle {
     padding-top: 24px;
     padding-bottom: 14px;
     color: var(--white-color);
   }
+
   .backgroundsList {
     display: grid;
     grid-template-columns: repeat(8, 1fr);
     gap: 4px;
   }
+
   .backgroundIcon {
     width: 28px;
     height: 28px;
     border-radius: 6px;
   }
+
   /* Button style */
   .createButton {
     width: 100%;
