@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import { Suspense, lazy, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectIsLoggedIn, selectIsRefreshing } from '../../redux/auth/selectors.js';
+import { selectIsRefreshing } from '../../redux/auth/selectors.js';
 import { PrivateRoute } from '../Routes/PrivateRoute.jsx';
 import { RestrictedRoute } from '../Routes/RestrictedRoute.jsx';
 import { Toaster } from 'react-hot-toast';

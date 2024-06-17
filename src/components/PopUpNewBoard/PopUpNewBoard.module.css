@@ -1,9 +1,11 @@
 @media only screen and (width >= 320px) {
   .container {
-    max-width: 433px;
+    position: relative;
+    display: flex;
+    max-width: 325px;
     margin: 0 auto;
     padding: 24px;
-
+    flex-direction: column;
     background-color: var(--black-color);
     border: 1px solid var(--green-color);
     border-radius: 8px;
@@ -37,8 +39,14 @@
   /* Icons Style */
   .iconslist {
     display: flex;
+    list-style: none;
+    gap: 8px;
   }
 
+  .iconslist svg {
+    cursor: pointer;
+    fill: var(--black-color);
+  }
   .iconTitle {
     padding-top: 24px;
     padding-bottom: 7px;
@@ -46,7 +54,33 @@
   }
 
   .icons {
-    stroke: orangered;
+    width: 18px;
+    height: 18px;
+    stroke: var(--color-btn-text);
+  }
+
+  /* Input style */
+  input[type='radio'],
+  input[type='checkbox'] {
+    opacity: 0;
+    position: absolute;
+  }
+
+  /* Button style */
+  .btnClose {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+
+    background-color: transparent;
+    border: transparent;
+  }
+
+  .xClose {
+    z-index: -1;
+    width: 18px;
+    height: 18px;
+    stroke: var(--black-color);
   }
 
   /* Background style */
@@ -54,6 +88,19 @@
     padding-top: 24px;
     padding-bottom: 14px;
     color: var(--white-color);
+  }
+
+  .backgroundsList {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 4px;
+    list-style: none;
+  }
+
+  .backgroundIcon {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
   }
 
   /* Button style */
@@ -67,7 +114,7 @@
 
 @media only screen and (width >= 768px) {
   .container {
-    max-width: 433px;
+    max-width: 350px;
     margin: 0 auto;
     padding: 24px;
 
@@ -109,7 +156,9 @@
   }
 
   .icons {
-    fill: white;
+    width: 18px;
+    height: 18px;
+    stroke: var(--color-btn-text);
   }
 
   /* Background style */
@@ -130,7 +179,7 @@
 
 @media only screen and (width <= 1440px) {
   .container {
-    max-width: 433px;
+    max-width: 400px;
     margin: 0 auto;
     padding: 24px;
 
@@ -172,7 +221,9 @@
   }
 
   .icons {
-    fill: white;
+    width: 18px;
+    height: 18px;
+    stroke: var(--color-btn-text);
   }
 
   /* Background style */

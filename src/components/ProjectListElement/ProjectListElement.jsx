@@ -1,3 +1,4 @@
+import React from 'react';
 import css from './ProjectListElement.module.css';
 import sprite from '../../assets/sprite.svg';
 
@@ -11,18 +12,19 @@ const ProjectListElement = ({ board, isCurrent, onClick }) => {
           </svg>
           <span className={css.projectTitle}>{board.title}</span>
         </div>
-        <div className={css.projectControls}>
-          <div className={css.editButton}>
+        <div className={`${css.projectControls} ${isCurrent ? css.showControls : ''}`}>
+          <button className={css.editButton}>
             <svg className={css.projectControlsEdit}>
               <use href={`${sprite}#icon-pencil`}></use>
             </svg>
-          </div>
-          <div className={css.deleteButton}>
+          </button>
+          <button className={css.deleteButton}>
             <svg className={css.projectControlsDelete}>
               <use href={`${sprite}#icon-trash`}></use>
             </svg>
-          </div>
+          </button>
         </div>
+        {isCurrent && <div className={css.highlight}></div>}
       </button>
     </li>
   );

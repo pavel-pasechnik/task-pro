@@ -2,9 +2,10 @@
   display: flex;
   flex-direction: column;
   gap: 14px;
-  margin: 0 auto;
+
   width: 212px;
   height: 238px;
+  margin: 14px auto 0;
   padding: 14px;
 
   background-color: var(--header-icon-user-bg);
@@ -17,12 +18,12 @@
 }
 
 .needHelpText {
-  font-size: 12px;
+  font-size: var(--font-size-base);
   font-weight: 400;
 }
 
 .needHelpLink {
-  color: var(--logout-svg-sidebar);
+  color: var(--need-help-link);
 }
 
 .iconLogoContainer {

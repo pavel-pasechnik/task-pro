@@ -1,0 +1,164 @@
+.filtersModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.containerModal {
+  background-color: #151515;
+  width: 300px;
+  height: 234px;
+  border-radius: 8px;
+  padding: 14px 14px 24px 24px;
+}
+
+.closeBtn {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: inherit;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  padding: 0;
+}
+
+.btnIcon {
+  width: 18px;
+  height: 18px;
+  fill: var(--white-color);
+}
+
+.title {
+  font-size: 18px;
+  color: var(--white-color);
+  font-weight: 500;
+  font-style: normal;
+  padding-top: 4.5px;
+  margin-top: 10px;
+  margin-bottom: 14px;
+  height: 27px;
+}
+
+.containerContent {
+  margin-right: 10px;
+}
+
+.line {
+  margin: 0;
+  border: none;
+  height: 1px;
+  background-color: var(--gray-border-color);
+  margin-bottom: 14px;
+}
+
+.containerLabel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+  height: 21px;
+}
+
+.btnAll {
+  background-color: inherit;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 12px;
+  color: var(--gray-text-color);
+}
+
+.titleLabel {
+  color: var(--white-color);
+  font-weight: 500;
+  font-style: normal;
+}
+
+.containerLevel {
+  display: flex;
+  align-items: center;
+  height: 18px;
+}
+
+.containerLevel:not(:last-child) {
+  margin-bottom: 8px;
+}
+
+.customCheckbox {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 12px;
+  color: var(--gray-text-color);
+}
+
+.checkboxInput {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkboxCustom {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  margin-right: 8px;
+  transition: background-color 0.3s;
+}
+
+.checkboxInput:checked + .checkboxCustom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 14px;
+  height: 14px;
+  border: 1px solid;
+  margin-right: 8px;
+  background-color: inherit;
+}
+
+.checkboxMiddle {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.gray {
+  background-color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.blue {
+  background-color: #8fa1d0;
+  color: #8fa1d0;
+}
+
+.pink {
+  background-color: #e09cb5;
+  color: #e09cb5;
+}
+
+.green {
+  background-color: #bedbb0;
+  color: #bedbb0;
+}

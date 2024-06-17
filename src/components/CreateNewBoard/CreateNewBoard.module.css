@@ -3,9 +3,10 @@
   align-items: center;
   justify-content: center;
   justify-content: space-between;
-  padding: 14px 0;
-  margin: 8px 24px 0px;
+
   width: 212px;
+  margin: 8px 24px 0;
+  padding: 14px 0;
 
   font-family: var(--primary-font);
   font-size: 14px;
@@ -17,6 +18,7 @@
 
 .createNewBoardText {
   width: 76px;
+  color: var(--title-sidebar);
 }
 
 .buttonIcon {
@@ -29,5 +31,5 @@
   width: 40px;
   height: 36px;
   padding: 0;
-  color: var();
+  background-color: var(--color-border-modal);
 }
