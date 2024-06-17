@@ -37,3 +37,9 @@ const boardsSlice = createSlice({
 
 export const { setCurrentBoard } = boardsSlice.actions;
 export default boardsSlice.reducer;
+
+// Селектори
+export const selectBoards = state => state.boards.items;
+export const selectBoardsLoading = state => state.boards.loading;
+export const selectBoardsError = state => state.boards.error;
+export const selectCurrentBoard = state => state.boards.currentBoard;
