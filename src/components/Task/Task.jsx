@@ -1,4 +1,3 @@
-
 import EditBoard from '../EditBoard/EditBoard.jsx';
 import IconButton from '../ButtonIcon/ButtonIcon.jsx';
 
