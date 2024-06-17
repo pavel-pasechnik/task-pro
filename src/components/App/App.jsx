@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
-import { Suspense, lazy, useEffect, useState } from 'react';
+import { Suspense, lazy, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectIsLoggedIn, selectIsRefreshing } from '../../redux/auth/selectors.js';
 import { PrivateRoute } from '../Routes/PrivateRoute.jsx';
@@ -13,29 +13,18 @@ import { WelcomePage } from '../../pages/WelcomePage/WelcomePage.jsx';
 import { LoginPage } from '../../pages/LoginPage/LoginPage.jsx';
 import { RegisterPage } from '../../pages/RegisterPage/RegisterPage.jsx';
 import { Loader } from '../Loader/Loader.jsx';
-// import AddBoard from '../AddBoard/AddBoard.jsx';
-import AddColumnPopUp from '../AddColumn/AddColumn.jsx';
+import AddBoard from '../AddBoard/AddBoard.jsx'; // Імпортуємо AddBoard
 
 const NotFound = lazy(() => import('../../pages/NotFound/NotFound.jsx'));
 const ScreensPage = lazy(() => import('../../components/ScreensPage/ScreensPage.jsx'));
 
 export default function App() {
   const isRefreshing = useSelector(selectIsRefreshing);
-  const isLoggedIn = useSelector(selectIsLoggedIn);
   const dispatch = useDispatch();
-  const [isModalOpen, setIsModalOpen] = useState(true);
 
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
-
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
 
   return (
     <>
@@ -67,8 +56,7 @@ export default function App() {
             </Routes>
           )}
         </Suspense>
-        <button onClick={openModal}>Add Board</button>
-        <AddColumnPopUp isOpen={isModalOpen} onClose={closeModal} />
+        <AddBoard /> {/* Додаємо AddBoard */}
       </Layout>
     </>
   );

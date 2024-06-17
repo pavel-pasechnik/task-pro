@@ -1,29 +1,23 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  currentColumn: {
-    id: null,
-    name: '',
-  },
+  isAddColumnOpen: false,
+  isEditColumnOpen: false,
 };
 
-const columnSlice = createSlice({
-  name: 'column',
+const controlersSlice = createSlice({
+  name: 'controlers',
   initialState,
   reducers: {
-    setCurrentColumn(state, action) {
-      state.currentColumn.id = action.payload.id;
-      state.currentColumn.name = action.payload.name;
+    setIsAddColumnOpen: (state, action) => {
+      state.isAddColumnOpen = action.payload;
     },
-    resetCurrentColumn(state) {
-      state.currentColumn.id = null;
-      state.currentColumn.name = '';
+    setIsEditColumnOpen: (state, action) => {
+      state.isEditColumnOpen = action.payload;
     },
   },
 });
 
-export const { setCurrentColumn, resetCurrentColumn } = columnSlice.actions;
+export const { setIsAddColumnOpen, setIsEditColumnOpen } = controlersSlice.actions; // Експортуємо новий екшен
 
-export const selectCurrentColumn = state => state.column.currentColumn;
-
-export default columnSlice.reducer;
+export default controlersSlice.reducer;

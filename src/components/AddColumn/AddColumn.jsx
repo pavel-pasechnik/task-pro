@@ -1,73 +1,57 @@
-import clsx from 'clsx';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import ButtonIcon from '../ButtonIcon/ButtonIcon.jsx';
 import sprite from '../../assets/sprite.svg';
 import * as Yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
-import { setIsAddColumnOpen, selectIsAddColumnOpen } from '../../redux/controlers/slice.js';
-import { selectIsColumnEdit } from '../../redux/controlers/selectors.js';
-import { addColumn, updateColumn } from '../../redux/column/operation.js';
-import { resetCurrentColumn, selectCurrentColumn } from '../../redux/column/slice.js';
-import { selectCurrentBoard } from '../../redux/boards/selectors.js';
+import { addColumn } from '../../redux/column/operation.js';
+import { selectCurrentBoard } from '../../redux/boards/slice.js';
+import { toast } from 'react-hot-toast';
 import styles from './AddColumn.module.css';
 
-export default function AddColumnPopUp() {
+export default function AddColumn() {
   const dispatch = useDispatch();
-  const isOpen = useSelector(selectIsAddColumnOpen);
-  const isEdit = useSelector(selectIsColumnEdit);
-  const currentColumn = useSelector(selectCurrentColumn);
   const currentBoard = useSelector(selectCurrentBoard);
 
-  if (!isOpen) return null;
-
   const schema = Yup.object({
-    name: Yup.string()
-      .required("Заголовок обов'язковий")
-      .max(30, 'Заголовок повинен містити менше 30 символів'),
+    name: Yup.string().required('title is required'),
   });
+
+  const closeModal = actions => {
+    actions.resetForm();
+  };
 
   const handleSubmit = async (values, actions) => {
     try {
-      if (!isEdit) {
-        await dispatch(addColumn({ boardId: currentBoard.id, title: values.name })).unwrap();
-      } else {
-        await dispatch(updateColumn({ columnId: currentColumn.id, title: values.name })).unwrap();
-        dispatch(resetCurrentColumn());
+      if (!currentBoard || !currentBoard.id) {
+        throw new Error('Current board is not selected');
       }
 
-      dispatch(setIsAddColumnOpen(false));
-      actions.resetForm();
+      await dispatch(addColumn({ boardId: currentBoard.id, title: values.name })).unwrap();
+      closeModal(actions);
+      toast.success('Column added successfully');
     } catch (error) {
-      console.error(`Error: ${error}`);
+      toast.error(`Error adding column`);
     } finally {
       actions.setSubmitting(false);
     }
   };
 
-  const handleClose = () => {
-    dispatch(setIsAddColumnOpen(false));
-    dispatch(resetCurrentColumn());
-  };
-
   return (
-    <div className={clsx(styles.modal)}>
+    <div className={styles.modal}>
       <div className={styles.modalContent}>
-        <button className={clsx(styles.closeButton)} onClick={handleClose}>
+        <button className={styles.closeButton} onClick={() => {}}>
           <svg className={styles.closeIcon}>
             <use href={`${sprite}#icon-x-close`}></use>
           </svg>
         </button>
-        <h2 className={styles.addColumn}>{isEdit ? 'Edit column' : 'Add column'}</h2>
-        <Formik
-          initialValues={{ name: isEdit ? currentColumn.name : '' }}
-          validationSchema={schema}
-          onSubmit={handleSubmit}>
+        <h2 className={styles.addColumn}>Add column</h2>
+        <Formik initialValues={{ name: '' }} validationSchema={schema} onSubmit={handleSubmit}>
           {({ isSubmitting }) => (
             <Form>
               <Field
                 type='text'
                 name='name'
-                className={clsx(styles.modalInputTitle, styles.textarea)}
+                className={styles.modalInputTitle}
                 placeholder='Title'
               />
               <ErrorMessage name='name' component='div' className={styles.errorMessage} />
@@ -75,13 +59,11 @@ export default function AddColumnPopUp() {
                 id='icon-add'
                 iconWidth='28'
                 iconHeight='28'
-                text={isEdit ? 'Edit' : 'Add'}
-                isIcon={true}
-                verticalPadding='10px'
+                btnClassName={styles.addButton}
                 type='submit'
-                className={styles.addButton}
-                disabled={isSubmitting}
-              />
+                disabled={isSubmitting}>
+                Add
+              </ButtonIcon>
             </Form>
           )}
         </Formik>

@@ -19,19 +19,22 @@ const AddBoard = ({ isOpen, onClose, columnId }) => {
   const titleId = useId();
   const descriptionId = useId();
 
-  if (!isOpen) return null;
+  // if (!isOpen) return null;
 
   const handleDateChange = date => {
     setDeadline(date);
   };
 
   const getPriorityClassName = priorityValue => {
-    return `${styles.labelColor} ${styles[priorityValue]} ${priority === priorityValue ? styles.active : ''}`;
+    return `${styles.labelColor} ${styles[priorityValue]} ${
+      priority === priorityValue ? styles.active : ''
+    }`;
   };
 
   const validationSchema = Yup.object({
     title: Yup.string().required('Title is required'),
     description: Yup.string().required('Description is required'),
+    // deadline: Yup.number().required(),
   });
 
   const onSubmit = async (values, actions) => {
@@ -86,7 +89,7 @@ const AddBoard = ({ isOpen, onClose, columnId }) => {
                 <span className={styles.sectionTitle}>Priority</span>
                 <div className={styles.labelColors}>
                   <span
-                    className={getPriorityClassName('low')}
+                    className={clsx(styles.radioButton, getPriorityClassName('low'))}
                     onClick={() => setPriority('low')}
                     role='button'
                     tabIndex={0}
@@ -97,7 +100,7 @@ const AddBoard = ({ isOpen, onClose, columnId }) => {
                     }}
                   />
                   <span
-                    className={getPriorityClassName('medium')}
+                    className={clsx(styles.radioButton, getPriorityClassName('medium'))}
                     onClick={() => setPriority('medium')}
                     role='button'
                     tabIndex={0}
@@ -108,7 +111,7 @@ const AddBoard = ({ isOpen, onClose, columnId }) => {
                     }}
                   />
                   <span
-                    className={getPriorityClassName('high')}
+                    className={clsx(styles.radioButton, getPriorityClassName('high'))}
                     onClick={() => setPriority('high')}
                     role='button'
                     tabIndex={0}
@@ -119,7 +122,7 @@ const AddBoard = ({ isOpen, onClose, columnId }) => {
                     }}
                   />
                   <span
-                    className={getPriorityClassName('none')}
+                    className={clsx(styles.radioButton, getPriorityClassName('none'))}
                     onClick={() => setPriority('none')}
                     role='button'
                     tabIndex={0}
