@@ -5,11 +5,11 @@ import { ToastContainer, toast } from 'react-toastify';
 import { useId, useState } from 'react';
 import ButtonIcon from '../ButtonIcon/ButtonIcon.jsx';
 import Calendar from '../Calendar/Calendar.jsx';
-import axios from 'axios';
 import clsx from 'clsx';
 import sprite from '../../assets/sprite.svg';
 import styles from './AddBoard.module.css';
 import { useDispatch } from 'react-redux';
+import { addCard } from '../../redux/cards/operations.js';
 
 const AddBoard = ({ isOpen, onClose, columnId }) => {
   const [priority, setPriority] = useState('low');
@@ -21,23 +21,6 @@ const AddBoard = ({ isOpen, onClose, columnId }) => {
 
   if (!isOpen) return null;
 
-  const handleAdd = async (values, { setSubmitting }) => {
-    try {
-      const response = await axios.post(`/api/boards/cards/${columnId}`, {
-        ...values,
-        priority,
-        deadline,
-      });
-      dispatch(response.data);
-      onClose();
-      toast.success('Card added successfully!');
-    } catch (error) {
-      toast.error(`Error adding card: ${error.response?.data?.message || error.message}`);
-    } finally {
-      setSubmitting(false);
-    }
-  };
-
   const handleDateChange = date => {
     setDeadline(date);
   };
@@ -48,8 +31,21 @@ const AddBoard = ({ isOpen, onClose, columnId }) => {
 
   const validationSchema = Yup.object({
     title: Yup.string().required('Title is required'),
-    description: Yup.string(),
+    description: Yup.string().required('Description is required'),
   });
+
+  const onSubmit = async (values, actions) => {
+    try {
+      await dispatch(addCard({ columnId, values, priority, deadline })).unwrap();
+      onClose();
+      toast.success('Card added successfully!');
+    } catch (error) {
+      toast.error(`Error adding card: ${error}`);
+    } finally {
+      actions.setSubmitting(false);
+      actions.resetForm();
+    }
+  };
 
   return (
     <div className={styles.modal}>
@@ -63,7 +59,7 @@ const AddBoard = ({ isOpen, onClose, columnId }) => {
         <Formik
           initialValues={{ title: '', description: '' }}
           validationSchema={validationSchema}
-          onSubmit={handleAdd}>
+          onSubmit={onSubmit}>
           {({ isSubmitting }) => (
             <Form>
               <div>
@@ -123,13 +119,13 @@ const AddBoard = ({ isOpen, onClose, columnId }) => {
                     }}
                   />
                   <span
-                    className={getPriorityClassName('_')}
-                    onClick={() => setPriority('_')}
+                    className={getPriorityClassName('none')}
+                    onClick={() => setPriority('none')}
                     role='button'
                     tabIndex={0}
                     onKeyDown={e => {
                       if (e.key === 'Enter' || e.key === ' ') {
-                        setPriority('_');
+                        setPriority('none');
                       }
                     }}
                   />

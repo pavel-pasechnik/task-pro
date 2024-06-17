@@ -7,7 +7,7 @@ import ProjectList from '../ProjectList/ProjectList.jsx';
 import clsx from 'clsx';
 import css from './Sidebar.module.css';
 
-const Sidebar = ({ isOpen, toggleSidebar }) => {
+const Sidebar = ({ isOpen, toggleSidebar, openModal }) => {
   return (
     <>
       {isOpen && (
@@ -23,7 +23,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
       <div className={clsx(css.sidebar, { [css.open]: isOpen })}>
         <Logo />
         <MyBoards />
-        <CreateNewBoard />
+        <CreateNewBoard openModal={openModal} />
         <ProjectList />
         <NeedHelpBanner />
         <LogOut />

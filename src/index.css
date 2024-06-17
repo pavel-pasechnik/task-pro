@@ -31,32 +31,150 @@
 :root {
   --primary-font: 'Poppins', sans-serif;
   --font-size-base: 14px;
+  --background-header: #fcfcfc;
+  --color-text-base: #161616;
+  --color-text-rgb: rgb(22 22 22 / 80%);
+  --color-border-modal: #bedbb0;
+  --color-btn-text: #161616;
+  --color-btn-hover: #9dc888;
+  --background-sidebar: #fff;
+  --header-logo-arrow: rgb(22 22 22 / 80%);
+  --header-icon-user: #fff;
+  --header-icon-user-bg: #f6f6f7;
+  --title-sidebar: #161616;
+  --logo-sidebar: #fff;
+  --logo-sidebar-bg: #1f1f1f;
+  --text-sidebar-rgb: rgb(22 22 22 / 50%);
+  --border-sidebar-create: rgb(22 22 22 / 10%);
+  --help-sidebar-background: #f6f6f7;
+  --logout-svg-sidebar: #bedbb0;
+  --logout-svg-sidebar-hv: #9dc888;
+  --main-background: #f6f6f7;
+  --todo-background: #fff;
+  --card-text: rgb(22 22 22 / 70%);
+  --todo-svg: : rgb(22 22 22 / 50%);
+  --modal-icon: rgb(22 22 22 / 50%);
+  --screens-page-text: rgb(16 16 16 / 70%);
+  --sidebar-add-icon: #121212;
 
-  /* colors */
-  --black-color: #161616;
+  /* --black-color: #161616;
   --almost-black-color: #121212;
   --white-color: #fff;
-
-  /* --gray-text-color: rgba(22, 22, 22, 0.7); */
+  --almost-white-color: #f1f1f1;
+  --black-color-input: #1f1f1f;
+  --red-color: red;
   --gray-border-color: rgb(255 255 255 / 10%);
   --gray-text-color: rgb(255 255 255 / 50%);
   --light-gray-text-color: rgb(22 22 22 / 50%);
   --background-gray-color: #f6f6f7;
   --background-darkgray-color: #1f1f1f;
-  --background-header-white-color: #fcfcfc;
-  --green-color: #bedbb0;
+   --green-color: #bedbb0;
   --violet-color: #5255bc;
   --violet-light: rgb(236 237 253 / 40%);
   --second-light-violet-color: #b8bcfd;
   --violet-super-light-color: #ecedfd;
-  --filters-button-light-color: rgb(255 255 255 / 80%);
+  --filters-button-light-color: rgb(255 255 255 / 80%); */
+}
+
+[data-theme='dark'] {
+  --background-header: #161616;
+  --color-text-base: #fff;
+  --color-text-rgb: rgb(255 255 255 / 80%); /* theme, filters */
+  --color-border-modal: #bedbb0;
+  --color-btn-text: #161616;
+  --color-btn-hover: #9dc888;
+  --background-sidebar: #121212;
+  --header-logo-arrow: rgb(255 255 255 / 80%);
+  --header-icon-user: #151515;
+  --header-icon-user-bg: #1f1f1f;
+  --title-sidebar: #fff;
+  --logo-sidebar: #fff;
+  --logo-sidebar-bg: #1f1f1f;
+  --text-sidebar-rgb: rgb(255 255 255 / 50%);
+  --border-sidebar-create: rgb(255 255 255 / 10%);
+  --help-sidebar-background: #1f1f1f;
+  --logout-svg-sidebar: #bedbb0;
+  --logout-svg-sidebar-hv: #9dc888;
+  --main-background: #1f1f1f;
+  --todo-background: #121212;
+  --card-text: rgb(255 255 255 / 50%);
+  --todo-svg: : rgb(255 255 255 / 50%);
+  --modal-icon: rgb(255 255 255 / 50%);
+  --sidebar-add-icon: #121212;
+  --screens-page-text: rgb(255 255 255 / 50%);
+
+  /* --black-color: #161616;
+    --almost-black-color: #121212;
+    --white-color: #fff;
+    --almost-white-color: #f1f1f1;
+    --black-color-input: #1f1f1f;
+    --red-color: red;
+    --gray-border-color: rgb(255 255 255 / 10%);
+    --gray-text-color: rgb(255 255 255 / 50%);
+    --light-gray-text-color: rgb(22 22 22 / 50%);
+    --background-gray-color: #f6f6f7;
+    --background-darkgray-color: #1f1f1f;
+    --green-color: #bedbb0;
+    --violet-color: #5255bc;
+    --violet-light: rgb(236 237 253 / 40%);
+    --second-light-violet-color: #b8bcfd;
+    --violet-super-light-color: #ecedfd;
+    --filters-button-light-color: rgb(255 255 255 / 80%); */
+}
+
+[data-theme='violet'] {
+  --background-header: #fff;
+  --color-text-base: #161616;
+  --color-text-rgb: rgb(22 22 22 / 80%);
+  --color-border-modal: #ecedfd;
+  --color-btn-text: #fff;
+  --color-btn-hover: #7b7ede;
+  --background-sidebar: #5255bc;
+  --header-logo-arrow: rgb(22 22 22 / 80%);
+  --header-icon-user: #fff;
+  --header-icon-user-bg: #ecedfd;
+  --title-sidebar: #fff;
+  --logo-sidebar: #5255bc;
+  --logo-sidebar-bg: #ecedfd;
+  --text-sidebar-rgb: rgb(255 255 255 / 50%);
+  --border-sidebar-create: rgb(255 255 255 / 10%);
+  --help-sidebar-background: rgb(236 237 253 / 40%);
+  --logout-svg-sidebar: #fff;
+  --logout-svg-sidebar-hv: #b8bcfd;
+  --main-background: #b8bcfd;
+  --todo-background: #fff;
+  --card-text: rgb(22 22 22 / 70%);
+  --todo-svg: : rgb(22 22 22 / 50%);
+  --modal-icon: rgb(22 22 22 / 50%);
+  --sidebar-add-icon: #fff;
+  --screens-page-text: rgb(16 16 16 / 70%);
+
+  /* --black-color: #161616;
+    --almost-black-color: #121212;
+    --white-color: #fff;
+    --almost-white-color: #f1f1f1;
+    --black-color-input: #1f1f1f;
+    --red-color: red;
+    --gray-border-color: rgb(255 255 255 / 10%);
+    --gray-text-color: rgb(255 255 255 / 50%);
+    --light-gray-text-color: rgb(22 22 22 / 50%);
+    --background-gray-color: #f6f6f7;
+    --background-darkgray-color: #1f1f1f;
+    --green-color: #bedbb0;
+    --violet-color: #5255bc;
+    --violet-light: rgb(236 237 253 / 40%);
+    --second-light-violet-color: #b8bcfd;
+    --violet-super-light-color: #ecedfd;
+    --filters-button-light-color: rgb(255 255 255 / 80%); */
 }
 
 body {
   margin: 0;
   padding: 0;
+
   font-family: var(--primary-font);
   font-size: var(--font-size-base);
+  color: var(--white-color);
 }
 
 button {

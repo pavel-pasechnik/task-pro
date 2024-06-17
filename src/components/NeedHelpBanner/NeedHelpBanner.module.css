@@ -2,12 +2,12 @@
   display: flex;
   flex-direction: column;
   gap: 14px;
-
-  width: 197px;
+  margin: 0 auto;
+  width: 212px;
   height: 238px;
   padding: 14px;
 
-  background-color: var(--background-darkgray-color);
+  background-color: var(--header-icon-user-bg);
   border-radius: 8px;
 }
 
@@ -22,7 +22,7 @@
 }
 
 .needHelpLink {
-  color: var(--green-color);
+  color: var(--logout-svg-sidebar);
 }
 
 .iconLogoContainer {

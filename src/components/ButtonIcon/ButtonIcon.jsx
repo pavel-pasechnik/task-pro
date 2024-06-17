@@ -9,7 +9,7 @@ const ButtonIcon = ({
   btnClassName,
   iconClassName,
   onClick,
-  children, // додаємо children для тексту
+  children,
   ...rest
 }) => {
   return (

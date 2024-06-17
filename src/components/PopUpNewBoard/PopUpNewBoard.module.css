@@ -9,7 +9,9 @@
     border-radius: 8px;
   }
 
+  /* Title style */
   .titleBoard {
+    padding-bottom: 24px;
     font-size: 18;
     font-weight: 500;
     color: var(--white-color);
@@ -21,8 +23,43 @@
     color: var(--white-color);
   }
 
-  .IconTest {
-    fill: black;
+  .input {
+    width: 100%;
+    padding: 14px;
+
+    color: var(--gray-text-color);
+
+    background-color: var(---black-color-input);
+    border: 1px solid var(--green-color);
+    border-radius: 8px;
+  }
+
+  /* Icons Style */
+  .iconslist {
+    display: flex;
+  }
+
+  .iconTitle {
+    padding-top: 24px;
+    padding-bottom: 7px;
+    color: var(--white-color);
+  }
+
+  .icons {
+    stroke: orangered;
+  }
+
+  /* Background style */
+  .backgroundTitle {
+    padding-top: 24px;
+    padding-bottom: 14px;
+    color: var(--white-color);
+  }
+
+  /* Button style */
+  .createButton {
+    width: 100%;
+    margin-top: 24px;
   }
 }
 
@@ -39,7 +76,9 @@
     border-radius: 8px;
   }
 
+  /* Title style */
   .titleBoard {
+    padding-bottom: 24px;
     font-size: 18;
     font-weight: 500;
     color: var(--white-color);
@@ -50,13 +89,102 @@
     font-weight: 300;
     color: var(--white-color);
   }
+
+  .input {
+    width: 100%;
+    padding: 14px;
+
+    color: var(--gray-text-color);
+
+    background-color: var(---black-color-input);
+    border: 1px solid var(--green-color);
+    border-radius: 8px;
+  }
+
+  /* Icons Style */
+  .iconTitle {
+    padding-top: 24px;
+    padding-bottom: 7px;
+    color: var(--white-color);
+  }
+
+  .icons {
+    fill: white;
+  }
+
+  /* Background style */
+  .backgroundTitle {
+    padding-top: 24px;
+    padding-bottom: 14px;
+    color: var(--white-color);
+  }
+
+  /* Button style */
+  .createButton {
+    width: 100%;
+    margin-top: 24px;
+  }
 }
 
 /* desktop syles */
 
-@media only screen and (width >= 1158px) {
+@media only screen and (width <= 1440px) {
   .container {
-    max-width: 1158px;
-    padding: 0 15px;
+    max-width: 433px;
+    margin: 0 auto;
+    padding: 24px;
+
+    background-color: var(--black-color);
+    border: 1px solid var(--green-color);
+    border-radius: 8px;
+  }
+
+  /* Title style */
+  .titleBoard {
+    padding-bottom: 24px;
+    font-size: 18;
+    font-weight: 500;
+    color: var(--white-color);
+  }
+
+  .titleDown {
+    font-size: 18;
+    font-weight: 300;
+    color: var(--white-color);
+  }
+
+  .input {
+    width: 100%;
+    padding: 14px;
+
+    color: var(--gray-text-color);
+
+    background-color: var(---black-color-input);
+    border: 1px solid var(--green-color);
+    border-radius: 8px;
+  }
+
+  /* Icons Style */
+  .iconTitle {
+    padding-top: 24px;
+    padding-bottom: 7px;
+    color: var(--white-color);
+  }
+
+  .icons {
+    fill: white;
+  }
+
+  /* Background style */
+  .backgroundTitle {
+    padding-top: 24px;
+    padding-bottom: 14px;
+    color: var(--white-color);
+  }
+
+  /* Button style */
+  .createButton {
+    width: 100%;
+    margin-top: 24px;
   }
 }

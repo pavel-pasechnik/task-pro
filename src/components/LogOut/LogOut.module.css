@@ -1,5 +1,12 @@
 .logOutContainer {
   display: flex;
+  padding: 0 14px;
+}
+
+.logOutIcon {
+  width: 32px;
+  height: 32px;
+  fill: var(--logout-svg-sidebar);
 }
 
 .logOutBtn {
@@ -9,6 +16,7 @@
   width: 105px;
   margin-top: 20px;
   padding: 0;
+
   color: inherit;
 
   background-color: inherit;
@@ -18,13 +26,8 @@
   }
 }
 
-.logOutIcon {
-  width: 32px;
-  height: 32px;
-  fill: var(--green-color);
-}
-
 .logOutBtnText {
   font-size: 14px;
   font-weight: 500;
+  color: var(--title-sidebar);
 }

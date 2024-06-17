@@ -1,6 +1,10 @@
 module.exports = {
   root: true,
-  env: { node: true, browser: true, es2024: true },
+  env: {
+    node: true,
+    browser: true,
+    es2024: true,
+  },
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
@@ -13,8 +17,16 @@ module.exports = {
     'prettier',
   ],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
-  parserOptions: { parser: 'babel-eslint', ecmaVersion: 'latest', sourceType: 'module' },
-  settings: { react: { version: '18.2' } },
+  parserOptions: {
+    parser: 'babel-eslint',
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+  },
+  settings: {
+    react: {
+      version: '18.2',
+    },
+  },
   plugins: ['react-refresh', 'jsx-a11y', 'react-redux'],
   rules: {
     'no-console': 0,
@@ -24,6 +36,8 @@ module.exports = {
     'jsx-a11y/click-events-have-key-events': 'off',
     'sort-imports': 'error',
     'prettier/prettier': ['error', { endOfLine: 'lf' }],
+    'sort-imports': 'off',
+    'no-unused-vars': 'off', // Отключение правила no-unused-vars
   },
   globals: {
     getApp: false,

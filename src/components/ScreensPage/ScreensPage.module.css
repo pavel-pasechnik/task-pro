@@ -5,38 +5,6 @@
 
   height: 100vh;
   padding: 20px;
-}
 
-.screensPageText {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-}
-
-.screensPage h2 {
-  margin-bottom: 20px;
-}
-
-.screensPageTextContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  width: 100%;
-  max-width: 335px;
-  height: 80px;
-
-  font-size: 12px;
-  line-height: 1.6;
-  color: #fff;
-}
-
-@media (width >= 768px) {
-  .screensPageTextContainer {
-    width: 100%;
-    max-width: 486px;
-    height: 72px;
-  }
+  background-color: var(--header-icon-user-bg);
 }

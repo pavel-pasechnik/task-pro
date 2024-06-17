@@ -2,17 +2,10 @@ import Button from '../../components/Button/Button.jsx';
 import PopUpNewBoard from '../../components/PopUpNewBoard/PopUpNewBoard.jsx';
 import css from './CreateNewBoard.module.css';
 import sprite from '../../assets/sprite.svg';
-import { useState } from 'react';
 
-const CreateNewBoard = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
+const CreateNewBoard = ({ openModal }) => {
   const handleOpenModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
+    openModal(<PopUpNewBoard onClose={() => openModal(null)} />);
   };
 
   return (
@@ -23,7 +16,6 @@ const CreateNewBoard = () => {
           <use href={`${sprite}#icon-add`} />
         </svg>
       </Button>
-      {isModalOpen && <PopUpNewBoard onClose={handleCloseModal} />}
     </div>
   );
 };
