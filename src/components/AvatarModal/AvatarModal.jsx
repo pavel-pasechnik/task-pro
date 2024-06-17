@@ -1,17 +1,24 @@
-import { selectTheme, selectUser } from '../../redux/auth/selectors.js';
-import { useRef, useState } from 'react';
+import { selectUser } from '../../redux/auth/selectors.js';
+import { useRef, useState, useEffect, useContext } from 'react';
 import sprite from '../../assets/sprite.svg';
 import { useSelector } from 'react-redux';
 import styles from './AvatarModal.module.css';
+import { ThemeContext } from '../ThemeContext/ThemeContext.jsx';
 
 export function Previews({ onImageSelect }) {
   const user = useSelector(selectUser);
-  const theme = useSelector(selectTheme);
+  const { theme } = useContext(ThemeContext);
   const fileInput = useRef(null);
 
-  const defaultPreview = user.avatarURL ? user.avatarURL : `${sprite}#icon-user-avatar`; // Використання значка з спрайту
+  const defaultPreview = user.avatarURL ? user.avatarURL : `${sprite}#icon-user-avatar-${theme}`;
 
   const [preview, setPreview] = useState(defaultPreview);
+
+  useEffect(() => {
+    if (!user.avatarURL) {
+      setPreview(`${sprite}#icon-user-avatar-${theme}`);
+    }
+  }, [theme, user.avatarURL]);
 
   const handlePickImage = e => {
     const selectedFile = e.target.files[0];

@@ -1,16 +1,18 @@
 import { Previews } from '../AvatarModal/AvatarModal.jsx';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import { object, string } from 'yup';
-import { selectTheme, selectUser } from '../../redux/auth/selectors.js';
+import { selectUser } from '../../redux/auth/selectors.js';
 import { useDispatch, useSelector } from 'react-redux';
 import { EyeClose } from '../AuthForm/EyeClose/EyeClose.jsx';
 import { EyeOpen } from '../AuthForm/EyeOpen/EyeOpen.jsx';
 import Modal from '../Modal/Modal.jsx';
 import { updateUser } from '../../redux/auth/operations.js';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 
 import styles from './EditUserProfile.module.css';
-import { Loader } from '../Loader/Loader.jsx'; // Оставляємо тільки цей імпорт
+import { Loader } from '../Loader/Loader.jsx';
+
+import { ThemeContext } from '../ThemeContext/ThemeContext.jsx';
 
 const updateUserSchema = object({
   name: string()
@@ -43,7 +45,7 @@ const updateUserSchema = object({
 const EditUserProfile = ({ onClose }) => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
-  const theme = useSelector(selectTheme);
+  const { theme } = useContext(ThemeContext);
 
   const initialValues = {
     avatar: null,
@@ -95,71 +97,74 @@ const EditUserProfile = ({ onClose }) => {
 
   return (
     <Modal onClose={onClose}>
-      <Formik
-        autoComplete='off'
-        initialValues={initialValues}
-        validationSchema={updateUserSchema}
-        onSubmit={handleSubmit}>
-        {({ errors, setFieldValue, isSubmitting }) => (
-          <Form className={styles.form}>
-            <div className={styles.wrap}>
-              <p className={styles.title}>Edit profile</p>
-              <Previews
-                onImageSelect={selectedImage => {
-                  setFieldValue('avatar', selectedImage);
-                }}
-              />
-            </div>
-            <div className={styles.wrap}>
-              <Field
-                className={theme === 'violet' ? styles.inputViolet : styles.input}
-                type='text'
-                name='name'
-                placeholder='Enter your name'
-              />
-              {errors.name && <FormError name='name' />}
-            </div>
-            <div className={styles.wrap}>
-              <Field
-                className={theme === 'violet' ? styles.inputViolet : styles.input}
-                type='email'
-                name='email'
-                placeholder='Enter your email'
-              />
-              {errors.email && <FormError name='email' />}
-            </div>
-            <div className={styles.wrap}>
-              <Field
-                className={theme === 'violet' ? styles.inputViolet : styles.input}
-                type={passwordShown ? 'text' : 'password'}
-                name='password'
-                placeholder='Change password'
-              />
-              <span
-                className={styles.eye_icon}
-                role='button'
-                tabIndex='0'
-                onClick={togglePassword}
-                onKeyDown={e => {
-                  if (e.key === 'Enter' || e.key === ' ') togglePassword();
-                }}
-                aria-label='Toggle password visibility'>
-                {passwordIcon}
-              </span>
-              {errors.password && <FormError name='password' />}
-            </div>
-            <button
-              className={theme === 'violet' ? styles.btnViolet : styles.btn}
-              type='submit'
-              disabled={isSubmitting}>
+      <div
+        className={`${styles.container} ${theme === 'violet' ? styles.containerViolet : styles.containerDefault}`}>
+        <Formik
+          autoComplete='off'
+          initialValues={initialValues}
+          validationSchema={updateUserSchema}
+          onSubmit={handleSubmit}>
+          {({ errors, setFieldValue, isSubmitting }) => (
+            <Form className={styles.form}>
               <div className={styles.wrap}>
-                <span>Send</span>
-                {isSubmitting && <Loader />}
+                <p className={styles.title}>Edit profile</p>
+                <Previews
+                  onImageSelect={selectedImage => {
+                    setFieldValue('avatar', selectedImage);
+                  }}
+                />
               </div>
-            </button>
-          </Form>
-        )}
-      </Formik>
+              <div className={styles.wrap}>
+                <Field
+                  className={theme === 'violet' ? styles.inputViolet : styles.input}
+                  type='text'
+                  name='name'
+                  placeholder='Enter your name'
+                />
+                {errors.name && <FormError name='name' />}
+              </div>
+              <div className={styles.wrap}>
+                <Field
+                  className={theme === 'violet' ? styles.inputViolet : styles.input}
+                  type='email'
+                  name='email'
+                  placeholder='Enter your email'
+                />
+                {errors.email && <FormError name='email' />}
+              </div>
+              <div className={styles.wrap}>
+                <Field
+                  className={theme === 'violet' ? styles.inputViolet : styles.input}
+                  type={passwordShown ? 'text' : 'password'}
+                  name='password'
+                  placeholder='Change password'
+                />
+                <span
+                  className={styles.eye_icon}
+                  role='button'
+                  tabIndex='0'
+                  onClick={togglePassword}
+                  onKeyDown={e => {
+                    if (e.key === 'Enter' || e.key === ' ') togglePassword();
+                  }}
+                  aria-label='Toggle password visibility'>
+                  {passwordIcon}
+                </span>
+                {errors.password && <FormError name='password' />}
+              </div>
+              <button
+                className={theme === 'violet' ? styles.btnViolet : styles.btn}
+                type='submit'
+                disabled={isSubmitting}>
+                <div className={styles.wrap}>
+                  <span>Send</span>
+                  {isSubmitting && <Loader />}
+                </div>
+              </button>
+            </Form>
+          )}
+        </Formik>
+      </div>
     </Modal>
   );
 };
