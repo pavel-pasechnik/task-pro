@@ -13,8 +13,10 @@ const ProjectListElement = ({ board, isCurrent, onClick, onEditClick, onDeleteCl
           <span className={css.projectTitle}>{board.title}</span>
         </div>
         <div className={`${css.projectControls} ${isCurrent ? css.showControls : ''}`}>
-          <button
+          <div
             className={css.editButton}
+            role='button'
+            tabIndex='0'
             onClick={e => {
               e.stopPropagation();
               onEditClick(board);
@@ -22,9 +24,11 @@ const ProjectListElement = ({ board, isCurrent, onClick, onEditClick, onDeleteCl
             <svg className={css.projectControlsEdit}>
               <use href={`${sprite}#icon-pencil`}></use>
             </svg>
-          </button>
-          <button
+          </div>
+          <div
             className={css.deleteButton}
+            role='button'
+            tabIndex='0'
             onClick={e => {
               e.stopPropagation();
               onDeleteClick(board._id);
@@ -32,7 +36,7 @@ const ProjectListElement = ({ board, isCurrent, onClick, onEditClick, onDeleteCl
             <svg className={css.projectControlsDelete}>
               <use href={`${sprite}#icon-trash`}></use>
             </svg>
-          </button>
+          </div>
         </div>
         {isCurrent && <div className={css.highlight}></div>}
       </button>
