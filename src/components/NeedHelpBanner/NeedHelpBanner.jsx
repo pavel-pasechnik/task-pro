@@ -1,11 +1,23 @@
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import css from './NeedHelpBanner.module.css';
 import cactus from '../../assets/jpg/cactus.jpg';
 import cactus2x from '../../assets/jpg/cactus@2x.jpg';
 import cactus3x from '../../assets/jpg/cactus@3x.jpg';
-import css from './NeedHelpBanner.module.css';
 import sprite from '../../assets/sprite.svg';
+import { PopUpNeedHelp } from '../PopUpNeedHelp/PopUpNeedHelp.jsx';
+import Modal from '../Modal/Modal.jsx';
 
 const NeedHelpBanner = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <div className={css.needHelpContainer}>
       <img
@@ -18,14 +30,26 @@ const NeedHelpBanner = () => {
         If you need help with <span className={css.needHelpLink}>TaskPro</span>, check out our
         support resources or reach out to our customer support team.
       </p>
-      <div>
-        <Link to='/help' className={css.needHelpLinkInfo}>
-          <svg className={css.iconLogoContainer}>
-            <use href={`${sprite}#icon-help-circle`}></use>
-          </svg>
-          <p>Need help?</p>
-        </Link>
+      <div
+        className={css.needHelpLinkInfo}
+        role='button'
+        tabIndex='0'
+        onClick={openModal}
+        onKeyDown={e => {
+          if (e.key === 'Enter') {
+            openModal();
+          }
+        }}>
+        <svg className={css.iconLogoContainer}>
+          <use href={`${sprite}#icon-help-circle`}></use>
+        </svg>
+        <p>Need help?</p>
       </div>
+      {isModalOpen && (
+        <Modal onClose={closeModal}>
+          <PopUpNeedHelp onClose={closeModal} />
+        </Modal>
+      )}
     </div>
   );
 };
