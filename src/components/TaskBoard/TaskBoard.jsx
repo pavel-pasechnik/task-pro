@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 import AddBoard from '../AddBoard/AddBoard.jsx';
 import Button from '../Button/Button.jsx';
 import EditColumnModal from '../EditColumn/EditColumn.jsx';
@@ -39,6 +40,26 @@ const TaskBoard = ({
     setSelectedColumn(null);
   };
 
+  const handleMoveCard = (cardId, sourceColumnId, targetColumnId) => {
+    const updatedColumn = columns.map(column => {
+      if (column.id === sourceColumnId) {
+        const updatedTasks = column.cards.filter(card => card.id !== cardId);
+
+        return { ...column, cards: updatedTasks };
+      }
+
+      if (column.id === targetColumnId) {
+        const targetTasks = [...column.cards, cardId];
+
+        return { ...column, cards: targetTasks };
+      }
+
+      return column;
+    });
+
+    onEditColumn(updatedColumn);
+  };
+
   return (
     <div>
       {columns.map(column => (
@@ -59,7 +80,14 @@ const TaskBoard = ({
           <ul className={styles.taskBoard}>
             {column.cards.map(card => (
               <li key={card.id}>
-                <Task column={column} task={card} onEdit={onEditCard} onDeleteCard={onDeleteCard} />
+                <Task
+                  columns={columns}
+                  column={column}
+                  task={card}
+                  onEdit={onEditCard}
+                  onDeleteCard={onDeleteCard}
+                  onMoveCard={handleMoveCard}
+                />
               </li>
             ))}
           </ul>
