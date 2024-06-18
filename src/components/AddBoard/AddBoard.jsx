@@ -1,117 +1,156 @@
-import 'react-datepicker/dist/react-datepicker.css';
-import DatePicker from 'react-datepicker';
+import 'react-toastify/dist/ReactToastify.css';
+import * as Yup from 'yup';
+import { ErrorMessage, Field, Form, Formik } from 'formik';
+import { ToastContainer, toast } from 'react-toastify';
+import { useId, useState } from 'react';
+import ButtonIcon from '../ButtonIcon/ButtonIcon.jsx';
+import Calendar from '../Calendar/Calendar.jsx';
+import clsx from 'clsx';
+import sprite from '../../assets/sprite.svg';
 import styles from './AddBoard.module.css';
-import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addCard } from '../../redux/cards/operations.js';
 
-const AddBoard = ({ isOpen, onClose }) => {
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
-  const [labelColor, setLabelColor] = useState('pink');
+const AddBoard = ({ isOpen, onClose, columnId }) => {
+  const [priority, setPriority] = useState('low');
   const [deadline, setDeadline] = useState(new Date());
-  const [isCalendarOpen, setIsCalendarOpen] = useState(false);
 
-  if (!isOpen) return null;
+  const dispatch = useDispatch();
+  const titleId = useId();
+  const descriptionId = useId();
 
-  const handleAdd = () => {
-    // TODO дописати логіку додавання карточок
-    console.log({ title, description, labelColor, deadline });
-    onClose();
-  };
-
-  const toggleCalendar = () => {
-    setIsCalendarOpen(!isCalendarOpen);
-  };
+  // if (!isOpen) return null;
 
   const handleDateChange = date => {
     setDeadline(date);
-    setIsCalendarOpen(false);
+  };
+
+  const getPriorityClassName = priorityValue => {
+    return `${styles.labelColor} ${styles[priorityValue]} ${
+      priority === priorityValue ? styles.active : ''
+    }`;
+  };
+
+  const validationSchema = Yup.object({
+    title: Yup.string().required('Title is required'),
+    description: Yup.string().required('Description is required'),
+    // deadline: Yup.number().required(),
+  });
+
+  const onSubmit = async (values, actions) => {
+    try {
+      await dispatch(addCard({ columnId, values, priority, deadline })).unwrap();
+      onClose();
+      toast.success('Card added successfully!');
+    } catch (error) {
+      toast.error(`Error adding card: ${error}`);
+    } finally {
+      actions.setSubmitting(false);
+      actions.resetForm();
+    }
   };
 
   return (
     <div className={styles.modal}>
-      <div className={styles['modal-content']}>
-        <button className={styles['close-button']} onClick={onClose}>
-          ×
+      <div className={styles.modalContent}>
+        <button className={styles.closeButton} onClick={onClose}>
+          <svg className={styles.closeIcon}>
+            <use href={`${sprite}#icon-x-close`}></use>
+          </svg>
         </button>
-        <h2>Add card</h2>
-        <input
-          type='text'
-          className={styles['modal-input']}
-          placeholder='Title'
-          value={title}
-          onChange={e => setTitle(e.target.value)}
-        />
-        <textarea
-          className={styles['modal-textarea']}
-          placeholder='Description'
-          value={description}
-          onChange={e => setDescription(e.target.value)}></textarea>
-        <div className={styles['label-colors']}>
-          <span
-            className={`${styles['label-color']} ${labelColor === 'pink' ? styles.active : ''}`}
-            onClick={() => setLabelColor('pink')}
-            role='button'
-            tabIndex={0}
-            onKeyDown={e => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                setLabelColor('pink');
-              }
-            }}></span>
-          <span
-            className={`${styles['label-color']} ${labelColor === 'blue' ? styles.active : ''}`}
-            onClick={() => setLabelColor('blue')}
-            role='button'
-            tabIndex={0}
-            onKeyDown={e => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                setLabelColor('blue');
-              }
-            }}></span>
-          <span
-            className={`${styles['label-color']} ${labelColor === 'green' ? styles.active : ''}`}
-            onClick={() => setLabelColor('green')}
-            role='button'
-            tabIndex={0}
-            onKeyDown={e => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                setLabelColor('green');
-              }
-            }}></span>
-          <span
-            className={`${styles['label-color']} ${labelColor === 'gray' ? styles.active : ''}`}
-            onClick={() => setLabelColor('gray')}
-            role='button'
-            tabIndex={0}
-            onKeyDown={e => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                setLabelColor('gray');
-              }
-            }}></span>
-        </div>
-        <div className={styles.deadline}>
-          <label htmlFor='deadline-input'>Deadline</label>
-          <div
-            id='deadline-input'
-            onClick={toggleCalendar}
-            className={styles['deadline-input']}
-            role='button'
-            tabIndex={0}
-            onKeyDown={e => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                toggleCalendar();
-              }
-            }}>
-            {deadline.toLocaleDateString()}
-          </div>
-          {isCalendarOpen && (
-            <div className={styles.calendar}>
-              <DatePicker selected={deadline} onChange={handleDateChange} inline />
-            </div>
+        <h2 className={styles.addTitle}>Add card</h2>
+        <Formik
+          initialValues={{ title: '', description: '' }}
+          validationSchema={validationSchema}
+          onSubmit={onSubmit}>
+          {({ isSubmitting }) => (
+            <Form>
+              <div>
+                <Field
+                  id={titleId}
+                  name='title'
+                  as='textarea'
+                  className={clsx(styles.modalInputTitle, styles.textarea)}
+                  placeholder='Title'
+                />
+                <ErrorMessage name='title' component='div' className={styles.errorMessage} />
+              </div>
+              <div>
+                <Field
+                  id={descriptionId}
+                  name='description'
+                  as='textarea'
+                  className={clsx(styles.modalInputDescription, styles.textarea)}
+                  placeholder='Description'
+                />
+                <ErrorMessage name='description' component='div' className={styles.errorMessage} />
+              </div>
+              <div className={styles.section}>
+                <span className={styles.sectionTitle}>Priority</span>
+                <div className={styles.labelColors}>
+                  <span
+                    className={clsx(styles.radioButton, getPriorityClassName('low'))}
+                    onClick={() => setPriority('low')}
+                    role='button'
+                    tabIndex={0}
+                    onKeyDown={e => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        setPriority('low');
+                      }
+                    }}
+                  />
+                  <span
+                    className={clsx(styles.radioButton, getPriorityClassName('medium'))}
+                    onClick={() => setPriority('medium')}
+                    role='button'
+                    tabIndex={0}
+                    onKeyDown={e => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        setPriority('medium');
+                      }
+                    }}
+                  />
+                  <span
+                    className={clsx(styles.radioButton, getPriorityClassName('high'))}
+                    onClick={() => setPriority('high')}
+                    role='button'
+                    tabIndex={0}
+                    onKeyDown={e => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        setPriority('high');
+                      }
+                    }}
+                  />
+                  <span
+                    className={clsx(styles.radioButton, getPriorityClassName('none'))}
+                    onClick={() => setPriority('none')}
+                    role='button'
+                    tabIndex={0}
+                    onKeyDown={e => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        setPriority('none');
+                      }
+                    }}
+                  />
+                </div>
+              </div>
+              <div className={styles.section}>
+                <span className={styles.sectionTitle}>Deadline</span>
+                <Calendar selectedDate={deadline} handleSetDate={handleDateChange} />
+              </div>
+              <ButtonIcon
+                id='icon-add'
+                iconWidth='28'
+                iconHeight='28'
+                btnClassName={styles.addButton}
+                type='submit'
+                disabled={isSubmitting}>
+                Add
+              </ButtonIcon>
+            </Form>
           )}
-        </div>
-        <button className={styles['add-button']} onClick={handleAdd}>
-          Add
-        </button>
+        </Formik>
+        <ToastContainer />
       </div>
     </div>
   );

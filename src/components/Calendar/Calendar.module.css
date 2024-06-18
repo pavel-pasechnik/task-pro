@@ -1,0 +1,21 @@
+.customInput {
+  background-color: transparent;
+  border: none;
+  color: #bedbb0;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center; 
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+  margin-left: 8px;
+  fill: #bedbb0;
+}

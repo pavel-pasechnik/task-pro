@@ -3,6 +3,8 @@
   justify-content: center;
   width: 100%;
   height: 61px;
+  color: var(--sidebar-grey-text);
+  position: relative;
 }
 
 .projectContainer {
@@ -18,14 +20,15 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   width: 100%;
   padding: 0 14px;
-
   color: inherit;
-
   background-color: inherit;
   border: none;
+}
+
+.currentProject .projectButton {
+  background-color: var(--help-sidebar-background);
 }
 
 .projectIcon {
@@ -35,32 +38,46 @@
   fill: white;
 }
 
+.projectTitle .currentProject {
+  color: var(--title-sidebar);
+}
+
 .projectControls {
   display: flex;
   gap: 4px;
   align-items: center;
   justify-content: space-between;
-
-  & button {
-    padding: 0;
-    background-color: inherit;
-    border: none;
-  }
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
-.projectControlsEdit {
-  display: block;
-  width: 16px;
-  height: 16px;
+.showControls {
+  opacity: 1;
 }
 
+.projectControls button {
+  padding: 0;
+  background-color: inherit;
+  border: none;
+}
+
+.projectControlsEdit,
 .projectControlsDelete {
   display: block;
   width: 16px;
   height: 16px;
+  fill: var(--sidebar-grey-text);
 }
 
-.currentProject {
-  border-right: 5px solid red;
-  border-radius: 5px;
+.currentProject .projectTitleContainer {
+  color: var(--title-sidebar);
+}
+
+.highlight {
+  position: absolute;
+  right: 0;
+  width: 4px;
+  height: 100%;
+  background-color: var(--logout-svg-sidebar);
+  border-radius: 5px 0 0 5px;
 }

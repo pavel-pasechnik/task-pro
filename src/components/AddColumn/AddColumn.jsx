@@ -1,38 +1,73 @@
-import 'react-datepicker/dist/react-datepicker.css';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import ButtonIcon from '../ButtonIcon/ButtonIcon.jsx';
+import sprite from '../../assets/sprite.svg';
+import * as Yup from 'yup';
+import { useDispatch, useSelector } from 'react-redux';
+import { addColumn } from '../../redux/column/operation.js';
+import { selectCurrentBoard } from '../../redux/boards/slice.js';
+import { toast } from 'react-hot-toast';
 import styles from './AddColumn.module.css';
-import { useState } from 'react';
 
-const AddColumnModal = ({ isOpen, onClose }) => {
-  const [title, setTitle] = useState('');
+export default function AddColumn() {
+  const dispatch = useDispatch();
+  const currentBoard = useSelector(selectCurrentBoard);
 
-  if (!isOpen) return null;
+  const schema = Yup.object({
+    name: Yup.string().required('title is required'),
+  });
 
-  const handleAdd = () => {
-    // TODO написати логіку додавання колонки
-    console.log({ title });
-    onClose();
+  const closeModal = actions => {
+    actions.resetForm();
+  };
+
+  const handleSubmit = async (values, actions) => {
+    try {
+      if (!currentBoard || !currentBoard.id) {
+        throw new Error('Current board is not selected');
+      }
+
+      await dispatch(addColumn({ boardId: currentBoard.id, title: values.name })).unwrap();
+      closeModal(actions);
+      toast.success('Column added successfully');
+    } catch (error) {
+      toast.error(`Error adding column`);
+    } finally {
+      actions.setSubmitting(false);
+    }
   };
 
   return (
     <div className={styles.modal}>
-      <div className={styles['modal-content']}>
-        <button className={styles['close-button']} onClick={onClose}>
-          ×
+      <div className={styles.modalContent}>
+        <button className={styles.closeButton} onClick={() => {}}>
+          <svg className={styles.closeIcon}>
+            <use href={`${sprite}#icon-x-close`}></use>
+          </svg>
         </button>
-        <h2>Add column</h2>
-        <input
-          type='text'
-          className={styles['modal-input']}
-          placeholder='Title'
-          value={title}
-          onChange={e => setTitle(e.target.value)}
-        />
-        <button className={styles['add-button']} onClick={handleAdd}>
-          Add
-        </button>
+        <h2 className={styles.addColumn}>Add column</h2>
+        <Formik initialValues={{ name: '' }} validationSchema={schema} onSubmit={handleSubmit}>
+          {({ isSubmitting }) => (
+            <Form>
+              <Field
+                type='text'
+                name='name'
+                className={styles.modalInputTitle}
+                placeholder='Title'
+              />
+              <ErrorMessage name='name' component='div' className={styles.errorMessage} />
+              <ButtonIcon
+                id='icon-add'
+                iconWidth='28'
+                iconHeight='28'
+                btnClassName={styles.addButton}
+                type='submit'
+                disabled={isSubmitting}>
+                Add
+              </ButtonIcon>
+            </Form>
+          )}
+        </Formik>
       </div>
     </div>
   );
-};
-
-export default AddColumnModal;
+}
