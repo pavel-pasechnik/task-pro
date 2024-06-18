@@ -15,10 +15,3 @@ const Button = ({ type = 'button', title, className, border, onClick, children, 
 };
 
 export default Button;
-
-{
-  /* <Button 
-        onClick={handleClick} 
-        title="Send" 
-      /> */
-}

@@ -94,3 +94,8 @@
 .fileInput {
   display: none;
 }
+
+.avatar {
+  --color1: var(--header-icon-user-bg);
+  --color2: var(--header-icon-user);
+}

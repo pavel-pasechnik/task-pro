@@ -22,12 +22,12 @@
   background-color: inherit;
 
   &:hover .logOutIcon {
-    fill: var(--almost-black-color);
+    fill: var(--logo-sidebar-bg);
   }
 }
 
 .logOutBtnText {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
   color: var(--title-sidebar);
 }

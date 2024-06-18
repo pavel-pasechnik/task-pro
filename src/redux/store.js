@@ -10,8 +10,9 @@ import {
 } from 'redux-persist';
 import authReducer from './auth/slice.js';
 import boardsReducer from './boards/slice.js';
-import { configureStore } from '@reduxjs/toolkit';
 import filtersReducer from './filters/slice.js';
+import controlersReducer from './controlers/slice.js';
+import { configureStore } from '@reduxjs/toolkit';
 // eslint-disable-next-line n/no-missing-import
 import storage from 'redux-persist/lib/storage';
 
@@ -28,6 +29,7 @@ export const store = configureStore({
     auth: persistedAuthReducer,
     boards: boardsReducer,
     filters: filtersReducer,
+    controlers: controlersReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
@@ -38,7 +40,3 @@ export const store = configureStore({
 });
 
 export const persistor = persistStore(store);
-
-// export const store = configureStore({
-//   reducer: { contacts: contactsReducer, filters: filtersReducer },
-// });

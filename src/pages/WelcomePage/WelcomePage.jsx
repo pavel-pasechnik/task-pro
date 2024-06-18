@@ -25,7 +25,11 @@ export const WelcomePage = () => {
           </NavLink>
         }
       </div>
-      <button className={css.loginBtn}>Log in</button>
+      <button className={css.loginBtn}>
+        <NavLink className={css.navLink} to='/login'>
+          Log in
+        </NavLink>
+      </button>
     </div>
   );
 };
