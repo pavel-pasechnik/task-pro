@@ -14,18 +14,17 @@ import { updateCard } from '../../redux/cards/operations.js';
 const EditBoard = ({ isOpen, onClose, columnId }) => {
   const [labelColor, setLabelColor] = useState('pink');
   const [deadline, setDeadline] = useState(new Date());
-  const [errorMessage, setErrorMessage] = useState('');
 
   const dispatch = useDispatch();
 
-  if (!isOpen) return null;
+  // if (!isOpen) return null;
 
   const handleDateChange = date => {
     setDeadline(date);
   };
 
   const getLabelClassName = color => {
-    return `${styles.labelColor} ${styles[color]} ${labelColor === color ? styles.active : ''}`;
+    return `${styles.radioButton} ${styles[color]} ${labelColor === color ? styles.active : ''}`;
   };
 
   const validationSchema = Yup.object({
@@ -66,7 +65,12 @@ const EditBoard = ({ isOpen, onClose, columnId }) => {
         </button>
         <h2 className={styles.addTitle}>Edit card</h2>
         <Formik
-          initialValues={{ title: '', description: '', deadline: '', labelColor: '' }}
+          initialValues={{
+            title: '',
+            description: '',
+            labelColor: 'pink',
+            deadline: deadline.toString(),
+          }}
           validationSchema={validationSchema}
           onSubmit={handleSubmit}>
           {({ isSubmitting, setFieldValue }) => (
@@ -89,67 +93,66 @@ const EditBoard = ({ isOpen, onClose, columnId }) => {
                 />
                 <ErrorMessage name='description' component='div' className={styles.errorMessage} />
               </div>
-              {errorMessage && <div className={styles.errorMessage}>{errorMessage}</div>}
               <div className={styles.section}>
                 <span className={styles.sectionTitle}>Label color</span>
                 <div className={styles.labelColors}>
                   <span
-                    className={getLabelClassName('blue')}
+                    className={getLabelClassName('low')}
                     onClick={() => {
-                      setLabelColor('blue');
-                      setFieldValue('labelColor', 'blue');
+                      setLabelColor('low');
+                      setFieldValue('labelColor', 'low');
                     }}
                     role='button'
                     tabIndex={0}
                     onKeyDown={e => {
                       if (e.key === 'Enter' || e.key === ' ') {
-                        setLabelColor('blue');
-                        setFieldValue('labelColor', 'blue');
+                        setLabelColor('low');
+                        setFieldValue('labelColor', 'low');
                       }
                     }}
                   />
                   <span
-                    className={getLabelClassName('pink')}
+                    className={getLabelClassName('medium')}
                     onClick={() => {
-                      setLabelColor('pink');
-                      setFieldValue('labelColor', 'pink');
+                      setLabelColor('medium');
+                      setFieldValue('labelColor', 'medium');
                     }}
                     role='button'
                     tabIndex={0}
                     onKeyDown={e => {
                       if (e.key === 'Enter' || e.key === ' ') {
-                        setLabelColor('pink');
-                        setFieldValue('labelColor', 'pink');
+                        setLabelColor('medium');
+                        setFieldValue('labelColor', 'medium');
                       }
                     }}
                   />
                   <span
-                    className={getLabelClassName('green')}
+                    className={getLabelClassName('high')}
                     onClick={() => {
-                      setLabelColor('green');
-                      setFieldValue('labelColor', 'green');
+                      setLabelColor('high');
+                      setFieldValue('labelColor', 'high');
                     }}
                     role='button'
                     tabIndex={0}
                     onKeyDown={e => {
                       if (e.key === 'Enter' || e.key === ' ') {
-                        setLabelColor('green');
-                        setFieldValue('labelColor', 'green');
+                        setLabelColor('high');
+                        setFieldValue('labelColor', 'high');
                       }
                     }}
                   />
                   <span
-                    className={getLabelClassName('gray')}
+                    className={getLabelClassName('none')}
                     onClick={() => {
-                      setLabelColor('gray');
-                      setFieldValue('labelColor', 'gray');
+                      setLabelColor('none');
+                      setFieldValue('labelColor', 'none');
                     }}
                     role='button'
                     tabIndex={0}
                     onKeyDown={e => {
                       if (e.key === 'Enter' || e.key === ' ') {
-                        setLabelColor('gray');
-                        setFieldValue('labelColor', 'gray');
+                        setLabelColor('none');
+                        setFieldValue('labelColor', 'none');
                       }
                     }}
                   />
@@ -172,7 +175,7 @@ const EditBoard = ({ isOpen, onClose, columnId }) => {
                 btnClassName={styles.addButton}
                 type='submit'
                 disabled={isSubmitting}>
-                Save
+                Edit
               </ButtonIcon>
             </Form>
           )}

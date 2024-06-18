@@ -30,7 +30,7 @@ const AddBoard = ({ isOpen, onClose }) => {
   };
 
   const getPriorityClassName = priorityValue => {
-    return `${styles.labelColor} ${styles[priorityValue]} ${
+    return `${styles.radioButton} ${styles[priorityValue]} ${
       priority === priorityValue ? styles.active : ''
     }`;
   };
@@ -107,7 +107,7 @@ const AddBoard = ({ isOpen, onClose }) => {
                 <ErrorMessage name='description' component='div' className={styles.errorMessage} />
               </div>
               <div className={styles.section}>
-                <span className={styles.sectionTitle}>Priority</span>
+                <span className={styles.sectionTitle}>Label color</span>
                 <div className={styles.labelColors}>
                   <span
                     className={clsx(styles.radioButton, getPriorityClassName('low'))}

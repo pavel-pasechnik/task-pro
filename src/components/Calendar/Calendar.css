@@ -6,8 +6,8 @@
   /* Wrapper */
   .react-datepicker {
     position: absolute;
-    top: -320px; /* Adjust this value as needed */
-    left: 70px;
+    top: -360px; 
+    left: -55px;
     transform: none;
     border: 1px solid rgba(128, 128, 128, 0.435);
     border-radius: 8px;
