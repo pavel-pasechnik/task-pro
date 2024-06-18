@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import css from './ProjectList.module.css';
-import fetchBoards from '../../redux/boards/boards.js';
+import { fetchBoards } from '../../redux/boards/actions.js';
 import ProjectListElement from '../ProjectListElement/ProjectListElement.jsx';
 import {
   selectBoards,
@@ -10,6 +10,9 @@ import {
   selectCurrentBoard,
 } from '../../redux/boards/selectors.js';
 import { setCurrentBoard } from '../../redux/boards/slice.js';
+import Modal from '../Modal/Modal.jsx';
+import { deleteBoard } from '../../redux/boards/actions.js';
+import { PopUpEditBoard } from '../PopUpEditBoard/PopUpEditBoard.jsx';
 
 const ProjectList = () => {
   const dispatch = useDispatch();
@@ -17,6 +20,8 @@ const ProjectList = () => {
   const loading = useSelector(selectBoardsLoading);
   const error = useSelector(selectBoardsError);
   const currentBoard = useSelector(selectCurrentBoard);
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [boardToEdit, setBoardToEdit] = useState(null);
 
   useEffect(() => {
     dispatch(fetchBoards());
@@ -24,6 +29,22 @@ const ProjectList = () => {
 
   const handleBoardClick = board => {
     dispatch(setCurrentBoard(board));
+  };
+
+  const handleEditClick = board => {
+    setBoardToEdit(board);
+    setIsEditModalOpen(true);
+  };
+
+  const handleDeleteClick = boardId => {
+    if (window.confirm('Are you sure you want to delete this board?')) {
+      dispatch(deleteBoard(boardId));
+    }
+  };
+
+  const closeEditModal = () => {
+    setIsEditModalOpen(false);
+    setBoardToEdit(null);
   };
 
   if (loading) {
@@ -35,20 +56,29 @@ const ProjectList = () => {
   }
 
   if (!boards || boards.length === 0) {
-    return <p className={css.projectList}></p>;
+    return <p className={css.projectList}>No boards available</p>;
   }
 
   return (
-    <ul className={css.projectList}>
-      {boards.map(board => (
-        <ProjectListElement
-          key={board._id}
-          board={board}
-          isCurrent={currentBoard && currentBoard._id === board._id}
-          onClick={handleBoardClick}
-        />
-      ))}
-    </ul>
+    <>
+      <ul className={css.projectList}>
+        {boards.map(board => (
+          <ProjectListElement
+            key={board._id}
+            board={board}
+            isCurrent={currentBoard && currentBoard._id === board._id}
+            onClick={handleBoardClick}
+            onEditClick={handleEditClick}
+            onDeleteClick={handleDeleteClick}
+          />
+        ))}
+      </ul>
+      {isEditModalOpen && (
+        <Modal onClose={closeEditModal}>
+          <PopUpEditBoard board={boardToEdit} onClose={closeEditModal} />
+        </Modal>
+      )}
+    </>
   );
 };
 

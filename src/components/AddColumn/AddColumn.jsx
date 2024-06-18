@@ -4,7 +4,7 @@ import sprite from '../../assets/sprite.svg';
 import * as Yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
 import { addColumn } from '../../redux/column/operation.js';
-import { selectCurrentBoard } from '../../redux/boards/slice.js';
+import { selectCurrentBoard } from '../../redux/boards/selectors.js';
 import { toast } from 'react-hot-toast';
 import styles from './AddColumn.module.css';
 
