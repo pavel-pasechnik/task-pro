@@ -61,7 +61,9 @@ const FiltersModal = ({ onClose }) => {
                 <div className={`${styles.checkboxCustom} ${styles.gray}`}>
                   <span className={`${styles.checkboxMiddle} ${styles.gray}`}></span>
                 </div>
-                Without priority
+                <span className={selectedLevels.withoutPriority ? styles.checkedText : ''}>
+                  Without priority
+                </span>
               </label>
             </div>
             <div className={styles.containerLevel}>
@@ -77,7 +79,7 @@ const FiltersModal = ({ onClose }) => {
                 <div className={`${styles.checkboxCustom} ${styles.blue}`}>
                   <span className={`${styles.checkboxMiddle} ${styles.blue}`}></span>
                 </div>
-                Low
+                <span className={selectedLevels.low ? styles.checkedText : ''}>Low</span>
               </label>
             </div>
             <div className={styles.containerLevel}>
@@ -93,7 +95,7 @@ const FiltersModal = ({ onClose }) => {
                 <div className={`${styles.checkboxCustom} ${styles.pink}`}>
                   <span className={`${styles.checkboxMiddle} ${styles.pink}`}></span>
                 </div>
-                Medium
+                <span className={selectedLevels.medium ? styles.checkedText : ''}>Medium</span>
               </label>
             </div>
             <div className={styles.containerLevel}>
@@ -109,7 +111,7 @@ const FiltersModal = ({ onClose }) => {
                 <div className={`${styles.checkboxCustom} ${styles.green}`}>
                   <span className={`${styles.checkboxMiddle} ${styles.green}`}></span>
                 </div>
-                High
+                <span className={selectedLevels.high ? styles.checkedText : ''}>High</span>
               </label>
             </div>
           </div>

@@ -7,5 +7,5 @@
 .mainContent {
   flex-grow: 1;
   height: 100vh;
-  background-color: #1f1f1f;
+  background-color: var(--header-icon-user-bg);
 }

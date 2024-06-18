@@ -12,7 +12,7 @@
 }
 
 .containerModal {
-  background-color: #151515;
+  background-color: var(--bg-modal-filters);
   width: 300px;
   height: 234px;
   border-radius: 8px;
@@ -38,12 +38,12 @@
 .btnIcon {
   width: 18px;
   height: 18px;
-  fill: var(--white-color);
+  fill: var(--color-text-base);
 }
 
 .title {
   font-size: 18px;
-  color: var(--white-color);
+  color: var(--color-text-base);
   font-weight: 500;
   font-style: normal;
   padding-top: 4.5px;
@@ -60,7 +60,7 @@
   margin: 0;
   border: none;
   height: 1px;
-  background-color: var(--gray-border-color);
+  background-color: var(--modal-filers-line);
   margin-bottom: 14px;
 }
 
@@ -81,11 +81,11 @@
   font-weight: 400;
   font-style: normal;
   font-size: 12px;
-  color: var(--gray-text-color);
+  color: var(--modal-icon);
 }
 
 .titleLabel {
-  color: var(--white-color);
+  color: var(--color-text-base);
   font-weight: 500;
   font-style: normal;
 }
@@ -108,7 +108,7 @@
   font-weight: 400;
   font-style: normal;
   font-size: 12px;
-  color: var(--gray-text-color);
+  color: var(--modal-icon);
 }
 
 .checkboxInput {
@@ -143,9 +143,13 @@
   border-radius: 50%;
 }
 
+.checkedText {
+  color: var(--color-text-base);
+}
+
 .gray {
-  background-color: rgba(255, 255, 255, 0.3);
-  color: rgba(255, 255, 255, 0.3);
+  background-color: var(--checkbox-filter-gray);
+  color: var(--checkbox-filter-gray);
 }
 
 .blue {
