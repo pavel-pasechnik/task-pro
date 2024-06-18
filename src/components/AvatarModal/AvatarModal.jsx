@@ -43,12 +43,9 @@ export function Previews({ onImageSelect }) {
         />
         <aside className={styles.thumbsContainer}>
           <div className={styles.thumb}>
-            <img
-              src={preview}
-              alt='avatarURL'
-              className={styles.imageG}
-              onLoad={handleLoadedImage}
-            />
+            <svg className={styles.imageG}>
+              <use href={preview}></use>
+            </svg>
           </div>
         </aside>
         <span
