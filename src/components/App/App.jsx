@@ -13,7 +13,8 @@ import { WelcomePage } from '../../pages/WelcomePage/WelcomePage.jsx';
 import { LoginPage } from '../../pages/LoginPage/LoginPage.jsx';
 import { RegisterPage } from '../../pages/RegisterPage/RegisterPage.jsx';
 import { Loader } from '../Loader/Loader.jsx';
-import AddBoard from '../AddBoard/AddBoard.jsx'; // Імпортуємо AddBoard
+// import AddBoard from '../AddBoard/AddBoard.jsx'; // Імпортуємо AddBoard
+import EditBoard from '../EditBoard/EditBoard.jsx';
 
 const NotFound = lazy(() => import('../../pages/NotFound/NotFound.jsx'));
 const ScreensPage = lazy(() => import('../../components/ScreensPage/ScreensPage.jsx'));
@@ -56,7 +57,6 @@ export default function App() {
             </Routes>
           )}
         </Suspense>
-        <AddBoard /> {/* Додаємо AddBoard */}
       </Layout>
     </>
   );

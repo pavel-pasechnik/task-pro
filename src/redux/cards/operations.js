@@ -34,3 +34,16 @@ export const addColumn = createAsyncThunk(
     }
   }
 );
+
+export const updateCard = createAsyncThunk(
+  'cards/updateCard',
+  async ({ columnId, cardData }, thunkAPI) => {
+    try {
+      const response = await axios.patch(`/api/boards/cards/${columnId}`, cardData);
+
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response?.data?.message || error.message);
+    }
+  }
+);

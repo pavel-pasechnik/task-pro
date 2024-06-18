@@ -8,18 +8,22 @@ import Calendar from '../Calendar/Calendar.jsx';
 import clsx from 'clsx';
 import sprite from '../../assets/sprite.svg';
 import styles from './AddBoard.module.css';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addCard } from '../../redux/cards/operations.js';
+import { selectCurrentBoard } from '../../redux/boards/slice.js';
 
-const AddBoard = ({ isOpen, onClose, columnId }) => {
+const AddBoard = ({ isOpen, onClose }) => {
   const [priority, setPriority] = useState('low');
   const [deadline, setDeadline] = useState(new Date());
 
   const dispatch = useDispatch();
   const titleId = useId();
   const descriptionId = useId();
+  const currentBoard = useSelector(selectCurrentBoard);
 
-  // if (!isOpen) return null;
+  const columnId = currentBoard?.id || 'defaultColumnId';
+
+  if (!isOpen) return null;
 
   const handleDateChange = date => {
     setDeadline(date);
@@ -34,16 +38,28 @@ const AddBoard = ({ isOpen, onClose, columnId }) => {
   const validationSchema = Yup.object({
     title: Yup.string().required('Title is required'),
     description: Yup.string().required('Description is required'),
-    // deadline: Yup.number().required(),
+    deadline: Yup.string().required('Deadline is required'),
+    priority: Yup.string().required('Priority is required'),
   });
 
   const onSubmit = async (values, actions) => {
     try {
-      await dispatch(addCard({ columnId, values, priority, deadline })).unwrap();
+      const unixDeadline = Math.floor(deadline.getTime() / 1000);
+      const cardData = {
+        columnId,
+        title: values.title,
+        description: values.description,
+        priority,
+        deadline: unixDeadline,
+      };
+
+      console.log('Submitting card data:', cardData);
+      await dispatch(addCard(cardData)).unwrap();
       onClose();
       toast.success('Card added successfully!');
     } catch (error) {
-      toast.error(`Error adding card: ${error}`);
+      console.error('Error:', error.response?.data || error.message);
+      toast.error(`Error adding card: ${error.response?.data || error.message}`);
     } finally {
       actions.setSubmitting(false);
       actions.resetForm();
@@ -60,10 +76,15 @@ const AddBoard = ({ isOpen, onClose, columnId }) => {
         </button>
         <h2 className={styles.addTitle}>Add card</h2>
         <Formik
-          initialValues={{ title: '', description: '' }}
+          initialValues={{
+            title: '',
+            description: '',
+            priority: 'low',
+            deadline: deadline.toString(),
+          }}
           validationSchema={validationSchema}
           onSubmit={onSubmit}>
-          {({ isSubmitting }) => (
+          {({ isSubmitting, setFieldValue }) => (
             <Form>
               <div>
                 <Field
@@ -90,45 +111,61 @@ const AddBoard = ({ isOpen, onClose, columnId }) => {
                 <div className={styles.labelColors}>
                   <span
                     className={clsx(styles.radioButton, getPriorityClassName('low'))}
-                    onClick={() => setPriority('low')}
+                    onClick={() => {
+                      setPriority('low');
+                      setFieldValue('priority', 'low');
+                    }}
                     role='button'
                     tabIndex={0}
                     onKeyDown={e => {
                       if (e.key === 'Enter' || e.key === ' ') {
                         setPriority('low');
+                        setFieldValue('priority', 'low');
                       }
                     }}
                   />
                   <span
                     className={clsx(styles.radioButton, getPriorityClassName('medium'))}
-                    onClick={() => setPriority('medium')}
+                    onClick={() => {
+                      setPriority('medium');
+                      setFieldValue('priority', 'medium');
+                    }}
                     role='button'
                     tabIndex={0}
                     onKeyDown={e => {
                       if (e.key === 'Enter' || e.key === ' ') {
                         setPriority('medium');
+                        setFieldValue('priority', 'medium');
                       }
                     }}
                   />
                   <span
                     className={clsx(styles.radioButton, getPriorityClassName('high'))}
-                    onClick={() => setPriority('high')}
+                    onClick={() => {
+                      setPriority('high');
+                      setFieldValue('priority', 'high');
+                    }}
                     role='button'
                     tabIndex={0}
                     onKeyDown={e => {
                       if (e.key === 'Enter' || e.key === ' ') {
                         setPriority('high');
+                        setFieldValue('priority', 'high');
                       }
                     }}
                   />
                   <span
                     className={clsx(styles.radioButton, getPriorityClassName('none'))}
-                    onClick={() => setPriority('none')}
+                    onClick={() => {
+                      setPriority('none');
+                      setFieldValue('priority', 'none');
+                    }}
                     role='button'
                     tabIndex={0}
                     onKeyDown={e => {
                       if (e.key === 'Enter' || e.key === ' ') {
                         setPriority('none');
+                        setFieldValue('priority', 'none');
                       }
                     }}
                   />
@@ -136,7 +173,13 @@ const AddBoard = ({ isOpen, onClose, columnId }) => {
               </div>
               <div className={styles.section}>
                 <span className={styles.sectionTitle}>Deadline</span>
-                <Calendar selectedDate={deadline} handleSetDate={handleDateChange} />
+                <Calendar
+                  selectedDate={deadline}
+                  handleSetDate={date => {
+                    handleDateChange(date);
+                    setFieldValue('deadline', date.toString());
+                  }}
+                />
               </div>
               <ButtonIcon
                 id='icon-add'
