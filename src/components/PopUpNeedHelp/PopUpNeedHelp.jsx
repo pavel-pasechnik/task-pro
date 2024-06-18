@@ -1,10 +1,10 @@
-/* eslint-disable sort-imports */
 import Button from '../Button/Button.jsx';
 import { Field, Form, Formik } from 'formik';
 import css from './PopUpNeedHelp.module.css';
 
 const initialValues = {
-  title: '',
+  email: '',
+  comment: '',
 };
 
 export function PopUpNeedHelp() {
@@ -25,18 +25,12 @@ export function PopUpNeedHelp() {
             <Field
               type='email'
               name='email'
-              placeholder='Email addres'
+              placeholder='Email address'
               className={css.titleEmail}
             />
           </div>
           <div className={css.CommentPosition}>
             <Field type='text' name='comment' placeholder='Comment' className={css.CommentTitle} />
-          </div>
-          <Button type='submit' title='Send' />
-          <Field type='email' name='email' placeholder='Email adres' className={css.titleEmail} />
-
-          <div className={css.titleCommentPosition}>
-            <Field type='text' name='comment' placeholder='Comment' className={css.titleComment} />
           </div>
           <Button type='submit' title='Send' className={css.createButton} />
         </Form>
