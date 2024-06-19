@@ -3,20 +3,25 @@ import IconButton from '../ButtonIcon/ButtonIcon.jsx';
 import MoveCard from '../MoveCard/MoveCard.jsx';
 import styles from './Task.module.css';
 import { useState } from 'react';
+import { selectCurrentCard, selectIsEditCardOpen } from '../../redux/cards/selectors.js';
+import { useDispatch, useSelector } from 'react-redux';
+import { setCurrentCard, setIsAddCardOpen } from '../../redux/cards/slice.js';
+import { deleteCard, updateCard } from '../../redux/cards/operations.js';
 
-const Task = ({ columns, column, task, onEdit, onDeleteCard, onMoveCard }) => {
-  const [isEditModalOpenCard, setIsEditModalOpenCard] = useState(false);
-  const [selectedCard, setSelectedCard] = useState(null);
+const Task = ({ columns, column, task }) => {
+  const dispatch = useDispatch();
+  const isEditCardOpen = useSelector(selectIsEditCardOpen);
+  const currentCard = useSelector(selectCurrentCard);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleOpenEditCard = card => {
-    setSelectedCard(card);
-    setIsEditModalOpenCard(true);
+    dispatch(setCurrentCard(card));
+    dispatch(setIsAddCardOpen(true));
   };
 
   const handleCloseEditCard = () => {
-    setIsEditModalOpenCard(false);
-    setSelectedCard(null);
+    dispatch(setIsAddCardOpen(false));
+    dispatch(setCurrentCard(null));
   };
 
   const handleMenuOpen = () => {
@@ -27,9 +32,20 @@ const Task = ({ columns, column, task, onEdit, onDeleteCard, onMoveCard }) => {
     setIsMenuOpen(false);
   };
 
-  const handleMoveCard = targetColumnId => {
-    onMoveCard(task.id, column.id, targetColumnId);
-    handleMenuClose();
+  const handleMoveCard = newColumnId => {
+    dispatch(
+      updateCard({
+        cardId: task.id,
+        values: { ...task, columnId: newColumnId },
+        priority: task.priority,
+        deadline: task.deadline,
+      })
+    );
+    setIsMenuOpen(false);
+  };
+
+  const handleDeleteCard = (columnId, cardId) => {
+    dispatch(deleteCard(cardId));
   };
 
   return (
@@ -40,25 +56,23 @@ const Task = ({ columns, column, task, onEdit, onDeleteCard, onMoveCard }) => {
       <div>
         <p>Priority</p>
         <div>
-          <span></span>
-          <p>Low</p>
+          <span>{task.priority}</span>
+          <p>{task.priority}</p>
         </div>
       </div>
       <div>
         <p>Deadline</p>
-        <p>Date</p>
+        <p>{task.deadline}</p>
       </div>
       <div>
         <IconButton id='icon-arrow-circle' onClick={handleMenuOpen} />
         <IconButton id='icon-pencil' onClick={() => handleOpenEditCard(task)} />
-        <IconButton id='icon-trash' onClick={() => onDeleteCard(column.id, task.id)} />
+        <IconButton id='icon-trash' onClick={() => handleDeleteCard(column.id, task.id)} />
       </div>
       {isMenuOpen && (
-        <MoveCard columns={columns} onSelect={handleMoveCard} onClose={handleMenuClose} />
+        <MoveCard column={column} onSelect={handleMoveCard} onClose={handleMenuClose} />
       )}
-      {isEditModalOpenCard && (
-        <EditBoard card={selectedCard} isOpen={onEdit} onClose={handleCloseEditCard} />
-      )}
+      {isEditCardOpen && <EditBoard card={currentCard} onClose={handleCloseEditCard} />}
     </div>
   );
 };
