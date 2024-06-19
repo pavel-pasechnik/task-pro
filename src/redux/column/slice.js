@@ -76,7 +76,7 @@ const controlersSlice = createSlice({
         state.error = null;
       })
       .addCase(fetchColumn.fulfilled, (state, action) => {
-        state.columns = action.payload;
+        state.controlers.columns = action.payload;
         state.isLoading = false;
         state.error = null;
       })
