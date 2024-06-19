@@ -1,14 +1,18 @@
-// import { useRef, useState } from 'react';
+// import { useContext, useRef, useState } from 'react';
 // import css from './Header.module.css';
 // import sprite from '../../assets/sprite.svg';
 // import { useOutsideClick } from '../../hooks/useOutsideClick.js';
 
-// import UserEditModal from '../UserEditModal/UserEditModal.jsx';
+// import EditUserProfile from '../EditUserProfile/EditUserProfile.jsx';
+
+// import { ThemeContext } from '../ThemeContext/ThemeContext.jsx';
 
 // const Header = ({ toggleSidebar }) => {
 //   const [isModalOpen, setModalOpen] = useState(false);
 //   const [isShowTheme, setIsShowTheme] = useState(false);
 //   const ref = useRef(null);
+
+//   const { toggleTheme } = useContext(ThemeContext); // Використовуємо ThemeContext
 
 //   useOutsideClick(ref, () => setIsShowTheme(false));
 
@@ -23,7 +27,7 @@
 //   };
 
 //   const onSelectTheme = value => {
-//     console.log(value);
+//     toggleTheme(value); // Викликаємо toggleTheme для зміни теми
 //     setIsShowTheme(false);
 //   };
 
@@ -76,28 +80,27 @@
 //           </div>
 //         </div>
 //       </div>
-//       {isModalOpen && <UserEditModal onClose={handleModalClose} />}
+//       {isModalOpen && <EditUserProfile onClose={handleModalClose} />}
 //     </div>
 //   );
 // };
 
 // export default Header;
 
-import { useContext, useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import css from './Header.module.css';
 import sprite from '../../assets/sprite.svg';
 import { useOutsideClick } from '../../hooks/useOutsideClick.js';
-
 import EditUserProfile from '../EditUserProfile/EditUserProfile.jsx';
-
 import { ThemeContext } from '../ThemeContext/ThemeContext.jsx';
 
 const Header = ({ toggleSidebar }) => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [isShowTheme, setIsShowTheme] = useState(false);
+  const [userData, setUserData] = useState({ name: '', avatarUrl: '' });
   const ref = useRef(null);
 
-  const { toggleTheme } = useContext(ThemeContext); // Використовуємо ThemeContext
+  const { toggleTheme } = useContext(ThemeContext);
 
   useOutsideClick(ref, () => setIsShowTheme(false));
 
@@ -112,9 +115,47 @@ const Header = ({ toggleSidebar }) => {
   };
 
   const onSelectTheme = value => {
-    toggleTheme(value); // Викликаємо toggleTheme для зміни теми
+    toggleTheme(value);
     setIsShowTheme(false);
   };
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        // Замість '/api/user' треба напевно щось інше
+        const response = await fetch('/api/user');
+
+        // Перевіряємо, чи відповідає контент типу JSON
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const contentType = response.headers.get('content-type');
+
+        if (!contentType || !contentType.includes('application/json')) {
+          throw new TypeError('Expected JSON response');
+        }
+
+        const data = await response.json();
+
+        setUserData({
+          name: data.name,
+          avatarUrl: data.avatarUrl,
+        });
+      } catch (error) {
+        console.error('Error fetching user data:', error);
+
+        // Діагностика помилок
+        if (error instanceof TypeError) {
+          console.error('Response was not JSON.');
+        } else {
+          console.error('Error with the network or server.');
+        }
+      }
+    };
+
+    fetchUserData();
+  }, []);
 
   return (
     <div className={css.headerBox}>
@@ -152,16 +193,20 @@ const Header = ({ toggleSidebar }) => {
           </div>
         </div>
         <div className={css.imgBtn}>
-          <p className={css.text}>Name</p>
+          <p className={css.text}>{userData.name || 'Name'}</p>
           <div
             className={css.avatarWrap}
             onClick={handleModalOpen}
             role='button'
             tabIndex={0}
             aria-label='Open user modal'>
-            <svg className={css.avatar}>
-              <use href={`${sprite}#icon-user-avatar`} />
-            </svg>
+            {userData.avatarUrl ? (
+              <img src={userData.avatarUrl} alt='User Avatar' className={css.avatarImage} />
+            ) : (
+              <svg className={css.avatar}>
+                <use href={`${sprite}#icon-user-avatar`} />
+              </svg>
+            )}
           </div>
         </div>
       </div>
