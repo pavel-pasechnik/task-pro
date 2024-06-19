@@ -10,15 +10,15 @@ export function Previews({ onImageSelect }) {
   const { theme } = useContext(ThemeContext);
   const fileInput = useRef(null);
 
-  const defaultPreview = user.avatarURL ? user.avatarURL : `${sprite}#icon-user-avatar-${theme}`;
+  const defaultPreview = user.avatarURL ? user.avatarURL : `${sprite}#icon-user-avatar`;
 
   const [preview, setPreview] = useState(defaultPreview);
 
   useEffect(() => {
     if (!user.avatarURL) {
-      setPreview(`${sprite}#icon-user-avatar-${theme}`);
+      setPreview(`${sprite}#icon-user-avatar`);
     }
-  }, [theme, user.avatarURL]);
+  }, [user.avatarURL]);
 
   const handlePickImage = e => {
     const selectedFile = e.target.files[0];
@@ -43,9 +43,18 @@ export function Previews({ onImageSelect }) {
         />
         <aside className={styles.thumbsContainer}>
           <div className={styles.thumb}>
-            <svg className={styles.imageG}>
-              <use href={preview}></use>
-            </svg>
+            {preview.startsWith('blob:') ? (
+              <img
+                src={preview}
+                alt='avatarURL'
+                className={styles.imageG}
+                onLoad={handleLoadedImage}
+              />
+            ) : (
+              <svg className={`${styles.imageG} ${styles.avatar}`}>
+                <use href={preview} />
+              </svg>
+            )}
           </div>
         </aside>
         <span
