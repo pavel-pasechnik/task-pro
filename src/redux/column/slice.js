@@ -24,6 +24,7 @@ const controlersSlice = createSlice({
     setCurrentColumn: (state, action) => {
       state.isEditColumnOpen = action.payload;
     },
+  },
   extraReducers: builder => {
     builder
       .addCase(addColumn.pending, state => {
@@ -86,5 +87,6 @@ const controlersSlice = createSlice({
   },
 });
 
-export const { setIsAddColumnOpen, setIsEditColumnOpen, setCurrentColumn } = controlersSlice.actions; // Експортуємо новий екшен
+export const { setIsAddColumnOpen, setIsEditColumnOpen, setCurrentColumn } =
+  controlersSlice.actions; // Експортуємо новий екшен
 export default controlersSlice.reducer;
