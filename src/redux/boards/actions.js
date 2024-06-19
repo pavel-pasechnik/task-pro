@@ -35,3 +35,13 @@ export const updateBoard = createAsyncThunk(
     }
   }
 );
+
+export const addBoard = createAsyncThunk('boards/addBoard', async (board, thunkAPI) => {
+  try {
+    const response = await axios.post('/api/boards', board);
+
+    return response.data;
+  } catch (e) {
+    return thunkAPI.rejectWithValue(e.message);
+  }
+});

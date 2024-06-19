@@ -1,4 +1,12 @@
-import { login, logout, refreshUser, register } from './operations.js';
+import {
+  login,
+  logout,
+  refreshUser,
+  register,
+  updateUser,
+  changeTheme,
+  sendHelp,
+} from './operations.js';
 import { createSlice } from '@reduxjs/toolkit';
 
 const authSlice = createSlice({
@@ -7,6 +15,8 @@ const authSlice = createSlice({
     user: {
       name: null,
       email: null,
+      theme: 'light',
+      avatarURL: null,
     },
     token: null,
     isLoggedIn: false,
@@ -60,6 +70,37 @@ const authSlice = createSlice({
       })
       .addCase(refreshUser.rejected, state => {
         state.isRefreshing = false;
+      })
+      .addCase(changeTheme.pending, state => {
+        state.isLoading = true;
+      })
+      .addCase(changeTheme.fulfilled, (state, { payload }) => {
+        state.user.theme = payload.theme;
+        state.isLoading = false;
+      })
+      .addCase(changeTheme.rejected, state => {
+        state.isLoading = false;
+      })
+      .addCase(updateUser.pending, state => {
+        state.isLoading = true;
+      })
+      .addCase(updateUser.fulfilled, (state, { payload }) => {
+        state.user = payload; // Оновлено збереження даних користувача
+        state.isLoading = false;
+      })
+      .addCase(updateUser.rejected, state => {
+        state.isLoading = false;
+      })
+      .addCase(sendHelp.pending, state => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(sendHelp.fulfilled, state => {
+        state.isLoading = false;
+      })
+      .addCase(sendHelp.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
       }),
 });
 

@@ -13,3 +13,5 @@ export const selectIsLoading = state => state.auth.isLoading;
 export const selectIsOpenModal = state => state.auth.isOpenModal;
 
 export const selectTheme = state => state.auth.user.theme;
+
+export const selectUserTheme = state => state.auth.user.theme;
