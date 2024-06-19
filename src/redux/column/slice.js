@@ -88,5 +88,7 @@ const controlersSlice = createSlice({
 });
 
 export const { setIsAddColumnOpen, setIsEditColumnOpen, setCurrentColumn } =
-  controlersSlice.actions; // Експортуємо новий екшен
+
+  controlersSlice.actions;
+
 export default controlersSlice.reducer;
