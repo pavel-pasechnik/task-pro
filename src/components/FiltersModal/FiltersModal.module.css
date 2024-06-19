@@ -1,22 +1,22 @@
 .filtersModal {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
   z-index: 1000;
+  inset: 0;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
+  background-color: rgb(0 0 0 / 50%);
 }
 
 .containerModal {
-  background-color: var(--bg-modal-filters);
   width: 300px;
   height: 234px;
-  border-radius: 8px;
   padding: 14px 14px 24px 24px;
+
+  background-color: var(--bg-modal-filters);
+  border-radius: 8px;
 }
 
 .closeBtn {
@@ -25,14 +25,18 @@
 }
 
 .btn {
+  cursor: pointer;
+
+  position: absolute;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
+  padding: 0;
+
   background-color: inherit;
   border: none;
-  cursor: pointer;
-  position: absolute;
-  padding: 0;
 }
 
 .btnIcon {
@@ -42,14 +46,15 @@
 }
 
 .title {
-  font-size: 18px;
-  color: var(--color-text-base);
-  font-weight: 500;
-  font-style: normal;
-  padding-top: 4.5px;
+  height: 27px;
   margin-top: 10px;
   margin-bottom: 14px;
-  height: 27px;
+  padding-top: 4.5px;
+
+  font-size: 18px;
+  font-weight: 500;
+  font-style: normal;
+  color: var(--color-text-base);
 }
 
 .containerContent {
@@ -57,37 +62,42 @@
 }
 
 .line {
-  margin: 0;
-  border: none;
   height: 1px;
-  background-color: var(--modal-filers-line);
+  margin: 0;
   margin-bottom: 14px;
+
+  background-color: var(--modal-filers-line);
+  border: none;
 }
 
 .containerLabel {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-bottom: 14px;
+  justify-content: space-between;
+
   height: 21px;
+  margin-bottom: 14px;
 }
 
 .btnAll {
-  background-color: inherit;
-  border: none;
   cursor: pointer;
-  text-decoration: underline;
+
   padding: 0;
+
+  font-size: 12px;
   font-weight: 400;
   font-style: normal;
-  font-size: 12px;
   color: var(--modal-icon);
+  text-decoration: underline;
+
+  background-color: inherit;
+  border: none;
 }
 
 .titleLabel {
-  color: var(--color-text-base);
   font-weight: 500;
   font-style: normal;
+  color: var(--color-text-base);
 }
 
 .containerLevel {
@@ -101,40 +111,47 @@
 }
 
 .customCheckbox {
-  display: flex;
-  align-items: center;
   cursor: pointer;
   user-select: none;
+
+  display: flex;
+  align-items: center;
+
+  font-size: 12px;
   font-weight: 400;
   font-style: normal;
-  font-size: 12px;
   color: var(--modal-icon);
 }
 
 .checkboxInput {
+  cursor: pointer;
   position: absolute;
   opacity: 0;
-  cursor: pointer;
 }
 
 .checkboxCustom {
   width: 14px;
   height: 14px;
-  border-radius: 50%;
   margin-right: 8px;
+
+  border-radius: 50%;
+
   transition: background-color 0.3s;
 }
 
 .checkboxInput:checked + .checkboxCustom {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   width: 14px;
   height: 14px;
-  border: 1px solid;
   margin-right: 8px;
+
   background-color: inherit;
+  border: 1px solid;
 }
 
 .checkboxMiddle {
@@ -148,21 +165,21 @@
 }
 
 .gray {
-  background-color: var(--checkbox-filter-gray);
   color: var(--checkbox-filter-gray);
+  background-color: var(--checkbox-filter-gray);
 }
 
 .blue {
-  background-color: #8fa1d0;
   color: #8fa1d0;
+  background-color: #8fa1d0;
 }
 
 .pink {
-  background-color: #e09cb5;
   color: #e09cb5;
+  background-color: #e09cb5;
 }
 
 .green {
-  background-color: #bedbb0;
   color: #bedbb0;
+  background-color: #bedbb0;
 }

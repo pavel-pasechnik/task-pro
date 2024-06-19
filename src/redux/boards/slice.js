@@ -1,17 +1,22 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchBoards, deleteBoard, updateBoard } from './actions.js';
+import { fetchBoards, deleteBoard, updateBoard, addBoard } from './actions.js';
 
 const boardsSlice = createSlice({
   name: 'boards',
   initialState: {
+    current: {},
     items: [],
+    backgrounds: [],
     loading: false,
     error: null,
-    currentBoard: null,
+    currentBoard: null, // to delete
   },
   reducers: {
     setCurrentBoard: (state, action) => {
       state.currentBoard = action.payload;
+    },
+    setActiveBoard(state, action) {
+      state.boards.current = action.payload;
     },
   },
   extraReducers: builder => {
@@ -31,6 +36,18 @@ const boardsSlice = createSlice({
       .addCase(fetchBoards.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
+      })
+      .addCase(addBoard.pending, state => {
+        state.boards.isLoading = true;
+      })
+      .addCase(addBoard.fulfilled, (state, action) => {
+        state.boards.isLoading = false;
+        state.boards.error = null;
+        state.boards.items.push(action.payload);
+      })
+      .addCase(addBoard.rejected, (state, action) => {
+        state.boards.isLoading = false;
+        state.boards.error = action.payload;
       })
       .addCase(deleteBoard.fulfilled, (state, action) => {
         state.items = state.items.filter(board => board._id !== action.payload);
@@ -53,5 +70,5 @@ const boardsSlice = createSlice({
   },
 });
 
-export const { setCurrentBoard } = boardsSlice.actions;
+export const { setActiveBoard, setCurrentBoard } = boardsSlice.actions;
 export default boardsSlice.reducer;
