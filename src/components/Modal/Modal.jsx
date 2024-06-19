@@ -1,13 +1,11 @@
-import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useContext, useEffect } from 'react';
+import { ThemeContext } from '../ThemeContext/ThemeContext.jsx';
 
-import { selectTheme } from '../../redux/auth/selectors.js';
 import sprite from '../../assets/sprite.svg';
-
 import css from './Modal.module.css';
 
 export default function Modal({ onClose, children }) {
-  const theme = useSelector(selectTheme);
+  const { theme } = useContext(ThemeContext);
 
   const handleOverlayClick = event => {
     if (event.currentTarget === event.target) {
