@@ -119,43 +119,43 @@ const Header = ({ toggleSidebar }) => {
     setIsShowTheme(false);
   };
 
-  useEffect(() => {
-    const fetchUserData = async () => {
-      try {
-        // Замість '/api/user' треба напевно щось інше
-        const response = await fetch('/api/user');
+  // useEffect(() => {
+  //   const fetchUserData = async () => {
+  //     try {
+  //       // Замість '/api/user' треба напевно щось інше
+  //       const response = await fetch('/api/user');
 
-        // Перевіряємо, чи відповідає контент типу JSON
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
+  //       // Перевіряємо, чи відповідає контент типу JSON
+  //       if (!response.ok) {
+  //         throw new Error(`HTTP error! Status: ${response.status}`);
+  //       }
 
-        const contentType = response.headers.get('content-type');
+  //       const contentType = response.headers.get('content-type');
 
-        if (!contentType || !contentType.includes('application/json')) {
-          throw new TypeError('Expected JSON response');
-        }
+  //       if (!contentType || !contentType.includes('application/json')) {
+  //         throw new TypeError('Expected JSON response');
+  //       }
 
-        const data = await response.json();
+  //       const data = await response.json();
 
-        setUserData({
-          name: data.name,
-          avatarUrl: data.avatarUrl,
-        });
-      } catch (error) {
-        console.error('Error fetching user data:', error);
+  //       setUserData({
+  //         name: data.name,
+  //         avatarUrl: data.avatarUrl,
+  //       });
+  //     } catch (error) {
+  //       console.error('Error fetching user data:', error);
 
-        // Діагностика помилок
-        if (error instanceof TypeError) {
-          console.error('Response was not JSON.');
-        } else {
-          console.error('Error with the network or server.');
-        }
-      }
-    };
+  //       // Діагностика помилок
+  //       if (error instanceof TypeError) {
+  //         console.error('Response was not JSON.');
+  //       } else {
+  //         console.error('Error with the network or server.');
+  //       }
+  //     }
+  //   };
 
-    fetchUserData();
-  }, []);
+  //   fetchUserData();
+  // }, []);
 
   return (
     <div className={css.headerBox}>

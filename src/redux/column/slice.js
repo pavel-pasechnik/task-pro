@@ -88,7 +88,6 @@ const controlersSlice = createSlice({
 });
 
 export const { setIsAddColumnOpen, setIsEditColumnOpen, setCurrentColumn } =
-
   controlersSlice.actions;
 
 export default controlersSlice.reducer;
