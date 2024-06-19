@@ -1,10 +1,10 @@
-.dark {
+/* .dark {
   color: var(--color-white);
   background-color: var(--bg-color-form);
   stroke: var(--color-white);
-}
+} */
 
-.light {
+/* .light {
   color: #161616;
   background-color: #fcfcfc;
   stroke: #161616;
@@ -14,7 +14,7 @@
   color: #161616;
   background-color: #fcfcfc;
   stroke: #161616;
-}
+} */
 
 .modal {
   position: absolute;
@@ -99,4 +99,9 @@
 
 .close_Button:hover {
   stroke-opacity: 0.5;
+}
+
+.dark .close_Button {
+  stroke: var(--color-white);
+  fill: var(--color-white);
 }
