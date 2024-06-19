@@ -8,7 +8,7 @@
 
   background:
     url('src/assets/icons/background.png') no-repeat center center / cover,
-    linear-gradient(to bottom, #fff 0%, #bedbb0 100%);
+    linear-gradient(to bottom, var(--color-white) 0%, var(--color-green) 100%);
 }
 
 .img {
@@ -33,7 +33,7 @@
   font-size: 28px;
   font-weight: 600;
   line-height: 1.5em;
-  color: #161616;
+  color: var(--color-text-base);
 }
 
 .text {
@@ -43,7 +43,7 @@
   font-size: 14px;
   font-weight: 400;
   line-height: 1.29em;
-  color: #161616;
+  color: var(--color-text-base);
   text-align: center;
 }
 
@@ -58,14 +58,24 @@
   height: 49px;
   margin-bottom: 14px;
 
-  background-color: #161616;
+  background-color: var(--color-btn-text);
   border-radius: 8px;
+
+  font-size: 14px;
+  line-height: 1.5em;
+  color: var(--color-white);
+  text-decoration: none;
+}
+
+.registerBtn:hover,
+.registerBtn:focus {
+  background-color: #2f2f2f;
 }
 
 .navLink {
   font-size: 14px;
   line-height: 1.5em;
-  color: #fff;
+  color: var(--color-btn-text);
   text-decoration: none;
 }
 

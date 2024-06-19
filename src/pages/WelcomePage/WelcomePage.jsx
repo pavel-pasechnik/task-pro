@@ -19,13 +19,10 @@ export const WelcomePage = () => {
         wait, start achieving your goals now!
       </p>
 
-      <div className={css.registerBtn}>
-        {
-          <NavLink className={css.navLink} to='/register'>
-            Registration
-          </NavLink>
-        }
-      </div>
+      <NavLink className={css.registerBtn} to='/register'>
+        Registration
+      </NavLink>
+
       <button className={css.loginBtn}>
         <NavLink className={css.navLink} to='/login'>
           Log in
