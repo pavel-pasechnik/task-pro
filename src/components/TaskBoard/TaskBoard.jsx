@@ -15,7 +15,7 @@ import {
 } from '../../redux/column/select.js';
 import { setCurrentColumn, setIsEditColumnOpen } from '../../redux/column/slice.js';
 import { useDispatch } from 'react-redux';
-import { deleteColumn, updateColumn } from '../../redux/column/operation.js';
+import { deleteColumn } from '../../redux/column/operation.js';
 import { selectCards, selectIsAddCardOpen } from '../../redux/cards/selectors.js';
 import { setIsAddCardOpen } from '../../redux/cards/slice.js';
 import { fetchCard } from '../../redux/cards/operations.js';
