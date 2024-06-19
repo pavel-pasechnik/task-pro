@@ -124,27 +124,29 @@
   /* border: 2px solid ; */
   margin: 0 5px;
   cursor: pointer;
-  transition: background-color 0.3s, border-color 0.3s;
+  transition:
+    background-color 0.3s,
+    border-color 0.3s;
 }
 
 .radioButton.low {
-  background-color: #8FA1D0;
+  background-color: #8fa1d0;
 }
 
 .radioButton.medium {
-  background-color: #E09CB5;
+  background-color: #e09cb5;
 }
 
 .radioButton.high {
-  background-color: #BEDBB0;
+  background-color: #bedbb0;
 }
 
 .radioButton.none {
-  background-color: #FFFFFF4D;
+  background-color: #ffffff4d;
 }
 
 .radioButton.active {
-  border:1px solid red;
+  border: 1px solid red;
 }
 
 .active {

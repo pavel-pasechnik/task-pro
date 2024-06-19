@@ -16,7 +16,7 @@
   width: 100%;
   max-width: 335px;
   height: 80px;
-letter-spacing: -0.02em;
+  letter-spacing: -0.02em;
   font-size: 12px;
   line-height: 16px;
   color: var(--card-text);
@@ -33,5 +33,5 @@ letter-spacing: -0.02em;
 }
 
 .screensPageTextContainer .screensPageTextLink {
-  color: var(--text-link-board)
+  color: var(--text-link-board);
 }

@@ -25,7 +25,7 @@
   align-items: center;
   background-color: inherit;
   height: 20px;
-  color: var( --color-text-rgb);
+  color: var(--color-text-rgb);
   border: 0;
   font-weight: 500;
   font-style: normal;
@@ -37,7 +37,7 @@
 .iconFilter {
   width: 16px;
   height: 16px;
-  fill: var( --color-text-rgb);
+  fill: var(--color-text-rgb);
   margin-right: 8px;
 }
 

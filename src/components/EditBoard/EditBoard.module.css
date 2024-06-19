@@ -63,7 +63,7 @@
   letter-spacing: normal;
 }
 
-.modalInputTitle::placeholder{
+.modalInputTitle::placeholder {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -89,9 +89,9 @@
   transition: border-color 0.3s ease;
 }
 
-.modalInputDescription::placeholder{
-font-size: 14px;
-/* padding: 14px 18px; */
+.modalInputDescription::placeholder {
+  font-size: 14px;
+  /* padding: 14px 18px; */
 }
 
 .modalInputDescription:focus {
@@ -147,7 +147,6 @@ font-size: 14px;
 .gray {
   background-color: #ffffff4d;
 }
-
 
 .active {
   border-color: white;

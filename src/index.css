@@ -28,7 +28,7 @@
     url('./fonts/Poppins-SemiBold.ttf') format('truetype');
 }
 
-:root {  
+:root {
   --primary-font: 'Poppins', sans-serif;
   --font-size-base: 14px;
   --background-header: #fcfcfc;
@@ -64,7 +64,6 @@
   --bg-modal-filters: #fcfcfc;
   --modal-filers-line: rgb(22 22 22 / 10%);
   --checkbox-filter-gray: rgb(22 22 22 / 30%);
-
 
   --need-help-link: #bedbb0;
 
@@ -124,7 +123,6 @@
   --sidebar-grey-text: rgb(255 255 255 / 50%);
   --need-help-link: #bedbb0;
 
-
   /* --black-color: #161616;
     --almost-black-color: #121212;
     --white-color: #fff;
@@ -180,7 +178,6 @@
 
   --sidebar-grey-text: rgb(255 255 255 / 50%);
   --need-help-link: #5255bc;
-
 
   /* --black-color: #161616;
     --almost-black-color: #121212;
@@ -238,12 +235,7 @@ img {
   max-width: 100%;
 }
 
-
-
-
-
 :root {
-
   /* Dark theme */
   --color-dark: #161616;
   --color-hover-green: #9dc888;
@@ -258,7 +250,6 @@ img {
   --color-bg-light: rgba(255, 255, 255, 0.1);
   --pop-up-bg-color: #151515;
   --secondary-text-color: #ffffff80;
-
 
   /* Colors/label */
   --color-blue: #8fa1d0;
@@ -281,4 +272,3 @@ img {
   --color-red: rgba(255, 0, 0, 0.664);
   --color-shadow: rgba(22, 22, 22, 0.08);
 }
-
