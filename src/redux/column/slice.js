@@ -2,18 +2,16 @@
 import { addColumn, updateColumn, deleteColumn, fetchColumn } from './operation';
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = {
-  columns: [],
-  currentColumn: null,
-  isAddColumnOpen: false,
-  isEditColumnOpen: false,
-  isLoading: false,
-  error: null,
-};
-
 const controlersSlice = createSlice({
   name: 'controlers',
-  initialState,
+  initialState: {
+    columns: [],
+    currentColumn: null,
+    isAddColumnOpen: false,
+    isEditColumnOpen: false,
+    isLoading: false,
+    error: null,
+  },
   reducers: {
     setIsAddColumnOpen: (state, action) => {
       state.isAddColumnOpen = action.payload;
@@ -22,7 +20,7 @@ const controlersSlice = createSlice({
       state.isEditColumnOpen = action.payload;
     },
     setCurrentColumn: (state, action) => {
-      state.isEditColumnOpen = action.payload;
+      state.currentColumn = action.payload;
     },
   },
   extraReducers: builder => {
@@ -76,7 +74,7 @@ const controlersSlice = createSlice({
         state.error = null;
       })
       .addCase(fetchColumn.fulfilled, (state, action) => {
-        state.controlers.columns = action.payload;
+        state.columns = action.payload;
         state.isLoading = false;
         state.error = null;
       })

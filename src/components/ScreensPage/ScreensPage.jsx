@@ -19,7 +19,9 @@ import { addColumn, fetchColumn } from '../../redux/column/operation.js';
 
 const ScreensPage = () => {
   const dispatch = useDispatch();
-  const columns = useSelector(selectColumns);
+  const columns = useSelector(selectColumns) || [];
+
+  console.log(columns);
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
   const boards = useSelector(selectBoards);
@@ -46,7 +48,7 @@ const ScreensPage = () => {
   useEffect(() => {
     if (boards.length > 0) {
       boards.forEach(board => {
-        dispatch(fetchColumn(board.id));
+        dispatch(fetchColumn(board._id));
       });
     }
   }, [boards, dispatch]);
