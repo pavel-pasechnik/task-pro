@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import css from './WelcomePage.module.css';
+import logo from '../../assets/icons/logo.svg';
 
 export const WelcomePage = () => {
   return (
@@ -8,7 +9,7 @@ export const WelcomePage = () => {
 
       <div className={css.logoCont}>
         <svg className={css.logo}>
-          <use href='src/assets/icons/logo.svg#logo'></use>
+          <use href={`${logo}#logo`}></use>
         </svg>
         <h1 className={css.title}>Task Pro</h1>
       </div>
