@@ -21,7 +21,6 @@ const ScreensPage = () => {
   const dispatch = useDispatch();
   const columns = useSelector(selectColumns) || [];
 
-  console.log(columns);
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
   const boards = useSelector(selectBoards);
