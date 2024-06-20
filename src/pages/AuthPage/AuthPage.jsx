@@ -6,11 +6,11 @@ export default function AuthPage() {
   return (
     <div>
       <div className={css.div}>
-        <NavLink className={css.registerBtn} to='/auth/register'>
+        <NavLink className={css.registerBtn} to='/register'>
           Registration
         </NavLink>
 
-        <NavLink className={css.loginBtn} to='/auth/login'>
+        <NavLink className={css.loginBtn} to='/login'>
           Log in
         </NavLink>
       </div>
