@@ -6,12 +6,14 @@ import { selectIsRefreshing } from '../../redux/auth/selectors.js';
 import styles from './HomePage.module.css';
 import { useSelector } from 'react-redux';
 import { useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 const HomePage = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalContent, setModalContent] = useState(null);
   const isRefreshing = useSelector(selectIsRefreshing);
+  const { boardId } = useParams();
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -33,7 +35,7 @@ const HomePage = () => {
         <div className={styles.headerContainer}>
           <Header toggleSidebar={toggleSidebar} />
           <main className={styles.mainContent}>
-            <ScreensPage openModal={openModal} />
+            <ScreensPage openModal={openModal} boardId={boardId} />
           </main>
         </div>
       </div>
