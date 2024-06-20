@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import css from './WelcomePage.module.css';
 import logo from '../../assets/icons/logo.svg';
+import AuthPage from '../AuthPage/AuthPage.jsx';
 
 export const WelcomePage = () => {
   return (
@@ -19,13 +20,7 @@ export const WelcomePage = () => {
         wait, start achieving your goals now!
       </p>
 
-      <NavLink className={css.registerBtn} to='/register'>
-        Registration
-      </NavLink>
-
-      <NavLink className={css.loginBtn} to='/login'>
-        Log in
-      </NavLink>
+      <AuthPage />
     </div>
   );
 };

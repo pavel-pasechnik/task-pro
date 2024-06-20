@@ -40,7 +40,7 @@ export const RegisterForm = () => {
           <div className={css.nav}>
             <p className={css.p}>Registration</p>
             {
-              <NavLink to='/login' className={css.link}>
+              <NavLink to='/auth/login' className={css.link}>
                 Log in
               </NavLink>
             }

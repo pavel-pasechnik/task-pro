@@ -57,38 +57,6 @@
   text-align: center;
 }
 
-.registerBtn {
-  cursor: pointer;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  width: 335px;
-  height: 49px;
-  margin-bottom: 14px;
-
-  background-color: var(--color-btn-text);
-  border-radius: 8px;
-
-  font-size: 14px;
-  line-height: 1.5em;
-  color: var(--color-white);
-  text-decoration: none;
-}
-
-.registerBtn:hover,
-.registerBtn:focus {
-  background-color: #2f2f2f;
-}
-
-.loginBtn {
-  font-size: 14px;
-  line-height: 1.5em;
-  color: var(--color-btn-text);
-  text-decoration: none;
-}
-
 @media screen and (max-width: 374px) {
   .registerBtn {
     width: 290px;
