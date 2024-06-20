@@ -36,15 +36,15 @@ export default function App() {
           ) : (
             <Routes>
               <Route
-                path='/welcome'
+                path='/'
                 element={<RestrictedRoute component={<WelcomePage />} redirectTo='/home' />}
               />
               <Route
-                path='/auth/register'
+                path='/register'
                 element={<RestrictedRoute component={<RegisterPage />} redirectTo='/login' />}
               />
               <Route
-                path='/auth/login'
+                path='/login'
                 element={<RestrictedRoute component={<LoginPage />} redirectTo='/home' />}
               />
               <Route
