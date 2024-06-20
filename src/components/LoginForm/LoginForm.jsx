@@ -36,7 +36,7 @@ export const LoginForm = () => {
         <Form className={css.formCont} autoComplete='off'>
           <div className={css.nav}>
             {
-              <NavLink to='/auth/register' className={css.link}>
+              <NavLink to='/register' className={css.link}>
                 Registration
               </NavLink>
             }
