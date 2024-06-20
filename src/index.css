@@ -229,11 +229,10 @@ img {
   max-width: 100%;
 }
 
-/* :root { */
+:root {
+  /* Dark theme */
 
-/* Dark theme */
-
-/* --color-dark: #161616;
+  --color-dark: #161616;
   --color-hover-green: #9dc888;
   --color-white: #fff;
   --bg-color-form: #151515;
@@ -245,29 +244,28 @@ img {
   --color-icon-light: rgb(255 255 255 / 80%);
   --color-bg-light: rgb(255 255 255 / 10%);
   --pop-up-bg-color: #151515;
-  --secondary-text-color: #ffffff80; */
+  --secondary-text-color: #ffffff80;
 
-/* Colors/label */
+  /* Colors/label */
 
-/* --color-blue: #8fa1d0;
+  --color-blue: #8fa1d0;
   --color-pink: #e09cb5;
   --color-green: #bedbb0;
-  --color-light: rgb(22 22 22 / 30%); */
+  --color-light: rgb(22 22 22 / 30%);
 
-/* Light theme */
+  /* Light theme */
 
-/* --bg-color-light: #f6f6f7;
+  --bg-color-light: #f6f6f7;
   --color-text-light: rgb(22 22 22 / 50%);
   --color-text-grey: rgb(22 22 22 / 80%);
-  --color-text-card: rgb(22 22 22 / 70%); */
+  --color-text-card: rgb(22 22 22 / 70%);
 
-/* Violet theme */
+  /* Violet theme */
 
-/* --color-violet: #5255bc;
+  --color-violet: #5255bc;
   --bg-color-light-violet: #ecedfd;
   --bg-color-need-help: rgb(236 237 253 / 40%);
   --color-light-violet: #b8bcfd;
   --color-red: rgb(255 0 0 / 66.4%);
-  --color-shadow: rgb(22 22 22 / 8%); */
-
-/* } */
+  --color-shadow: rgb(22 22 22 / 8%);
+}
