@@ -17,6 +17,16 @@
   margin-bottom: 14px;
 }
 
+.welcomeImg {
+  width: 124px;
+  height: 124px;
+  background-image: url('../../assets/png/welcome-mob-1x.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 14px;
+}
+
 .logoCont {
   display: flex;
   gap: 14px;
@@ -88,7 +98,7 @@
   border: 0;
 }
 
-@media screen and (width <= 374px) {
+@media screen and (max-width: 374px) {
   .registerBtn {
     width: 290px;
   }
@@ -98,14 +108,22 @@
   }
 }
 
-@media screen and (width >= 375px) {
+@media screen and (min-resolution: 192dpi) and (min-width: 375px),
+  screen and (min-resolution: 2dppx) and (min-width: 375px),
+  screen and (min-device-pixel-ratio: 2) and (min-width: 375px) {
+  .welcomeImg {
+    background-image: url('../../assets/png/welcome-mob-2x.png');
+  }
+}
+
+@media screen and (min-width: 375px) {
   .mainCont {
     padding-right: 20px;
     padding-left: 20px;
   }
 }
 
-@media screen and (width >= 768px) {
+@media screen and (min-width: 768px) {
   .mainCont {
     padding-right: 0;
     padding-left: 0;
@@ -132,5 +150,34 @@
 
   .registerBtn {
     width: 344px;
+  }
+
+  .welcomeImg {
+    width: 162px;
+    height: 162px;
+    background-image: url('../../assets/png/welcome-tab-1x.png');
+    margin-bottom: 24px;
+  }
+}
+
+@media screen and (min-resolution: 192dpi) and (min-width: 768px),
+  screen and (min-resolution: 2dppx) and (min-width: 768px),
+  screen and (min-device-pixel-ratio: 2) and (min-width: 768px) {
+  .welcomeImg {
+    background-image: url('../../assets/png/welcome-tab-2x.png');
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .welcomeImg {
+    background-image: url('../../assets/png/welcome-desk-1x.png');
+  }
+}
+
+@media screen and (min-resolution: 192dpi) and (min-width: 1440px),
+  screen and (min-resolution: 2dppx) and (min-width: 1440px),
+  screen and (min-device-pixel-ratio: 2) and (min-width: 1440px) {
+  .welcomeImg {
+    background-image: url('../../assets/png/welcome-desk-2x.png');
   }
 }

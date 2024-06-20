@@ -5,7 +5,7 @@ import logo from '../../assets/icons/logo.svg';
 export const WelcomePage = () => {
   return (
     <div className={css.mainCont}>
-      <img src='src/assets/icons/icon.png' alt='welcome page icon' className={css.img} />
+      <div className={css.welcomeImg}></div>
 
       <div className={css.logoCont}>
         <svg className={css.logo}>
