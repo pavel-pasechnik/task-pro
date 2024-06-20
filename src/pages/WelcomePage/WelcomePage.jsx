@@ -1,11 +1,12 @@
 import { NavLink } from 'react-router-dom';
 import css from './WelcomePage.module.css';
 import logo from '../../assets/icons/logo.svg';
+import icon from '../../assets/icons/icon.png';
 
 export const WelcomePage = () => {
   return (
     <div className={css.mainCont}>
-      <img src='src/assets/icons/icon.png' alt='welcome page icon' className={css.img} />
+      <img src={icon} alt='welcome page icon' className={css.img} />
 
       <div className={css.logoCont}>
         <svg className={css.logo}>
