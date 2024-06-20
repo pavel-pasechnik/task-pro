@@ -55,6 +55,12 @@
   background-color: var(--bg-color-form-input);
   border: 1px solid var(--color-border-modal);
   border-radius: 8px;
+  opacity: 0.4;
+}
+
+.input:hover,
+.input:focus {
+  opacity: 1;
 }
 
 .button {

@@ -1,12 +1,15 @@
-import { NavLink } from 'react-router-dom';
 import css from './WelcomePage.module.css';
 import logo from '../../assets/icons/logo.svg';
-import icon from '../../assets/icons/icon.png';
+
+import AuthPage from '../AuthPage/AuthPage.jsx';
+
 
 export const WelcomePage = () => {
   return (
     <div className={css.mainCont}>
-      <img src={icon} alt='welcome page icon' className={css.img} />
+
+      <div className={css.welcomeImg}></div>
+
 
       <div className={css.logoCont}>
         <svg className={css.logo}>
@@ -20,15 +23,7 @@ export const WelcomePage = () => {
         wait, start achieving your goals now!
       </p>
 
-      <NavLink className={css.registerBtn} to='/register'>
-        Registration
-      </NavLink>
-
-      <button className={css.loginBtn}>
-        <NavLink className={css.navLink} to='/login'>
-          Log in
-        </NavLink>
-      </button>
+      <AuthPage />
     </div>
   );
 };
