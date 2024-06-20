@@ -13,7 +13,6 @@ import { WelcomePage } from '../../pages/WelcomePage/WelcomePage.jsx';
 import { LoginPage } from '../../pages/LoginPage/LoginPage.jsx';
 import { RegisterPage } from '../../pages/RegisterPage/RegisterPage.jsx';
 import { Loader } from '../Loader/Loader.jsx';
-import AddBoard from '../AddBoard/AddBoard.jsx'; // Імпортуємо AddBoard
 
 const NotFound = lazy(() => import('../../pages/NotFound/NotFound.jsx'));
 const ScreensPage = lazy(() => import('../../components/ScreensPage/ScreensPage.jsx'));

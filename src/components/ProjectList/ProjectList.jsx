@@ -13,9 +13,11 @@ import { setCurrentBoard } from '../../redux/boards/slice.js';
 import Modal from '../Modal/Modal.jsx';
 import { deleteBoard } from '../../redux/boards/actions.js';
 import { PopUpEditBoard } from '../PopUpEditBoard/PopUpEditBoard.jsx';
+import { useNavigate } from 'react-router-dom';
 
 const ProjectList = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const boards = useSelector(selectBoards);
   const loading = useSelector(selectBoardsLoading);
   const error = useSelector(selectBoardsError);
@@ -29,6 +31,7 @@ const ProjectList = () => {
 
   const handleBoardClick = board => {
     dispatch(setCurrentBoard(board));
+    navigate(`/home/${board._id}`);
   };
 
   const handleEditClick = board => {
@@ -56,7 +59,7 @@ const ProjectList = () => {
   }
 
   if (!boards || boards.length === 0) {
-    return <p className={css.projectList}>No boards available</p>;
+    return <p className={css.projectList}></p>;
   }
 
   return (

@@ -2,7 +2,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
   height: 100vh;
 }
 
@@ -11,27 +10,29 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: center;
 
   width: 100%;
   max-width: 335px;
   height: 80px;
-letter-spacing: -0.02em;
+
   font-size: 12px;
   line-height: 16px;
   color: var(--card-text);
+  text-align: center;
+  letter-spacing: -0.02em;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .screensPageTextContainer {
     width: 100%;
     max-width: 486px;
     height: 72px;
+
     font-size: 14px;
     line-height: 18px;
   }
 }
 
 .screensPageTextContainer .screensPageTextLink {
-  color: var(--text-link-board)
+  color: var(--text-link-board);
 }

@@ -8,29 +8,26 @@ import { selectCurrentBoard } from '../../redux/boards/selectors.js';
 import { toast } from 'react-hot-toast';
 import styles from './AddColumn.module.css';
 
-export default function AddColumn() {
+export default function AddColumn({ closeModal }) {
   const dispatch = useDispatch();
   const currentBoard = useSelector(selectCurrentBoard);
 
   const schema = Yup.object({
-    name: Yup.string().required('title is required'),
+    name: Yup.string().required('Title is required'),
   });
-
-  const closeModal = actions => {
-    actions.resetForm();
-  };
 
   const handleSubmit = async (values, actions) => {
     try {
-      if (!currentBoard || !currentBoard.id) {
+      if (!currentBoard || !currentBoard._id) {
         throw new Error('Current board is not selected');
       }
 
-      await dispatch(addColumn({ boardId: currentBoard.id, title: values.name })).unwrap();
-      closeModal(actions);
+      await dispatch(addColumn({ boardId: currentBoard._id, title: values.name })).unwrap();
+      actions.resetForm();
       toast.success('Column added successfully');
+      closeModal();
     } catch (error) {
-      toast.error(`Error adding column`);
+      toast.error('Error adding column');
     } finally {
       actions.setSubmitting(false);
     }
@@ -39,12 +36,12 @@ export default function AddColumn() {
   return (
     <div className={styles.modal}>
       <div className={styles.modalContent}>
-        <button className={styles.closeButton} onClick={() => {}}>
+        <button className={styles.closeButton} onClick={closeModal}>
           <svg className={styles.closeIcon}>
             <use href={`${sprite}#icon-x-close`}></use>
           </svg>
         </button>
-        <h2 className={styles.addColumn}>Add column</h2>
+        <h2 className={styles.addColumn}>Add Column</h2>
         <Formik initialValues={{ name: '' }} validationSchema={schema} onSubmit={handleSubmit}>
           {({ isSubmitting }) => (
             <Form>

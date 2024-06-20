@@ -9,8 +9,6 @@
   font-family: var(--primary-font);
   font-size: 16px;
   font-weight: 600;
-
-  /* color: var(--title-sidebar); */
 }
 
 .logoContainerText {
@@ -20,5 +18,9 @@
 .iconLogoContainer {
   width: 32px;
   height: 32px;
+
+  background-color: var(--logo-sidebar-bg);
   border-radius: 8px;
+
+  fill: var(--logo-sidebar);
 }

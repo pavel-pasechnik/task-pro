@@ -28,3 +28,23 @@ export const updateColumn = createAsyncThunk(
     }
   }
 );
+
+export const deleteColumn = createAsyncThunk('columns/deleteColumn', async (columnId, thunkAPI) => {
+  try {
+    const response = await axios.delete(`/api/boards/columns/${columnId}`);
+
+    return response.data;
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.response?.data?.message || error.message);
+  }
+});
+
+export const fetchColumn = createAsyncThunk('column/fetchColumn', async (boardId, thunkAPI) => {
+  try {
+    const response = await axios.get(`/api/boards/columns/${boardId}`);
+
+    return response.data;
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.response?.data?.message || error.message);
+  }
+});

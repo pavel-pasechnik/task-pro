@@ -48,7 +48,7 @@ export const logout = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
 });
 
 export const refreshUser = createAsyncThunk(
-  'api/users/current',
+  '/current',
   async (_, thunkAPI) => {
     // Reading the token from the state via getState()
     const reduxState = thunkAPI.getState();
@@ -72,11 +72,34 @@ export const refreshUser = createAsyncThunk(
   }
 );
 
-export const updateUser = createAsyncThunk('update', async (userInfo, thunkAPI) => {
+export const updateUser = createAsyncThunk('/update', async (userInfo, thunkAPI) => {
   try {
     const response = await axios.patch('api/users', userInfo);
 
     setAuthHeader(response.data.token);
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.message);
+  }
+});
+
+export const changeTheme = createAsyncThunk('/theme', async (userTheme, thunkAPI) => {
+  try {
+    const response = await axios.patch('api/users/themes', userTheme);
+    const { theme } = response.data;
+
+    localStorage.setItem('theme', theme);
+
+    return response.data;
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.message);
+  }
+});
+
+export const sendHelp = createAsyncThunk('/help', async ({ email, comment }, thunkAPI) => {
+  try {
+    const response = await axios.post('api/users/help', { email, comment });
+
+    return response.data;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);
   }

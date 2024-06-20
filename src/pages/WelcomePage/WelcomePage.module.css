@@ -58,7 +58,9 @@
   text-align: center;
 }
 
+
 @media screen and (max-width: 374px) {
+
   .registerBtn {
     width: 290px;
   }

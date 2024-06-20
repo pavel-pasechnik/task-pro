@@ -102,6 +102,6 @@
 }
 
 .dark .close_Button {
-  stroke: var(--color-white);
   fill: var(--color-white);
+  stroke: var(--color-white);
 }

@@ -1,16 +1,20 @@
 .customInput {
-  background-color: transparent;
-  border: none;
-  color: #bedbb0;
   cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 40px;
+
   font-size: 14px;
   font-weight: 500;
   line-height: 1.5;
+  color: #bedbb0;
   letter-spacing: -0.02em;
-  display: flex;
-  align-items: center; 
-  justify-content: space-between;
-  margin-bottom: 40px;
+
+  background-color: transparent;
+  border: none;
 }
 
 .icon {

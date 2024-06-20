@@ -1,11 +1,15 @@
 import css from './WelcomePage.module.css';
 import logo from '../../assets/icons/logo.svg';
+
 import AuthPage from '../AuthPage/AuthPage.jsx';
+
 
 export const WelcomePage = () => {
   return (
     <div className={css.mainCont}>
+
       <div className={css.welcomeImg}></div>
+
 
       <div className={css.logoCont}>
         <svg className={css.logo}>
