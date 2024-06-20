@@ -13,8 +13,8 @@ const initialValues = {
 };
 
 const validationSchema = Yup.object().shape({
-  password: Yup.string().trim().min(4, 'Too short!').required('Required'),
   email: Yup.string().trim().email().required('Required'),
+  password: Yup.string().trim().min(8, 'Too short!').max(64, 'Too long!').required('Required'),
 });
 
 export const LoginForm = () => {

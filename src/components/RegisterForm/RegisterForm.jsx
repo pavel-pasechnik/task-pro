@@ -14,9 +14,9 @@ const initialValues = {
 };
 
 const validationSchema = Yup.object().shape({
-  name: Yup.string().trim().min(3, 'Too short!').max(50, 'Too long!').required('Required'),
-  password: Yup.string().trim().min(4, 'Too short!').required('Required'),
+  name: Yup.string().trim().min(2, 'Too short!').max(32, 'Too long!').required('Required'),
   email: Yup.string().trim().email().required('Required'),
+  password: Yup.string().trim().min(8, 'Too short!').max(64, 'Too long!').required('Required'),
 });
 
 export const RegisterForm = () => {

@@ -82,20 +82,11 @@
   background-color: #2f2f2f;
 }
 
-.navLink {
+.loginBtn {
   font-size: 14px;
   line-height: 1.5em;
   color: var(--color-btn-text);
   text-decoration: none;
-}
-
-.loginBtn {
-  font-size: 14px;
-  line-height: 1.5em;
-  color: #161616;
-
-  background-color: transparent;
-  border: 0;
 }
 
 @media screen and (max-width: 374px) {
