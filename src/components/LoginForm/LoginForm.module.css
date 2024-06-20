@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   height: 100vh;
-  background: linear-gradient(to bottom, #fff 0%, #bedbb0 100%);
+  background: linear-gradient(to bottom, var(--color-white) 0%, var(--color-green) 100%);
 }
 
 .formCont {
@@ -16,7 +16,7 @@
   margin-left: auto;
   padding: 24px;
 
-  background-color: #151515;
+  background-color: var(--bg-color-form);
   border-radius: 8px;
 }
 
@@ -24,14 +24,14 @@
   font-size: 18px;
   font-weight: 500;
   line-height: 1.5em;
-  color: #fff;
+  color: var(--color-white);
 }
 
 .link {
   font-size: 18px;
   font-weight: 500;
   line-height: 1.5em;
-  color: rgb(255 255 255 / 30%);
+  color: var(--color-form-light);
   text-decoration: none;
 }
 
@@ -47,10 +47,10 @@
   font-size: 14px;
   font-weight: 400;
   line-height: 1.5em;
-  color: #fff;
+  color: var(--color-white);
 
   background-color: #1f1f1f;
-  border: 1px solid rgb(190 219 176 / 100%);
+  border: 1px solid var(--color-border-modal);
   border-radius: 8px;
 }
 
@@ -63,7 +63,7 @@
 
   text-align: center;
 
-  background-color: rgb(190 219 176 / 100%);
+  background-color: var(--color-border-modal);
   border: none;
   border-radius: 8px;
 }
