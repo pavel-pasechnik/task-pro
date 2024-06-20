@@ -18,7 +18,9 @@
 .iconLogoContainer {
   width: 32px;
   height: 32px;
-  border-radius: 8px;
+
   background-color: var(--logo-sidebar-bg);
+  border-radius: 8px;
+
   fill: var(--logo-sidebar);
 }

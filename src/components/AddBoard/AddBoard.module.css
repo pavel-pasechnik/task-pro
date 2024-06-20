@@ -2,22 +2,28 @@
   position: fixed;
   top: 0;
   left: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
+  background: rgb(0 0 0 / 50%);
 }
 
 .modalContent {
-  background: #1e1e1e;
-  padding: 20px;
-  border-radius: 8px;
-  width: 350px;
-  color: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   position: relative;
+
+  width: 350px;
+  padding: 20px;
+
+  color: #fff;
+
+  background: #1e1e1e;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgb(0 0 0 / 20%);
 }
 
 .addTitle {
@@ -25,14 +31,17 @@
 }
 
 .closeButton {
+  cursor: pointer;
+
+  position: absolute;
+  top: 10px;
+  right: 10px;
+
+  font-size: 24px;
+  color: #fff;
+
   background: none;
   border: none;
-  color: #fff;
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  cursor: pointer;
-  font-size: 24px;
 }
 
 .closeIcon {
@@ -42,25 +51,30 @@
 }
 
 .addButton {
-  height: 49px;
   width: 302px;
+  height: 49px;
   font-size: 14px;
 }
 
 .modalInputTitle {
+  resize: none;
+
   width: 100%;
-  /* padding: 18px 14px; */
-  padding-left: 14px;
-  padding-top: 18px;
-  margin: 10px 0;
-  border-radius: 8px;
-  border: 1px solid rgba(128, 128, 128, 0.435);
-  background: #333;
-  color: #fff;
   max-width: 302px;
   min-height: 48px;
-  resize: none;
+  margin: 10px 0;
+  padding-top: 18px;
+
+  /* padding: 18px 14px; */
+  padding-left: 14px;
+
+  color: #fff;
   overflow-wrap: break-word;
+
+  background: #333;
+  border: 1px solid rgb(128 128 128 / 43.5%);
+  border-radius: 8px;
+
   transition: border-color 0.3s ease;
 }
 
@@ -69,24 +83,29 @@
 }
 
 .modalInputDescription {
+  resize: none;
+
   width: 100%;
-  font-size: 14px;
-  padding-left: 14px;
-  padding-top: 18px;
-  margin: 10px 0;
-  border-radius: 8px;
-  border: 1px solid rgba(128, 128, 128, 0.435);
-  background: #333;
-  color: #fff;
   max-width: 302px;
   height: 154px;
-  resize: none;
+  margin: 10px 0;
+  padding-top: 18px;
+  padding-left: 14px;
+
+  font-size: 14px;
+  color: #fff;
   overflow-wrap: break-word;
+
+  background: #333;
+  border: 1px solid rgb(128 128 128 / 43.5%);
+  border-radius: 8px;
+
   transition: border-color 0.3s ease;
 }
 
 .modalInputDescription::placeholder {
   font-size: 14px;
+
   /* padding: 14px 18px; */
 }
 
@@ -95,8 +114,8 @@
 }
 
 .textarea {
-  outline: none;
   resize: none;
+  outline: none;
 }
 
 .section {
@@ -104,26 +123,31 @@
 }
 
 .sectionTitle {
-  color: #ffffff80;
-  margin-bottom: 8px;
   display: block;
+  margin-bottom: 8px;
+  color: #ffffff80;
 }
 
 .labelColors {
   display: flex;
-  align-items: center;
   gap: 4px;
+  align-items: center;
 }
 
 /* Add this to your Calendar.module.css */
 .radioButton {
+  cursor: pointer;
+
   display: inline-block;
+
   width: 14px;
   height: 14px;
-  border-radius: 50%;
+
   /* border: 2px solid ; */
   margin: 0 5px;
-  cursor: pointer;
+
+  border-radius: 50%;
+
   transition:
     background-color 0.3s,
     border-color 0.3s;
@@ -163,8 +187,8 @@
 
 .deadlineInput {
   cursor: pointer;
-  color: #bedbb0;
   margin-bottom: 40px;
+  color: #bedbb0;
 }
 
 .addButton:hover {

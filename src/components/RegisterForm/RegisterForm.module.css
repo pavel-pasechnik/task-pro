@@ -22,6 +22,7 @@
 
 .p {
   margin-bottom: 26px;
+
   font-size: 18px;
   font-weight: 500;
   line-height: 1.5em;
@@ -45,10 +46,12 @@
 
 .input {
   padding: 14px 18px;
+
   font-size: 14px;
   font-weight: 400;
   line-height: 1.5em;
   color: var(--color-white);
+
   background-color: var(--bg-color-form-input);
   border: 1px solid var(--color-border-modal);
   border-radius: 8px;
@@ -61,12 +64,14 @@
   padding-top: 14px;
   padding-bottom: 14px;
 
-  text-align: center;
   color: var(--color-btn-text);
+  text-align: center;
+
   background-color: var(--color-border-modal);
   border: none;
   border-radius: 8px;
 }
+
 .button:hover,
 .button:focus {
   background-color: var(--color-btn-hover);

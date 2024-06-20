@@ -149,7 +149,7 @@ const ScreensPage = ({ boardId }) => {
       </div>
       {isFiltersModalOpen && <FiltersModal onClose={handleCloseFiltersModal} />}
       <header className={css.header}>
-        <h1 className={css.title}>{currentBoard.title}</h1>
+        <h1 className={css.title}>{currentBoard && currentBoard.title}</h1>
         <ButtonIcon
           id='icon-add'
           iconWidth='28'

@@ -10,10 +10,8 @@
 
 .thumbsContainer {
   cursor: pointer;
-
   width: 68px;
   height: 68px;
-
   border-radius: 8px;
 }
 

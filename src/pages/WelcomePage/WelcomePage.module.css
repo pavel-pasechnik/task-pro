@@ -58,13 +58,13 @@
   height: 49px;
   margin-bottom: 14px;
 
-  background-color: var(--color-btn-text);
-  border-radius: 8px;
-
   font-size: 14px;
   line-height: 1.5em;
   color: var(--color-white);
   text-decoration: none;
+
+  background-color: var(--color-btn-text);
+  border-radius: 8px;
 }
 
 .registerBtn:hover,
