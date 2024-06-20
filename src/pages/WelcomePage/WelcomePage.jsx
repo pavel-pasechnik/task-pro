@@ -1,4 +1,3 @@
-import { NavLink } from 'react-router-dom';
 import css from './WelcomePage.module.css';
 import logo from '../../assets/icons/logo.svg';
 import AuthPage from '../AuthPage/AuthPage.jsx';
